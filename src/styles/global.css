@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --primary-font-style: "Poppins", sans-serif;
-  --secondary-font-style: "Montserrat", sans-serif;
+  --primary-font-style: 'Poppins', sans-serif;
+  --secondary-font-style: 'Montserrat', sans-serif;
 
   --navbar-height: 54px;
+  --navbar-top: 10px;
   --navbar-padding-top: 15px;
   --navbar-padding-bottom: 15px;
   --navbar-padding-left: 20px;
@@ -16,7 +17,7 @@
 
   --gap-links: 35px;
   --gap-logo-text: 12px;
-  
+  --marquee-pad: 1500px;
 }
 
 html,
@@ -25,3 +26,4 @@ body {
   margin: 0;
   background: #f4f5f4;
 }
+

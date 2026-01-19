@@ -23,32 +23,34 @@
   z-index: 0; /* sits above the image, below content */
 }
 
-/* Align text left and center vertically */
 .header-content {
   position: relative;
   z-index: 1;
   height: 100%;
-  display: flex;
-  align-items: center;      /* vertical center */
-  justify-content: flex-start; /* align text left */
-  padding-left: 5vw;       /* optional horizontal offset */
   pointer-events: none;
 }
 
+
 .header-scale {
+  position: absolute;
+  top: 50%;
+  left: 28%;
   transform-origin: center center;
   will-change: transform;
   pointer-events: auto;
-  text-align: left; /* text aligns left inside the container */
+  text-align: left;
 }
 
+
 .header h1 {
+  font-family: var(--primary-font-style);
+  width: 800px;
   font-size: 56px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   color: #ffffff;
   margin: 0;
-  white-space: nowrap;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 

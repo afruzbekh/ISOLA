@@ -24,6 +24,7 @@ import Header from '../components/Header.astro';
 <script is:inline>
   (function () {
     const navScaleEl = document.querySelector('.navbar-scale');
+    const marqueeScaleEl = document.querySelector('.navbar__marquee-scale');
     const headerScaleEl = document.querySelector('.header-scale');
 
     let lastDpr = window.devicePixelRatio || 1;
@@ -32,14 +33,34 @@ import Header from '../components/Header.astro';
       const dpr = window.devicePixelRatio || 1;
       const scale = 1 / dpr;
 
+      // Navbar scaling
       if (navScaleEl) {
         navScaleEl.style.width = dpr * 100 + 'vw';
         navScaleEl.style.transform = `translateX(-50%) scale(${scale})`;
       }
 
-      if (headerScaleEl) {
-        headerScaleEl.style.transform = `scale(${scale})`;
+      // Marquee scaling (centered, DPR-safe)
+      if (marqueeScaleEl) {
+        marqueeScaleEl.style.width = dpr * 100 + 'vw';
+        marqueeScaleEl.style.transform = `translate(-50%, -50%) scale(${scale})`;
       }
+
+      // Header scaling (if exists)
+      if (headerScaleEl) {
+        headerScaleEl.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      }
+
+      // Scale marquee padding (16px base)
+      document.documentElement.style.setProperty(
+        '--marquee-pad',
+        `${16 / dpr}px`
+      );
+
+      // Scale navbar top position (32px base)
+      document.documentElement.style.setProperty(
+        '--navbar-top',
+        `${32 / dpr}px`
+      );
     }
 
     function updateIfNeeded() {
@@ -51,7 +72,6 @@ import Header from '../components/Header.astro';
 
     applyScales();
     window.addEventListener('resize', updateIfNeeded);
-
-    const poll = setInterval(updateIfNeeded, 250);
+    setInterval(updateIfNeeded, 250);
   })();
 </script>
