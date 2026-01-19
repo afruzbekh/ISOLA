@@ -1,0 +1,57 @@
+---
+import NavBar from '../components/NavBar.astro';
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>ISOLA</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="/src/styles/NavBar.css" />
+    <link rel="stylesheet" href="/src/styles/Header.css" />
+  </head>
+  <body>
+    <NavBar />
+    <Header />
+  </body>
+</html>
+
+<script is:inline>
+  (function () {
+    const navScaleEl = document.querySelector('.navbar-scale');
+    const headerScaleEl = document.querySelector('.header-scale');
+
+    let lastDpr = window.devicePixelRatio || 1;
+
+    function applyScales() {
+      const dpr = window.devicePixelRatio || 1;
+      const scale = 1 / dpr;
+
+      if (navScaleEl) {
+        navScaleEl.style.width = dpr * 100 + 'vw';
+        navScaleEl.style.transform = `translateX(-50%) scale(${scale})`;
+      }
+
+      if (headerScaleEl) {
+        headerScaleEl.style.transform = `scale(${scale})`;
+      }
+    }
+
+    function updateIfNeeded() {
+      const dpr = window.devicePixelRatio || 1;
+      if (Math.abs(dpr - lastDpr) < 1e-6) return;
+      lastDpr = dpr;
+      applyScales();
+    }
+
+    applyScales();
+    window.addEventListener('resize', updateIfNeeded);
+
+    const poll = setInterval(updateIfNeeded, 250);
+  })();
+</script>
