@@ -2,50 +2,82 @@
 import LogoIcon from "../assets/icon.astro";
 ---
 
-<div class="navbar__marquee" aria-hidden="true">
-  <div class="navbar__marquee-scale">
+  <!-- Marquee -->
+  <div class="navbar__marquee" aria-hidden="true">
     <div class="navbar__marquee-track">
       <div class="navbar__marquee-group">
         <span>Сайт в тестовом режиме</span>
         <span>Сайт в тестовом режиме</span>
         <span>Сайт в тестовом режиме</span>
         <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
       </div>
       <div class="navbar__marquee-group">
         <span>Сайт в тестовом режиме</span>
         <span>Сайт в тестовом режиме</span>
         <span>Сайт в тестовом режиме</span>
         <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
-        <span>Сайт в тестовом режиме</span>
       </div>
     </div>
   </div>
-</div>
 
-<nav class="navbar" aria-label="Main navigation">
-  <div class="navbar-scale">
+  <!-- Navbar -->
+  <nav class="navbar" aria-label="Main navigation">
     <div class="navbar-inner">
-      <a class="logo" href="/">
-          <LogoIcon />
+      <a href="#" class="logo">
+        <LogoIcon />
         <span>ISOLA</span>
       </a>
 
-      <ul class="nav-links" role="menu">
-        <li role="none"><a role="menuitem" href="#about">О нас</a></li>
-        <li role="none"><a role="menuitem" href="#portfolio">Наши коллекции</a></li>
-        <li role="none"><a role="menuitem" href="#services">Новости и события</a></li>
-        <li role="none"><a role="menuitem" href="#testimonials">Часто задаваемые вопросы</a></li>
-        <li role="none"><a role="menuitem" href="#contact">Контакты</a></li>
+      <ul class="nav-links">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#portfolio">Наши коллекции</a></li>
+        <li><a href="#services">Новости и события</a></li>
+        <li><a href="#faq">Часто задаваемые вопросы</a></li>
+        <li><a href="#contact">Контакты</a></li>
       </ul>
+
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </nav>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-menu-overlay" aria-hidden="true">
+    <ul class="mobile-menu">
+      <li><a href="#about">О нас</a></li>
+      <hr>
+      <li><a href="#portfolio">Наши коллекции</a></li>
+      <hr>
+      <li><a href="#services">Новости и события</a></li>
+      <hr>
+      <li><a href="#faq">Часто задаваемые вопросы</a></li>
+      <hr>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
   </div>
-</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+
+    if (!hamburger || !overlay) return;
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('is-active');
+      overlay.classList.toggle('is-visible', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    overlay.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('is-active');
+        overlay.classList.remove('is-visible');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+</script>
