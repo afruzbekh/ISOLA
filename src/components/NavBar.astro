@@ -1,5 +1,7 @@
 ---
 import LogoIcon from '../assets/icon.astro';
+import InstagramIcon from '../assets/InstagramIcon.astro';
+import TelegramIcon from '../assets/TelegramIcon.astro';
 ---
 
 <!-- Marquee -->
@@ -52,14 +54,46 @@ import LogoIcon from '../assets/icon.astro';
 <div class="mobile-menu-overlay" aria-hidden="true">
   <ul class="mobile-menu">
     <li><a href="#about">О нас</a></li>
-    <hr />
     <li><a href="#portfolio">Наши коллекции</a></li>
-    <hr />
     <li><a href="#services">Новости и события</a></li>
-    <hr />
     <li><a href="#faq">Часто задаваемые вопросы</a></li>
-    <hr />
     <li><a href="#contact">Контакты</a></li>
+    <li class="social-item">
+      <a
+        href="https://instagram.com/yourprofile"
+        class="social-button"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <InstagramIcon />
+      </a>
+      <a
+        href="https://instagram.com/yourprofile"
+        class="social-button"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Telegram"
+      >
+        <TelegramIcon />
+      </a>
+    </li>
+    <li class="contact-item">
+      <a
+        href="tel:+998999999999"
+        class="contact-button-menu"
+        aria-label="Call 999 99 999 99 99"
+      >
+        +998&nbsp;99&nbsp;999&nbsp;99&nbsp;99
+      </a>
+      <a
+        href="mailto:info@example.com"
+        class="contact-button-menu"
+        aria-label="Email info@example.com"
+      >
+        isola@example.com
+      </a>
+    </li>
   </ul>
 </div>
 
