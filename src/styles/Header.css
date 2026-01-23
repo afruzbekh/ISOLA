@@ -6,8 +6,8 @@
 
   /* Background image instead of <img> */
   background-image: url('/src/assets/modern-minimalist-office\ \(2\).jpg');
-  background-size: cover;       /* ensure full coverage */
-  background-position: center;  /* center image */
+  background-size: cover; /* ensure full coverage */
+  background-position: center; /* center image */
   background-repeat: no-repeat;
 }
 
@@ -61,7 +61,7 @@
 
 .header h3 {
   font-family: var(--secondary-font-style);
-  font-size: 1.1vw; 
+  font-size: 1.1vw;
   font-weight: 300;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -104,12 +104,30 @@
 }
 
 @keyframes scroll-text-one-up {
-  0% { opacity: 0; transform: translateY(200%); }
-  20% { opacity: 0.5; transform: translateY(100%); }
-  40% { opacity: 1; transform: translateY(0); }
-  70% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 0; transform: translateY(-100%); }
-  100% { opacity: 0; transform: translateY(-200%); }
+  0% {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+  20% {
+    opacity: 0.5;
+    transform: translateY(100%);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
 }
 
 /* ===== Responsive adjustments ===== */
@@ -121,4 +139,3 @@
     font-size: 3.5vw;
   }
 }
-
