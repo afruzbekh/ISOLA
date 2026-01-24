@@ -1,22 +1,45 @@
+---
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+const collections = [
+  {
+    index: '01',
+    title: 'Nest',
+    desc: 'Elegant comfort for modern spaces.',
+    img: 'src/assets/images/photo_2024-11-29_17-42-12.jpg',
+  },
+  {
+    index: '02',
+    title: 'Urban',
+    desc: 'Minimalist designs for city living.',
+    img: '/src/assets/images/photo_2.jpg',
+  },
+  {
+    index: '04',
+    title: 'Life',
+    desc: 'Broad-appeal sofas designed with everyday living in mind.',
+    img: '/src/assets/images/photo_2024-12-02_15-51-50.jpg',
+  },
+];
+---
+
 <section class="OurCollectionsMain">
-  <!-- Background image layer -->
   <div class="OurCollectionsMain-bg">
-    <img
-      src="src/assets/images/photo_2024-12-02_15-51-50.jpg"
-      alt=""
-      aria-hidden="true"
-    />
+    <img id="bg-image" src={collections[0].img} alt="" aria-hidden="true" />
   </div>
 
   <span class="OurCollectionsMain-header">EXPLORE OUR COLLECTIONS</span>
+
   <div class="OurCollectionsMain-container">
     <div class="OurCollectionsMain-content">
       <div class="OurCollectionsMain-title-group">
-        <span class="OurCollectionsMain-index">04</span>
+        <span class="OurCollectionsMain-index" id="active-index">01</span>
         <div class="OurCollectionsMain-title-group__inner">
-          <h2 class="OurCollectionsMain-title">Life</h2>
-          <p class="OurCollectionsMain-description">
-            Broad-appeal sofas designed with everyday living in mind.
+          <h2 class="OurCollectionsMain-title" id="active-title">Nest</h2>
+          <p class="OurCollectionsMain-description" id="active-desc">
+            Elegant comfort for modern spaces.
           </p>
         </div>
       </div>
@@ -26,12 +49,92 @@
       </a>
     </div>
 
-    <div class="OurCollectionsMain-visual">
-      <img
-        src="src/assets/images/photo_2024-12-02_15-51-50.jpg"
-        alt="Nest Sofa"
-        class="OurCollectionsMain-img"
-      />
+    <div class="OurCollectionsMain-visual-wrapper">
+      <div class="swiper OurCollectionsSwiper">
+        <div class="swiper-wrapper">
+          {
+            collections.map((item) => (
+              <div
+                class="swiper-slide"
+                data-index={item.index}
+                data-title={item.title}
+                data-desc={item.desc}
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  class="OurCollectionsMain-img"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="OurCollectionsMain-controls">
+        <div class="swiper-navigation-group">
+          <button class="swiper-prev">←</button>
+          <button class="swiper-next">→</button>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+
+  const swiper = new Swiper('.OurCollectionsSwiper', {
+    modules: [Navigation, Pagination, EffectFade],
+    loop: true,
+    speed: 800,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
+    navigation: {
+      nextEl: '.swiper-next',
+      prevEl: '.swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    on: {
+      slideChange: (swiper) => {
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        
+        // 1. Cast the element as HTMLElement to access .style
+        // 2. Add the '?' check or a null check to satisfy "possibly null"
+        const contentWrapper = document.querySelector('.OurCollectionsMain-content') as HTMLElement | null;
+        
+        if (contentWrapper) {
+          contentWrapper.style.opacity = '0';
+
+          setTimeout(() => {
+            const titleEl = document.getElementById('active-title');
+            const indexEl = document.getElementById('active-index');
+            const descEl = document.getElementById('active-desc');
+            const bgImg = document.getElementById('bg-image') as HTMLImageElement | null;
+
+            if (activeSlide) {
+              const title = activeSlide.getAttribute('data-title');
+              const slideIdx = activeSlide.getAttribute('data-index');
+              const desc = activeSlide.getAttribute('data-desc');
+              const imgPath = activeSlide.querySelector('img')?.getAttribute('src');
+
+              if (titleEl) titleEl.textContent = title;
+              if (indexEl) indexEl.textContent = slideIdx;
+              if (descEl) descEl.textContent = desc;
+              if (bgImg && imgPath) bgImg.src = imgPath;
+            }
+
+            contentWrapper.style.opacity = '1';
+          }, 300);
+        }
+      },
+    },
+  });
+</script>
