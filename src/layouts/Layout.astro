@@ -1,7 +1,8 @@
 ---
 import NavBar from '../components/NavBar.astro';
 import Header from '../components/Header.astro';
-import Main from '../components/Main.astro';
+import AboutUsMain from '../components/AboutUsMain.astro';
+import OurCollectionsMain from '../components/OurCollectionsMain.astro';
 ---
 
 <!doctype html>
@@ -15,13 +16,15 @@ import Main from '../components/Main.astro';
     <link rel="stylesheet" href="/src/styles/global.css" />
     <link rel="stylesheet" href="/src/styles/NavBar.css" />
     <link rel="stylesheet" href="/src/styles/Header.css" />
-    <link rel="stylesheet" href="/src/styles/MainSection.css" />
+    <link rel="stylesheet" href="/src/styles/AboutUsMain.css" />
+    <link rel="stylesheet" href="/src/styles/OurCollectionsMain.css" />
   </head>
   <body>
     <NavBar />
     <Header />
     <main>
-      <Main />
+      <AboutUsMain />
+      <OurCollectionsMain />
     </main>
   </body>
 </html>

@@ -1,0 +1,138 @@
+.OurCollectionsMain {
+  position: relative;
+  overflow: hidden;
+  padding: 14vw 6.87vw;
+  color: #f3f2f2;
+  font-family: sans-serif;
+  min-height: 40vw;
+}
+
+/* === Background Image Layer === */
+.OurCollectionsMain-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.OurCollectionsMain-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(13px);
+  transform: scale(1.1); /* prevents blur edge cropping */
+}
+
+/* Dark overlay */
+.OurCollectionsMain-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 24, 20, 0.7);
+}
+
+/* === Foreground Content === */
+.OurCollectionsMain-container {
+  position: relative;
+  top: 3.6vw;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4vw;
+}
+
+/* Content Panel */
+.OurCollectionsMain-content {
+  flex: 1;
+}
+
+.OurCollectionsMain-header {
+  font-family: var(--secondary-font-style);
+  font-size: 0.75vw;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #f5f6eb;
+  font-weight: 500;
+}
+.OurCollectionsMain-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 1.3vw;
+  margin-bottom: 1.5vw;
+}
+
+.OurCollectionsMain-index {
+  font-family: var(--primary-font-style);
+  color: #c1ca7fe2;
+  font-size: 1.5vw;
+  font-weight: 300;
+}
+
+.OurCollectionsMain-title {
+  font-family: var(--primary-font-style);
+  letter-spacing: normal;
+  font-size: 4.5vw;
+  font-weight: 300;
+  margin: 0;
+  line-height: 1;
+  
+}
+
+.OurCollectionsMain-description {
+    font-family: var(--secondary-font-style);
+  font-size: 1vw;
+
+  line-height: 1.5;
+  max-width: 22vw;
+  margin-bottom: 3vw;
+}
+
+.OurCollectionsMain-cta {
+  color: #f3f2f2;
+  text-decoration: none;
+  font-size: 1vw;
+  display: inline-flex;
+  align-items: center;
+  gap: 2vw;
+  border-bottom: 0.1vw solid transparent;
+  transition: border-bottom 0.3s;
+}
+
+.OurCollectionsMain-cta:hover {
+  border-bottom: 0.1vw solid #ffffff;
+}
+
+/* Image Panel */
+.OurCollectionsMain-visual {
+  width: 56.5vw;
+  height: 32vw;
+  overflow: hidden;
+}
+
+.OurCollectionsMain-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .OurCollectionsMain-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .OurCollectionsMain-title {
+    font-size: 12vw;
+  }
+
+  .OurCollectionsMain-description {
+    max-width: 100%;
+    font-size: 4vw;
+  }
+
+  .OurCollectionsMain-header {
+    font-size: 3vw;
+  }
+}
