@@ -1,7 +1,6 @@
-/* ===== Navbar Base ===== */
 .navbar {
   position: fixed;
-  top: 2.2vw; /* 45px → vw approximation */
+  top: 2.2vw;
   left: 0;
   right: 0;
   width: 100%;
@@ -10,7 +9,7 @@
 }
 
 .navbar-inner {
-  padding: 1vw 1.78vw 1vw 1.27vw; /* 20px 35px 20px 25px → vw */
+  padding: 1vw 1.78vw 1vw 1.27vw; 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,13 +23,13 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.78vw; /* 0.75rem → vw */
+  gap: 0.7vw; 
   text-decoration: none;
   user-select: none;
 }
 
 .logo svg {
-  width: 1.95vw; /* 1.875rem → vw */
+  width: 1.95vw; 
   height: auto;
   flex-shrink: 0;
 }
@@ -46,19 +45,19 @@
 .nav-links {
   font-family: var(--secondary-font-style);
   display: flex;
-  gap: 2vw; /* 2rem → vw */
+  gap: 2vw; 
   list-style: none;
   align-items: center;
   margin: 0;
   padding: 0;
 }
 .nav-links li {
-  display: flex; /* align text horizontally inside */
-  align-items: center; /* vertically center text */
-  margin: 0; /* remove default margin */
-  padding: 0; /* remove default padding */
-  height: auto; /* let it shrink to text */
-  line-height: 1; /* reduce extra vertical spacing */
+  display: flex;
+  align-items: center; 
+  margin: 0; 
+  padding: 0; 
+  height: auto; 
+  line-height: 1; 
 }
 
 .nav-links a {
@@ -70,16 +69,16 @@
   color: #f5f6eb;
   white-space: nowrap;
   line-height: 1.25;
-  padding-bottom: 0.2vw; /* 0.1875rem → vw */
+  padding-bottom: 0.2vw;
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -0.13vw; /* 0.125rem → vw */
+  bottom: -0.13vw;
   width: 0%;
-  height: 0.04vw; /* 1px → vw */
+  height: 0.04vw;
   background-color: #f5f6eb;
   transition: width 0.5s cubic-bezier(0.77, 0.25, 0.11, 0.92);
 }
@@ -88,7 +87,6 @@
   width: 100%;
 }
 
-/* ===== Marquee ===== */
 .navbar__marquee {
   position: fixed;
   top: 0;
@@ -98,7 +96,7 @@
   overflow: hidden;
   background: #0b1713;
   z-index: 20;
-  padding: 0.85vw 0; /* 0.75rem → vw */
+  padding: 0.85vw 0; 
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -123,7 +121,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: white;
-  padding: 0 0.78vw; /* 0.25rem 1.5rem → vw */
+  padding: 0 0.78vw; 
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -138,12 +136,11 @@
   }
 }
 
-/* ===== Hamburger ===== */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 28px;
+  width: 30px;
   height: 18px;
   background: none;
   border: none;
@@ -174,21 +171,29 @@
 
 /* ===== Mobile Overlay ===== */
 .mobile-menu-overlay {
-  position: absolute;
-  padding: 130px 25px;
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100%;
-  inset: 0;
+  padding: 120px 22px;
   background: #f5f6eb;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.5s ease,
-    visibility 0.5s ease;
   z-index: 10;
   display: flex;
   justify-content: center;
+  
+  /* Initial State */
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
+  transform: translateY(-10px); /* Subtle slide start */
+  
+  /* Optimized Transition */
+  transition: 
+    opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    visibility 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  
+  will-change: transform, opacity;
 }
 
 .mobile-menu {
@@ -199,6 +204,7 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: translateY(0); /* Slides into place */
 }
 
 .mobile-menu {
@@ -209,25 +215,24 @@
 }
 
 .mobile-menu li {
-  padding: 24px 0;
+  padding: 20px 0;
   border-bottom: 1px solid rgba(30, 49, 43, 0.503);
 }
 
 .mobile-menu li:nth-child(5) {
-  padding: 24px 0;
+  padding: 20px 0;
   border-bottom: 2px solid rgb(30, 49, 43) !important;
 }
 
 .mobile-menu a {
   font-family: var(--secondary-font-style);
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0.01em;
   opacity: 0.9;
   color: rgb(30 49 43);
   text-decoration: none;
 }
 
-/* ===== Social / Contact ===== */
 .social-item {
   margin-top: 70px;
   padding: 0 !important;
@@ -280,12 +285,13 @@
   }
 
   .navbar {
-    top: 40px;
+    top: 50px;
   }
 
   .navbar-inner {
     padding: 12px 24px 12px 18px;
-    margin: 8px;
+    margin: 0 10px;
+    border-radius: 10px;
   }
 
   .logo {
@@ -293,11 +299,11 @@
   }
 
   .logo svg {
-    width: 24px;
+    width: 25px;
   }
 
   .logo span {
-    font-size: 16px;
+    font-size: 22px;
     letter-spacing: 0.05em;
   }
 
@@ -313,7 +319,7 @@
   }
 
   .navbar__marquee {
-    padding: 10px 0;
+    padding: 13px 0;
   }
 
   .navbar__marquee-track span {
