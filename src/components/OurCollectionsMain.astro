@@ -6,15 +6,15 @@ import 'swiper/css/pagination';
 const collections = [
   {
     index: '01',
-    title: 'Nest',
-    desc: 'Elegant comfort for modern spaces.',
+    title: 'Кухня',
+    desc: 'Смелые формы и умная эргономика, Кухня с характером, ничего лишнего.',
     img: 'src/assets/images/photo_2024-11-29_17-42-12.jpg',
   },
   {
     index: '02',
     title: 'Urban',
     desc: 'Minimalist designs for city living.',
-    img: '/src/assets/images/photo_2.jpg',
+    img: 'src/assets/images/photo_2022-11-21_10-47-47.jpg',
   },
   {
     index: '04',
@@ -27,8 +27,10 @@ const collections = [
 
 <section class="OurCollectionsMain">
   <div class="OurCollectionsMain-bg">
-    <img id="bg-image" src={collections[0].img} alt="" aria-hidden="true" />
-  </div>
+  <img id="bg-image-current" src={collections[0].img} alt="" />
+  <img id="bg-image-next" src={collections[0].img} alt="" />
+</div>
+
 
   <span class="OurCollectionsMain-header">EXPLORE OUR COLLECTIONS</span>
 
@@ -92,7 +94,7 @@ const collections = [
     speed: 800,
     effect: 'fade',
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
     navigation: {
       nextEl: '.swiper-next',
@@ -103,38 +105,47 @@ const collections = [
       clickable: true,
     },
     on: {
-      slideChange: (swiper) => {
-        const activeSlide = swiper.slides[swiper.activeIndex];
-        
-        // 1. Cast the element as HTMLElement to access .style
-        // 2. Add the '?' check or a null check to satisfy "possibly null"
-        const contentWrapper = document.querySelector('.OurCollectionsMain-content') as HTMLElement | null;
-        
-        if (contentWrapper) {
-          contentWrapper.style.opacity = '0';
+  slideChange: (swiper) => {
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const contentWrapper = document.querySelector('.OurCollectionsMain-content') as HTMLElement;
+    const bgCurrent = document.getElementById('bg-image-current') as HTMLImageElement;
+    const bgNext = document.getElementById('bg-image-next') as HTMLImageElement;
 
-          setTimeout(() => {
-            const titleEl = document.getElementById('active-title');
-            const indexEl = document.getElementById('active-index');
-            const descEl = document.getElementById('active-desc');
-            const bgImg = document.getElementById('bg-image') as HTMLImageElement | null;
+    if (!contentWrapper || !bgCurrent || !bgNext || !activeSlide) return;
 
-            if (activeSlide) {
-              const title = activeSlide.getAttribute('data-title');
-              const slideIdx = activeSlide.getAttribute('data-index');
-              const desc = activeSlide.getAttribute('data-desc');
-              const imgPath = activeSlide.querySelector('img')?.getAttribute('src');
+    // 1. Prepare next bg image (preload)
+    const nextImg = activeSlide.querySelector('.OurCollectionsMain-img')?.getAttribute('src');
+    if (!nextImg) return;
+    bgNext.src = nextImg;
 
-              if (titleEl) titleEl.textContent = title;
-              if (indexEl) indexEl.textContent = slideIdx;
-              if (descEl) descEl.textContent = desc;
-              if (bgImg && imgPath) bgImg.src = imgPath;
-            }
+    // 2. Fade out both content and current bg
+    contentWrapper.style.opacity = '0';
+    bgCurrent.style.opacity = '0';
 
-            contentWrapper.style.opacity = '1';
-          }, 300);
-        }
-      },
-    },
+    // 3. Force reflow (ensures smooth CSS transition)
+    void bgNext.offsetWidth;
+
+    // 4. Fade in content and next bg **at the same time**
+    contentWrapper.style.opacity = '1';
+    bgNext.style.opacity = '1';
+
+    // 5. Update content immediately while opacity is 0
+    const titleEl = document.getElementById('active-title');
+    const indexEl = document.getElementById('active-index');
+    const descEl = document.getElementById('active-desc');
+
+    if (titleEl) titleEl.textContent = activeSlide.getAttribute('data-title');
+    if (indexEl) indexEl.textContent = activeSlide.getAttribute('data-index');
+    if (descEl) descEl.textContent = activeSlide.getAttribute('data-desc');
+
+    // 6. Swap layers after transition duration
+    setTimeout(() => {
+      bgCurrent.src = bgNext.src;
+      bgCurrent.style.opacity = '1';
+      bgNext.style.opacity = '0';
+    }, 800); // match CSS transition duration
+  },
+}
+
   });
 </script>
