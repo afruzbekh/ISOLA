@@ -1,9 +1,14 @@
+---
+import { Image } from 'astro:assets';
+import AboutImg from '../assets/images/photo_2022-03-22_02-41-06.jpg';
+---
+
 <section class="about-us_mainPage">
   <div class="about-us_mainPage__container">
     <div class="about-us_mainPage__left">
       <span class="about-us_mainPage__left__subtitle">О нас</span>
       <br />
-      <h2>Ведём смело. <br /> Впечатляем сильно.</h2>
+      <h2>Ведём смело. Впечатляем сильно.</h2>
       <p>
         Мы разрабатываем и создаём изысканную мебель для ведущих компаний,
         используя высококачественные материалы и фурнитуру, а также внимательную
@@ -45,7 +50,13 @@
       </a>
     </div>
     <div class="about-us_mainPage__right">
-      <img src="/src/assets/photo_2022-03-22_02-41-06.jpg" alt="" />
+      <Image
+        src={AboutImg}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        format="webp"
+      />
     </div>
   </div>
 </section>
