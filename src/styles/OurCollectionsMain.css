@@ -18,8 +18,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(13px);
-  transform: scale(1.1); /* prevents blur edge cropping */
+  filter: blur(8px);
+  transform: scale(1.1); 
 }
 
 /* Dark overlay */
@@ -162,13 +162,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1s ease-out;
   opacity: 1;
 }
 #bg-image-current,
 #bg-image-next,
 .OurCollectionsMain-content {
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 1s ease-out;
   position: absolute;
   top: 0;
   left: 0;
@@ -183,7 +183,22 @@
 .OurCollectionsMain-content {
   position: relative;
   z-index: 10;
+}
+
+.content-layer {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  pointer-events: none;
+}
+
+.content-layer.active {
+  position: relative; /* This allows the container to keep its height */
   opacity: 1;
+  pointer-events: auto;
 }
 
 

@@ -27,22 +27,33 @@ const collections = [
 
 <section class="OurCollectionsMain">
   <div class="OurCollectionsMain-bg">
-  <img id="bg-image-current" src={collections[0].img} alt="" />
-  <img id="bg-image-next" src={collections[0].img} alt="" />
-</div>
-
+    <img id="bg-image-current" src={collections[0].img} alt="" />
+    <img id="bg-image-next" src={collections[0].img} alt="" />
+  </div>
 
   <span class="OurCollectionsMain-header">EXPLORE OUR COLLECTIONS</span>
 
   <div class="OurCollectionsMain-container">
     <div class="OurCollectionsMain-content">
-      <div class="OurCollectionsMain-title-group">
-        <span class="OurCollectionsMain-index" id="active-index">01</span>
-        <div class="OurCollectionsMain-title-group__inner">
-          <h2 class="OurCollectionsMain-title" id="active-title">Nest</h2>
-          <p class="OurCollectionsMain-description" id="active-desc">
-            Elegant comfort for modern spaces.
-          </p>
+      <div class="content-layer layer-1 active">
+        <div class="OurCollectionsMain-title-group">
+          <span class="OurCollectionsMain-index">01</span>
+          <div class="OurCollectionsMain-title-group__inner">
+            <h2 class="OurCollectionsMain-title">Nest</h2>
+            <p class="OurCollectionsMain-description">
+              Elegant comfort for modern spaces.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-layer layer-2">
+        <div class="OurCollectionsMain-title-group">
+          <span class="OurCollectionsMain-index"></span>
+          <div class="OurCollectionsMain-title-group__inner">
+            <h2 class="OurCollectionsMain-title"></h2>
+            <p class="OurCollectionsMain-description"></p>
+          </div>
         </div>
       </div>
 
@@ -90,7 +101,7 @@ const collections = [
 
   const swiper = new Swiper('.OurCollectionsSwiper', {
     modules: [Navigation, Pagination, EffectFade],
-    loop: true,
+    loop: false, // Stopped looping as requested
     speed: 800,
     effect: 'fade',
     fadeEffect: {
@@ -105,47 +116,59 @@ const collections = [
       clickable: true,
     },
     on: {
-  slideChange: (swiper) => {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    const contentWrapper = document.querySelector('.OurCollectionsMain-content') as HTMLElement;
-    const bgCurrent = document.getElementById('bg-image-current') as HTMLImageElement;
-    const bgNext = document.getElementById('bg-image-next') as HTMLImageElement;
+      slideChange: (swiper) => {
+        // 1. Get the current active slide element
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        if (!activeSlide) return;
 
-    if (!contentWrapper || !bgCurrent || !bgNext || !activeSlide) return;
+        // 2. Extract data directly from the HTML attributes of the slide
+        // This avoids needing the 'collections' variable in the script
+        const title = activeSlide.getAttribute('data-title') ?? '';
+        const index = activeSlide.getAttribute('data-index') ?? '';
+        const desc = activeSlide.getAttribute('data-desc') ?? '';
+        const nextImgSrc = activeSlide.querySelector('.OurCollectionsMain-img')?.getAttribute('src');
 
-    // 1. Prepare next bg image (preload)
-    const nextImg = activeSlide.querySelector('.OurCollectionsMain-img')?.getAttribute('src');
-    if (!nextImg) return;
-    bgNext.src = nextImg;
+        // 3. Select UI Elements
+        const bgCurrent = document.getElementById('bg-image-current') as HTMLImageElement | null;
+        const bgNext = document.getElementById('bg-image-next') as HTMLImageElement | null;
+        
+        const layers = document.querySelectorAll('.content-layer');
+        const outgoingLayer = document.querySelector('.content-layer.active') as HTMLElement | null;
+        const incomingLayer = Array.from(layers).find(l => l !== outgoingLayer) as HTMLElement | null;
 
-    // 2. Fade out both content and current bg
-    contentWrapper.style.opacity = '0';
-    bgCurrent.style.opacity = '0';
+        // 4. Handle Text Cross-Fade
+        if (incomingLayer && outgoingLayer) {
+          const titleEl = incomingLayer.querySelector('.OurCollectionsMain-title');
+          const indexEl = incomingLayer.querySelector('.OurCollectionsMain-index');
+          const descEl = incomingLayer.querySelector('.OurCollectionsMain-description');
 
-    // 3. Force reflow (ensures smooth CSS transition)
-    void bgNext.offsetWidth;
+          if (titleEl) titleEl.textContent = title;
+          if (indexEl) indexEl.textContent = index;
+          if (descEl) descEl.textContent = desc;
 
-    // 4. Fade in content and next bg **at the same time**
-    contentWrapper.style.opacity = '1';
-    bgNext.style.opacity = '1';
+          // CSS classes handle the opacity transition
+          outgoingLayer.classList.remove('active');
+          incomingLayer.classList.add('active');
+        }
 
-    // 5. Update content immediately while opacity is 0
-    const titleEl = document.getElementById('active-title');
-    const indexEl = document.getElementById('active-index');
-    const descEl = document.getElementById('active-desc');
+        // 5. Handle Background Cross-Fade
+        if (bgCurrent && bgNext && nextImgSrc) {
+          // Prevent transition if the image hasn't changed
+          if (bgCurrent.src.includes(nextImgSrc)) return;
 
-    if (titleEl) titleEl.textContent = activeSlide.getAttribute('data-title');
-    if (indexEl) indexEl.textContent = activeSlide.getAttribute('data-index');
-    if (descEl) descEl.textContent = activeSlide.getAttribute('data-desc');
+          bgNext.src = nextImgSrc;
+          
+          bgCurrent.style.opacity = '0';
+          bgNext.style.opacity = '1';
 
-    // 6. Swap layers after transition duration
-    setTimeout(() => {
-      bgCurrent.src = bgNext.src;
-      bgCurrent.style.opacity = '1';
-      bgNext.style.opacity = '0';
-    }, 800); // match CSS transition duration
-  },
-}
-
+          // Cleanup: Sync the images after the transition finishes
+          setTimeout(() => {
+            bgCurrent.src = nextImgSrc;
+            bgCurrent.style.opacity = '1';
+            bgNext.style.opacity = '0';
+          }, 250); 
+        }
+      },
+    },
   });
 </script>
