@@ -19,7 +19,7 @@
   height: 100%;
   object-fit: cover;
   filter: blur(8px);
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 /* Dark overlay */
@@ -36,15 +36,12 @@
   top: 3.6vw;
   z-index: 1;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   gap: 4vw;
 }
 
-/* Content Panel */
-.OurCollectionsMain-content {
-  flex: 1;
-}
+
 
 .OurCollectionsMain-header {
   font-family: var(--secondary-font-style);
@@ -79,11 +76,10 @@
   font-size: 3.8vw;
   font-weight: 300;
   line-height: 1;
-  
 }
 
 .OurCollectionsMain-description {
-    font-family: var(--secondary-font-style);
+  font-family: var(--secondary-font-style);
   font-size: 1vw;
 
   line-height: 1.5;
@@ -103,7 +99,7 @@
 }
 
 .OurCollectionsMain-cta:hover {
-  border-bottom: 0.1vw solid #ffffff;
+  border-bottom: 0.1vw solid #f3f2f2;
 }
 
 /* Image Panel */
@@ -112,7 +108,6 @@
   height: 32vw;
   overflow: hidden;
 }
-
 
 /* ... Keep your existing CSS ... */
 
@@ -129,9 +124,10 @@
 /* Controls Layout */
 .OurCollectionsMain-controls {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 2vw;
-  margin-top: 1.5vw;
+  margin-top: 1.6vw;
 }
 
 /* 1. Core Swiper Fade Setup */
@@ -157,7 +153,6 @@
 /* Background and main images */
 .OurCollectionsMain-img {
   position: absolute;
-  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -176,17 +171,18 @@
   height: 100%;
 }
 
+
+.OurCollectionsMain-content {
+  position: relative;
+  margin-top: 10vw;
+  z-index: 10;
+}
 #bg-image-next {
   opacity: 0; /* hidden initially */
 }
 
-.OurCollectionsMain-content {
-  position: relative;
-  z-index: 10;
-}
-
 .content-layer {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -201,57 +197,82 @@
   pointer-events: auto;
 }
 
-
-
 /* Fading effect without any transform */
-.OurCollectionsMain-content[style*="opacity: 0"] {
+.OurCollectionsMain-content[style*='opacity: 0'] {
   opacity: 0;
 }
 
-.OurCollectionsMain-content[style*="opacity: 1"] {
+.OurCollectionsMain-content[style*='opacity: 1'] {
   opacity: 1;
 }
 
 /* 4. Controls Styling (existing logic) */
 .swiper-navigation-group {
   display: flex;
-  gap: 1vw;
+  gap: 0.5vw;
+  justify-content: center; /* center buttons if needed */
+  align-items: center;
 }
 
 .swiper-prev,
 .swiper-next {
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  padding: 0.5vw 1vw;
+  min-width: 44px;
+  min-height: 44px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  background: none; /* already done */
+  border: none; /* remove default border */
+  box-shadow: none; /* remove default shadow */
+  outline: none; /* remove focus outline */
+  -webkit-appearance: none; /* Safari/Chrome default style reset */
+  -moz-appearance: none; /* Firefox reset */
+  appearance: none; /* standard reset */
 }
 
-.swiper-prev:hover,
-.swiper-next:hover {
-  background: white;
-  color: black;
+.swiper-prev svg {
+  transform: rotate(180deg); /* point arrow right */
+}
+
+.swiper-prev svg,
+.swiper-next svg {
+  stroke: #f3f2f2;
+  width: 2.8vw;
+  transition:
+    stroke 0.3s ease,
+    transform 0.3s ease;
+}
+
+.swiper-prev:hover svg,
+.swiper-next:hover svg {
+  stroke: #007651;
+}
+
+.swiper-prev.swiper-button-disabled,
+.swiper-next.swiper-button-disabled {
+  opacity: 0.3;
+  border-color: gray;
+}
+
+.swiper-prev.swiper-button-disabled svg,
+.swiper-next.swiper-button-disabled svg {
+  stroke: gray;
 }
 
 /* Pagination Styling */
-.OurCollectionsMain-controls :global(.swiper-pagination) {
-  position: static;
-  width: auto;
-  display: flex;
-  gap: 8px;
+.swiper-progress-bar {
+  width: 40%; /* full width of container */
+  height: 2px; /* thickness of line */
+  background: rgba(16, 31, 26, 0.6); /* light background */
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 1rem 0;
 }
 
-.OurCollectionsMain-controls :global(.swiper-pagination-bullet) {
-  background: #fff;
-  opacity: 0.3;
-  margin: 0 !important;
-  transition: opacity 0.3s, background 0.3s;
-}
-
-.OurCollectionsMain-controls :global(.swiper-pagination-bullet-active) {
-  opacity: 1;
-  background: #c1ca7f;
+.swiper-progress-fill {
+  width: 0%; /* start empty */
+  height: 100%;
+  background: white; /* active fill color */
+  border-radius: 2px;
+  transition: width 0.4s ease; /* smooth animation */
 }
 
 /* Mobile */

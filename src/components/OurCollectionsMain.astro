@@ -86,10 +86,29 @@ const collections = [
 
       <div class="OurCollectionsMain-controls">
         <div class="swiper-navigation-group">
-          <button class="swiper-prev">←</button>
-          <button class="swiper-next">→</button>
+          <button class="swiper-prev" aria-label="Previous slide">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 45 10"
+            >
+              <path stroke-width="1" d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+            </svg>
+          </button>
+          <button class="swiper-next" aria-label="Next slide">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 45 10"
+            >
+              <path stroke-width="1" d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+            </svg>
+          </button>
         </div>
-        <div class="swiper-pagination"></div>
+
+        <div class="swiper-progress-bar">
+          <div class="swiper-progress-fill"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -99,9 +118,10 @@ const collections = [
   import Swiper from 'swiper';
   import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 
+  // Initialize Swiper
   const swiper = new Swiper('.OurCollectionsSwiper', {
     modules: [Navigation, Pagination, EffectFade],
-    loop: false, // Stopped looping as requested
+    loop: false, // No looping
     speed: 800,
     effect: 'fade',
     fadeEffect: {
@@ -112,63 +132,100 @@ const collections = [
       prevEl: '.swiper-prev',
     },
     pagination: {
-      el: '.swiper-pagination',
+      el: '.swiper-pagination', // optional, can remove if using custom progress
       clickable: true,
     },
-    on: {
-      slideChange: (swiper) => {
-        // 1. Get the current active slide element
-        const activeSlide = swiper.slides[swiper.activeIndex];
-        if (!activeSlide) return;
-
-        // 2. Extract data directly from the HTML attributes of the slide
-        // This avoids needing the 'collections' variable in the script
-        const title = activeSlide.getAttribute('data-title') ?? '';
-        const index = activeSlide.getAttribute('data-index') ?? '';
-        const desc = activeSlide.getAttribute('data-desc') ?? '';
-        const nextImgSrc = activeSlide.querySelector('.OurCollectionsMain-img')?.getAttribute('src');
-
-        // 3. Select UI Elements
-        const bgCurrent = document.getElementById('bg-image-current') as HTMLImageElement | null;
-        const bgNext = document.getElementById('bg-image-next') as HTMLImageElement | null;
-        
-        const layers = document.querySelectorAll('.content-layer');
-        const outgoingLayer = document.querySelector('.content-layer.active') as HTMLElement | null;
-        const incomingLayer = Array.from(layers).find(l => l !== outgoingLayer) as HTMLElement | null;
-
-        // 4. Handle Text Cross-Fade
-        if (incomingLayer && outgoingLayer) {
-          const titleEl = incomingLayer.querySelector('.OurCollectionsMain-title');
-          const indexEl = incomingLayer.querySelector('.OurCollectionsMain-index');
-          const descEl = incomingLayer.querySelector('.OurCollectionsMain-description');
-
-          if (titleEl) titleEl.textContent = title;
-          if (indexEl) indexEl.textContent = index;
-          if (descEl) descEl.textContent = desc;
-
-          // CSS classes handle the opacity transition
-          outgoingLayer.classList.remove('active');
-          incomingLayer.classList.add('active');
-        }
-
-        // 5. Handle Background Cross-Fade
-        if (bgCurrent && bgNext && nextImgSrc) {
-          // Prevent transition if the image hasn't changed
-          if (bgCurrent.src.includes(nextImgSrc)) return;
-
-          bgNext.src = nextImgSrc;
-          
-          bgCurrent.style.opacity = '0';
-          bgNext.style.opacity = '1';
-
-          // Cleanup: Sync the images after the transition finishes
-          setTimeout(() => {
-            bgCurrent.src = nextImgSrc;
-            bgCurrent.style.opacity = '1';
-            bgNext.style.opacity = '0';
-          }, 250); 
-        }
-      },
-    },
   });
+
+  // Select progress fill element
+  const progressFill = document.querySelector(
+    '.swiper-progress-fill'
+  ) as HTMLElement;
+
+  // Slide change event
+  swiper.on('slideChange', () => {
+    const totalSlides = swiper.slides.length;
+    const currentIndex = swiper.activeIndex + 1; // +1 because index starts at 0
+
+    // Update progress fill width
+    if (progressFill) {
+      const percentage = (currentIndex / totalSlides) * 100;
+      progressFill.style.width = `${percentage}%`;
+    }
+
+    // Update background images
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    if (!activeSlide) return;
+
+    const nextImgSrc = activeSlide
+      .querySelector('.OurCollectionsMain-img')
+      ?.getAttribute('src');
+    const bgCurrent = document.getElementById(
+      'bg-image-current'
+    ) as HTMLImageElement | null;
+    const bgNext = document.getElementById(
+      'bg-image-next'
+    ) as HTMLImageElement | null;
+
+    if (bgCurrent && bgNext && nextImgSrc) {
+      if (bgCurrent.src.includes(nextImgSrc)) return;
+
+      bgNext.src = nextImgSrc;
+      bgCurrent.style.opacity = '0';
+      bgNext.style.opacity = '1';
+
+      // Sync after transition
+      setTimeout(() => {
+        bgCurrent.src = nextImgSrc;
+        bgCurrent.style.opacity = '1';
+        bgNext.style.opacity = '0';
+      }, 250);
+    }
+
+    // Update text content
+    const layers = document.querySelectorAll('.content-layer');
+    const outgoingLayer = document.querySelector(
+      '.content-layer.active'
+    ) as HTMLElement | null;
+    const incomingLayer = Array.from(layers).find(
+      (l) => l !== outgoingLayer
+    ) as HTMLElement | null;
+
+    if (incomingLayer && outgoingLayer) {
+      const title = activeSlide.getAttribute('data-title') ?? '';
+      const index = activeSlide.getAttribute('data-index') ?? '';
+      const desc = activeSlide.getAttribute('data-desc') ?? '';
+
+      const titleEl = incomingLayer.querySelector('.OurCollectionsMain-title');
+      const indexEl = incomingLayer.querySelector('.OurCollectionsMain-index');
+      const descEl = incomingLayer.querySelector(
+        '.OurCollectionsMain-description'
+      );
+
+      if (titleEl) titleEl.textContent = title;
+      if (indexEl) indexEl.textContent = index;
+      if (descEl) descEl.textContent = desc;
+
+      outgoingLayer.classList.remove('active');
+      incomingLayer.classList.add('active');
+    }
+
+    // Disable prev/next buttons if at edges
+    const prevBtn = document.querySelector(
+      '.swiper-prev'
+    ) as HTMLButtonElement | null;
+    const nextBtn = document.querySelector(
+      '.swiper-next'
+    ) as HTMLButtonElement | null;
+
+    if (prevBtn) prevBtn.disabled = swiper.isBeginning;
+    if (nextBtn) nextBtn.disabled = swiper.isEnd;
+  });
+
+  // Initialize progress fill on page load
+  if (progressFill) {
+    const totalSlides = swiper.slides.length;
+    const initialPercentage = ((swiper.activeIndex + 1) / totalSlides) * 100;
+    progressFill.style.width = `${initialPercentage}%`;
+  }
 </script>
