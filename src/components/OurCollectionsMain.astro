@@ -7,20 +7,23 @@ const collections = [
   {
     index: '01',
     title: 'Кухня',
-    desc: 'Смелые формы и умная эргономика, Кухня с характером, ничего лишнего.',
+    desc: 'Смелые формы и умная эргономика...',
     img: 'src/assets/images/photo_2024-11-29_17-42-12.jpg',
+    link: '/collections/kitchen', // Add your links here
   },
   {
     index: '02',
-    title: 'Urban',
-    desc: 'Minimalist designs for city living.',
-    img: 'src/assets/images/photo_2022-11-21_10-47-47.jpg',
+    title: 'Ресепшн',
+    desc: 'Тёплый и профессиональный приём...',
+    img: 'src/assets/images/reception1.jpg',
+    link: '/collections/reception',
   },
   {
-    index: '04',
-    title: 'Life',
-    desc: 'Broad-appeal sofas designed with everyday living in mind.',
+    index: '03',
+    title: 'Confress Halls',
+    desc: 'Broad-appeal sofas designed...',
     img: '/src/assets/images/photo_2024-12-02_15-51-50.jpg',
+    link: '/collections/conference',
   },
 ];
 ---
@@ -37,16 +40,13 @@ const collections = [
     <div class="OurCollectionsMain-content">
       <div class="content-layer layer-1 active">
         <div class="OurCollectionsMain-title-group">
-          <span class="OurCollectionsMain-index">01</span>
+          <span class="OurCollectionsMain-index">{collections[0].index}</span>
           <div class="OurCollectionsMain-title-group__inner">
-            <h2 class="OurCollectionsMain-title">Nest</h2>
-            <p class="OurCollectionsMain-description">
-              Elegant comfort for modern spaces.
-            </p>
+            <h2 class="OurCollectionsMain-title">{collections[0].title}</h2>
+            <p class="OurCollectionsMain-description">{collections[0].desc}</p>
           </div>
         </div>
       </div>
-
       <div class="content-layer layer-2">
         <div class="OurCollectionsMain-title-group">
           <span class="OurCollectionsMain-index"></span>
@@ -56,11 +56,15 @@ const collections = [
           </div>
         </div>
       </div>
-
-      <a href="#" class="OurCollectionsMain-cta">
-        View collection <span class="OurCollectionsMain-arrow">→</span>
-      </a>
     </div>
+
+    <a
+      href={collections[0].link}
+      id="collection-link"
+      class="OurCollectionsMain-cta"
+    >
+      View collection <span class="OurCollectionsMain-arrow">→</span>
+    </a>
 
     <div class="OurCollectionsMain-visual-wrapper">
       <div class="swiper OurCollectionsSwiper">
@@ -72,6 +76,7 @@ const collections = [
                 data-index={item.index}
                 data-title={item.title}
                 data-desc={item.desc}
+                data-link={item.link}
               >
                 <img
                   src={item.img}
@@ -118,63 +123,57 @@ const collections = [
   import Swiper from 'swiper';
   import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 
-  // Initialize Swiper
   const swiper = new Swiper('.OurCollectionsSwiper', {
     modules: [Navigation, Pagination, EffectFade],
-    loop: false, // No looping
+    loop: false,
     speed: 800,
     effect: 'fade',
-    fadeEffect: {
-      crossFade: true,
-    },
+    fadeEffect: { crossFade: true },
     navigation: {
       nextEl: '.swiper-next',
       prevEl: '.swiper-prev',
     },
-    pagination: {
-      el: '.swiper-pagination', // optional, can remove if using custom progress
-      clickable: true,
-    },
   });
 
-  // Select progress fill element
   const progressFill = document.querySelector(
     '.swiper-progress-fill'
   ) as HTMLElement;
 
-  // Slide change event
-  swiper.on('slideChange', () => {
-    const totalSlides = swiper.slides.length;
-    const currentIndex = swiper.activeIndex + 1; // +1 because index starts at 0
+  // Select the CTA link globally
+  const ctaLink = document.querySelector(
+    '.OurCollectionsMain-cta'
+  ) as HTMLAnchorElement;
 
-    // Update progress fill width
+  const updateContent = () => {
+    const totalSlides = swiper.slides.length;
+    const currentIndex = swiper.activeIndex;
+    const activeSlide = swiper.slides[currentIndex];
+
+    // 1. Update Progress Bar
     if (progressFill) {
-      const percentage = (currentIndex / totalSlides) * 100;
+      const percentage = ((currentIndex + 1) / totalSlides) * 100;
       progressFill.style.width = `${percentage}%`;
     }
 
-    // Update background images
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    if (!activeSlide) return;
+    // 2. Update Dynamic Link (href)
+    if (activeSlide && ctaLink) {
+      const newHref = activeSlide.getAttribute('data-link') || '#';
+      ctaLink.href = newHref;
+    }
 
+    // 3. Update Background Images
     const nextImgSrc = activeSlide
-      .querySelector('.OurCollectionsMain-img')
+      ?.querySelector('.OurCollectionsMain-img')
       ?.getAttribute('src');
     const bgCurrent = document.getElementById(
       'bg-image-current'
-    ) as HTMLImageElement | null;
-    const bgNext = document.getElementById(
-      'bg-image-next'
-    ) as HTMLImageElement | null;
+    ) as HTMLImageElement;
+    const bgNext = document.getElementById('bg-image-next') as HTMLImageElement;
 
-    if (bgCurrent && bgNext && nextImgSrc) {
-      if (bgCurrent.src.includes(nextImgSrc)) return;
-
+    if (bgCurrent && bgNext && nextImgSrc && bgCurrent.src !== nextImgSrc) {
       bgNext.src = nextImgSrc;
       bgCurrent.style.opacity = '0';
       bgNext.style.opacity = '1';
-
-      // Sync after transition
       setTimeout(() => {
         bgCurrent.src = nextImgSrc;
         bgCurrent.style.opacity = '1';
@@ -182,50 +181,42 @@ const collections = [
       }, 250);
     }
 
-    // Update text content
+    // 4. Update Text Content Layers
     const layers = document.querySelectorAll('.content-layer');
     const outgoingLayer = document.querySelector(
       '.content-layer.active'
-    ) as HTMLElement | null;
+    ) as HTMLElement;
     const incomingLayer = Array.from(layers).find(
       (l) => l !== outgoingLayer
-    ) as HTMLElement | null;
+    ) as HTMLElement;
 
-    if (incomingLayer && outgoingLayer) {
+    if (incomingLayer && outgoingLayer && activeSlide) {
       const title = activeSlide.getAttribute('data-title') ?? '';
       const index = activeSlide.getAttribute('data-index') ?? '';
       const desc = activeSlide.getAttribute('data-desc') ?? '';
 
-      const titleEl = incomingLayer.querySelector('.OurCollectionsMain-title');
-      const indexEl = incomingLayer.querySelector('.OurCollectionsMain-index');
-      const descEl = incomingLayer.querySelector(
+      incomingLayer.querySelector('.OurCollectionsMain-title')!.textContent =
+        title;
+      incomingLayer.querySelector('.OurCollectionsMain-index')!.textContent =
+        index;
+      incomingLayer.querySelector(
         '.OurCollectionsMain-description'
-      );
-
-      if (titleEl) titleEl.textContent = title;
-      if (indexEl) indexEl.textContent = index;
-      if (descEl) descEl.textContent = desc;
+      )!.textContent = desc;
 
       outgoingLayer.classList.remove('active');
       incomingLayer.classList.add('active');
     }
 
-    // Disable prev/next buttons if at edges
-    const prevBtn = document.querySelector(
-      '.swiper-prev'
-    ) as HTMLButtonElement | null;
-    const nextBtn = document.querySelector(
-      '.swiper-next'
-    ) as HTMLButtonElement | null;
-
+    // 5. Update Navigation Button States
+    const prevBtn = document.querySelector('.swiper-prev') as HTMLButtonElement;
+    const nextBtn = document.querySelector('.swiper-next') as HTMLButtonElement;
     if (prevBtn) prevBtn.disabled = swiper.isBeginning;
     if (nextBtn) nextBtn.disabled = swiper.isEnd;
-  });
+  };
 
-  // Initialize progress fill on page load
-  if (progressFill) {
-    const totalSlides = swiper.slides.length;
-    const initialPercentage = ((swiper.activeIndex + 1) / totalSlides) * 100;
-    progressFill.style.width = `${initialPercentage}%`;
-  }
+  // Run on slide change
+  swiper.on('slideChange', updateContent);
+
+  // Run on initial load
+  updateContent();
 </script>

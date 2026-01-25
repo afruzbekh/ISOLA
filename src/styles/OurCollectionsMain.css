@@ -1,13 +1,12 @@
 .OurCollectionsMain {
   position: relative;
   overflow: hidden;
-  padding: 14vw 6.87vw;
+  padding: 12vw 6.87vw;
   color: #f3f2f2;
   font-family: sans-serif;
   min-height: 40vw;
 }
 
-/* === Background Image Layer === */
 .OurCollectionsMain-bg {
   position: absolute;
   inset: 0;
@@ -22,7 +21,6 @@
   transform: scale(1.1);
 }
 
-/* Dark overlay */
 .OurCollectionsMain-bg::after {
   content: '';
   position: absolute;
@@ -30,18 +28,14 @@
   background-color: rgba(10, 24, 20, 0.7);
 }
 
-/* === Foreground Content === */
 .OurCollectionsMain-container {
   position: relative;
   top: 3.6vw;
   z-index: 1;
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
   gap: 4vw;
 }
-
-
 
 .OurCollectionsMain-header {
   font-family: var(--secondary-font-style);
@@ -59,7 +53,7 @@
 .OurCollectionsMain-title-group__inner {
   display: flex;
   flex-direction: column;
-  gap: 1vw;
+  gap: 0.8vw;
   margin-bottom: 1.5vw;
 }
 
@@ -80,14 +74,15 @@
 
 .OurCollectionsMain-description {
   font-family: var(--secondary-font-style);
-  font-size: 1vw;
-
+  font-size: 0.85vw;
   line-height: 1.5;
   max-width: 22vw;
   margin-bottom: 3vw;
 }
 
 .OurCollectionsMain-cta {
+  position: absolute;
+  bottom: 3%;
   color: #f3f2f2;
   text-decoration: none;
   font-size: 1vw;
@@ -102,14 +97,11 @@
   border-bottom: 0.1vw solid #f3f2f2;
 }
 
-/* Image Panel */
 .OurCollectionsMain-visual {
   width: 56.5vw;
   height: 32vw;
   overflow: hidden;
 }
-
-/* ... Keep your existing CSS ... */
 
 .OurCollectionsMain-visual-wrapper {
   width: 56.5vw;
@@ -121,7 +113,6 @@
   overflow: hidden;
 }
 
-/* Controls Layout */
 .OurCollectionsMain-controls {
   display: flex;
   justify-content: space-between;
@@ -130,16 +121,11 @@
   margin-top: 1.6vw;
 }
 
-/* 1. Core Swiper Fade Setup */
 .OurCollectionsSwiper {
-  /* Ensure slides stack on top of each other */
   position: relative;
   overflow: hidden;
 }
 
-/* Swiper's Fade module uses opacity. 
-   We ensure the non-active slides don't block clicks. 
-*/
 .swiper-fade .swiper-slide {
   pointer-events: none;
   transition-property: opacity;
@@ -149,8 +135,6 @@
   pointer-events: auto;
 }
 
-/* 2. Background Image Crossfade */
-/* Background and main images */
 .OurCollectionsMain-img {
   position: absolute;
   left: 0;
@@ -171,14 +155,13 @@
   height: 100%;
 }
 
-
 .OurCollectionsMain-content {
   position: relative;
   margin-top: 10vw;
   z-index: 10;
 }
 #bg-image-next {
-  opacity: 0; /* hidden initially */
+  opacity: 0;
 }
 
 .content-layer {
@@ -243,7 +226,7 @@
 
 .swiper-prev:hover svg,
 .swiper-next:hover svg {
-  stroke: #007651;
+  stroke: #c1ca7fe2;
 }
 
 .swiper-prev.swiper-button-disabled,
@@ -259,20 +242,20 @@
 
 /* Pagination Styling */
 .swiper-progress-bar {
-  width: 40%; /* full width of container */
-  height: 2px; /* thickness of line */
-  background: rgba(16, 31, 26, 0.6); /* light background */
+  width: 40%;
+  height: 2px;
+  background: rgba(16, 31, 26, 0.6);
   border-radius: 2px;
   overflow: hidden;
   margin: 1rem 0;
 }
 
 .swiper-progress-fill {
-  width: 0%; /* start empty */
+  width: 0%;
   height: 100%;
-  background: white; /* active fill color */
+  background: white;
   border-radius: 2px;
-  transition: width 0.4s ease; /* smooth animation */
+  transition: width 0.4s ease;
 }
 
 /* Mobile */
