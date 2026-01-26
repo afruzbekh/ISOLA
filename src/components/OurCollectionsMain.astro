@@ -4,7 +4,6 @@ import conferenceHall from '../assets/images/confrenceHall.jpg';
 import reception1 from '../assets/images/reception1.jpg';
 import kitchen from '../assets/images/kitchen.jpg';
 
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -18,21 +17,21 @@ const collections = [
     link: '#',
   },
   {
-    index: '03',
+    index: '02',
     title: 'Конференц залы',
     desc: 'Пространство, которое подчеркивает статус ваших конференций.',
     img: conferenceHall.src,
     link: '#',
   },
   {
-    index: '02',
+    index: '03',
     title: 'Ресепшн',
     desc: 'Архитектурный подход к созданию первого впечатления.',
     img: reception1.src,
     link: '#',
   },
   {
-    index: '01',
+    index: '04',
     title: 'Кухня',
     desc: 'Смелые формы и умная эргономика для тех, кто ценит стиль и комфорт.',
     img: kitchen.src,
@@ -87,13 +86,13 @@ const collections = [
     <a
       href={collections[0].link}
       id="collection-link"
-      class="OurCollectionsMain-cta"
+      class="OurCollectionsMain-cta-pc"
     >
-      <span class="OurCollectionsMain-cta__label">Посмотреть коллекцию</span>
+      <span class="OurCollectionsMain-cta-pc__label">Посмотреть коллекцию</span>
 
-      <div class="OurCollectionsMain-cta__arrowWrapper">
+      <div class="OurCollectionsMain-cta-pc__arrowWrapper">
         <svg
-          class="OurCollectionsMain-cta__arrow"
+          class="OurCollectionsMain-cta-pc__arrow"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 45 10"
@@ -105,7 +104,7 @@ const collections = [
         </svg>
 
         <svg
-          class="OurCollectionsMain-cta__arrowHover"
+          class="OurCollectionsMain-cta-pc__arrowHover"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 45 10"
@@ -142,6 +141,42 @@ const collections = [
           }
         </div>
       </div>
+
+      <a
+        href={collections[0].link}
+        id="collection-link"
+        class="OurCollectionsMain-cta-mobile"
+      >
+        <span class="OurCollectionsMain-cta-mobile__label"
+          >Посмотреть коллекцию</span
+        >
+
+        <div class="OurCollectionsMain-cta-mobile__arrowWrapper">
+          <svg
+            class="OurCollectionsMain-cta-mobile__arrow"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 45 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="1"
+              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+          </svg>
+
+          <svg
+            class="OurCollectionsMain-cta-mobile__arrowHover"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 45 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="1"
+              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+          </svg>
+        </div>
+      </a>
 
       <div class="OurCollectionsMain-controls">
         <div class="swiper-navigation-group">

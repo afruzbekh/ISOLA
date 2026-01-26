@@ -22,7 +22,6 @@
   pointer-events: none;
 }
 
-/* Top text */
 .header-scale {
   position: absolute;
   top: 40%;
@@ -45,7 +44,6 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Bottom text */
 .header-scale-bottom {
   position: absolute;
   bottom: 11%;
