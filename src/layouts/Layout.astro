@@ -3,6 +3,12 @@ import NavBar from '../components/NavBar.astro';
 import Header from '../components/Header.astro';
 import AboutUsMain from '../components/AboutUsMain.astro';
 import OurCollectionsMain from '../components/OurCollectionsMain.astro';
+
+import '../styles/global.css';
+import '../styles/NavBar.css';
+import '../styles/Header.css';
+import '../styles/AboutUsMain.css';
+import '../styles/OurCollectionsMain.css';
 ---
 
 <!doctype html>
@@ -10,14 +16,9 @@ import OurCollectionsMain from '../components/OurCollectionsMain.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/src/assets/icons/logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>ISOLA</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
-    <link rel="stylesheet" href="/src/styles/NavBar.css" />
-    <link rel="stylesheet" href="/src/styles/Header.css" />
-    <link rel="stylesheet" href="/src/styles/AboutUsMain.css" />
-    <link rel="stylesheet" href="/src/styles/OurCollectionsMain.css" />
   </head>
   <body>
     <NavBar />
