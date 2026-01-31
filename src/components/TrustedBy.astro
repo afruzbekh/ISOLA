@@ -21,7 +21,7 @@ import astanaMotorsLogo from '../assets/icons/astana_motors-logo.png';
     <div class="trusted-by_mainPage__right">
       <div class="trusted-by_ticker-container">
         <!-- LTR Swiper -->
-        <div id="trusted-by-ltr" class="swiper">
+        <div class="trusted-by-ltr swiper">
           <div class="swiper-wrapper">
             <!-- Original set -->
             <div class="swiper-slide">
@@ -74,7 +74,7 @@ import astanaMotorsLogo from '../assets/icons/astana_motors-logo.png';
           </div>
         </div>
         <!-- RTL Swiper -->
-        <div id="trusted-by-rtl" class="swiper">
+        <div class="trusted-by-rtl swiper">
           <div class="swiper-wrapper">
             <!-- Original set -->
             <div class="swiper-slide">
@@ -129,7 +129,7 @@ import astanaMotorsLogo from '../assets/icons/astana_motors-logo.png';
           </div>
         </div>
         <!-- LTR Swiper -->
-        <div id="trusted-by-ltr" class="swiper">
+        <div class="trusted-by-ltr swiper">
           <div class="swiper-wrapper">
             <!-- Original set -->
             <div class="swiper-slide">
@@ -182,7 +182,7 @@ import astanaMotorsLogo from '../assets/icons/astana_motors-logo.png';
           </div>
         </div>
         <!-- RTL Swiper -->
-        <div id="trusted-by-rtl" class="swiper">
+        <div class="trusted-by-rtl swiper">
           <div class="swiper-wrapper">
             <!-- Original set -->
             <div class="swiper-slide">
@@ -256,25 +256,31 @@ import astanaMotorsLogo from '../assets/icons/astana_motors-logo.png';
   import { Autoplay } from 'swiper/modules';
   import 'swiper/css';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const sliders = [];
+  document.querySelectorAll<HTMLElement>('.trusted-by-ltr').forEach((el) => {
+    new Swiper(el, {
+      modules: [Autoplay],
+      loop: true,
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      speed: 10000,
+      allowTouchMove: false,
+      autoplay: { delay: 0, disableOnInteraction: false },
+    });
+  });
 
-    ['#trusted-by-ltr', '#trusted-by-rtl'].forEach((selector, index) => {
-      sliders.push(
-        new Swiper(selector, {
-          modules: [Autoplay],
-          loop: true,
-          slidesPerView: 'auto',
-          spaceBetween: 0,
-          speed: 10000,
-          allowTouchMove: false,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-            reverseDirection: index === 1,
-          },
-        })
-      );
+  document.querySelectorAll<HTMLElement>('.trusted-by-rtl').forEach((el) => {
+    new Swiper(el, {
+      modules: [Autoplay],
+      loop: true,
+      slidesPerView: 'auto',
+      spaceBetween: 0,
+      speed: 10000,
+      allowTouchMove: false,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        reverseDirection: true,
+      },
     });
   });
 </script>
