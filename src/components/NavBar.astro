@@ -4,22 +4,43 @@ import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 ---
 
-<div class="navbar__marquee" aria-hidden="true">
-  <div class="navbar__marquee-track">
-    <div class="navbar__marquee-group">
-      <span>Сайт в тестовом режиме</span>
-      <span>Сайт в тестовом режиме</span>
-      <span>Сайт в тестовом режиме</span>
-      <span>Сайт в тестовом режиме</span>
-      <span>Сайт в тестовом режиме</span>
+<div class="navbar__marquee swiper navbar-marquee">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="navbar__marquee-group">
+    <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
+    </div>
+    <!-- duplicate for seamless loop -->
+    <div class="swiper-slide navbar-marquee-slide">
+      <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
+      <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
+      <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
+      <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
+      <span>Сайт в тестовом режиме</span>
+    </div>
+    <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
   </div>
@@ -35,7 +56,7 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
     <ul class="nav-links">
       <li><a href="#about">О нас</a></li>
       <li><a href="#portfolio">Наши коллекции</a></li>
-      <li><a href="#faq">Часто задаваемые вопросы</a></li>
+      <li><a href="#faq">Доверяют нам</a></li>
       <li><a href="#contact">Контакты</a></li>
     </ul>
 
@@ -52,7 +73,7 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
     <li><a href="#about">О нас</a></li>
     <li><a href="#portfolio">Наши коллекции</a></li>
     <li><a href="#services">Новости и события</a></li>
-    <li><a href="#faq">Часто задаваемые вопросы</a></li>
+    <li><a href="#faq">Доверяют нам</a></li>
     <li><a href="#contact">Контакты</a></li>
     <li class="social-item">
       <a
@@ -94,6 +115,23 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 </div>
 
 <script>
+  import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+
+  new Swiper('.navbar-marquee', {
+    modules: [Autoplay],
+    loop: true,
+    slidesPerView: 'auto',
+    spaceBetween: 0,
+    speed: 9000,
+    allowTouchMove: false,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+  });
+
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const overlay = document.querySelector('.mobile-menu-overlay');
