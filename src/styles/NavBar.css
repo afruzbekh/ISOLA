@@ -210,6 +210,7 @@
   opacity: 0.9;
   color: rgb(30 49 43);
   text-decoration: none;
+  border-radius: 12px;
 }
 
 .social-item {
@@ -226,14 +227,14 @@
   padding: 0 !important;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   list-style: none;
   border-bottom: none !important;
 }
 
 .contact-item a {
   font-size: 14px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 600;
 }
 
 /* ===== Social Buttons ===== */
@@ -244,7 +245,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid rgb(30, 49, 43);
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .social-button svg {
