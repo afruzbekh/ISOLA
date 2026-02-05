@@ -1,0 +1,165 @@
+.site-footer {
+  position: relative;
+  background-color: #0a1814;
+  padding: 4.5vw 6.87vw;
+  font-family: var(--secondary-font-style);
+  color: #f5f6eb;
+}
+
+/* Flex container for main content */
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* pushes logo left, links/contact right */
+  gap: 5vw; /* space between items */
+  flex-wrap: wrap; /* ensures wrapping on small screens */
+  margin: 0 auto;
+}
+
+.footer-container-right {
+  display: flex;
+  gap: 5vw;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Logo / brand */
+.footer-brand a {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  text-decoration: none;
+  user-select: none;
+}
+
+.footer-brand .logo svg {
+  width: 1.6vw;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.footer-brand .logo span {
+  font-family: var(--primary-font-style);
+  font-size: 1.6vw;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* Links section */
+.footer-columns {
+  display: flex;
+}
+
+.footer-column {
+  min-width: 9.38vw;
+}
+
+.footer-heading {
+  font-size: 0.83vw;
+  font-weight: 700;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.86vw;
+}
+
+.footer-links li + li {
+  margin-top: 0.86vw;
+}
+
+.footer-links a {
+  color: #f5f6eb;
+  text-decoration: none;
+  font-size: 0.86vw;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover,
+.footer-address a:hover, .footer-contact-details a:hover {
+  color: #c1ca7fe2;
+}
+
+/* Contact section */
+.footer-contact {
+  font-size: 0.86vw;
+}
+
+.footer-contact-wrapper {
+  display: flex;
+  margin-top: 0.86vw;
+  gap: 5vw;
+}
+
+.footer-address a {
+  font-style: normal;
+  line-height: 1.6;
+  color: #f5f6eb;
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42vw;
+}
+
+.footer-contact-details a {
+  color: #f5f6eb;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Bottom socials row */
+.footer-bottom {
+  display: flex;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.5vw;
+}
+
+.social-button {
+  width: 2.5vw;
+  height: 2.5vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(30, 49, 43, 0.8);
+  border-radius: 0.6vw;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #f5f6eb;
+}
+
+.social-button svg {
+  width: 1.1vw;
+  height: 1.1vw;
+  fill: currentColor;
+}
+
+.social-button:hover {
+  border-color: #ffffff;
+}
+
+/* Responsive tweak */
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-columns,
+  .footer-contact {
+    flex: 1 1 100%;
+  }
+
+  .footer-brand .logo span {
+    font-size: 2rem;
+  }
+}
