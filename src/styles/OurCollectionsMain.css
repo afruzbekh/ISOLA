@@ -58,10 +58,9 @@
 }
 
 .OurCollectionsMain-index {
-  font-family: monospace;
   color: var(--accent-color);
   font-size: 1.5vw;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .OurCollectionsMain-title {
