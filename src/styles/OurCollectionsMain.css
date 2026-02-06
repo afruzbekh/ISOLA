@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: 9vw 6.87vw 12vw 6.87vw;
-  color: #f3f2f2;
+  color: var(--secondary-color);
   font-family: sans-serif;
   min-height: 40vw;
 }
@@ -42,7 +42,7 @@
   font-size: 0.75vw;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #f5f6eb;
+  color: var(--secondary-color);
   font-weight: 500;
 }
 .OurCollectionsMain-title-group {
@@ -59,7 +59,7 @@
 
 .OurCollectionsMain-index {
   font-family: monospace;
-  color: #c1ca7fe2;
+  color: var(--accent-color);
   font-size: 1.5vw;
   font-weight: 300;
 }
@@ -94,7 +94,7 @@
   gap: 1.3vw;
   padding: 0.4vw 1.1vw;
   border: none;
-  color: #f5f6eb;
+  color: var(--secondary-color);
   text-decoration: none;
   font-weight: 300;
   font-family: var(--primary-font-style);
@@ -132,13 +132,13 @@
 }
 
 .OurCollectionsMain-cta-pc__arrowHover {
-  color: #c1ca7fe2;
+  color: var(--accent-color);
   opacity: 0;
   transform: translateX(-100%);
 }
 
 .OurCollectionsMain-cta-pc:hover {
-  color: #c1ca7fe2;
+  color: var(--accent-color);
 }
 
 .OurCollectionsMain-cta-pc:hover .OurCollectionsMain-cta-pc__arrow {
@@ -267,7 +267,7 @@
 
 .swiper-prev svg,
 .swiper-next svg {
-  stroke: #f3f2f2;
+  stroke: var(--secondary-color);
   width: 2.8vw;
   transition:
     stroke 0.3s ease,
@@ -276,7 +276,7 @@
 
 .swiper-prev:hover svg,
 .swiper-next:hover svg {
-  stroke: #c1ca7fe2;
+  stroke: var(--accent-color);
 }
 
 .swiper-prev.swiper-button-disabled svg,
@@ -353,7 +353,7 @@
     align-items: center;
     gap: 10px;
     border: none;
-    color: #f5f6eb;
+    color: var(--secondary-color);
     font-weight: 300;
     font-family: var(--secondary-font-style);
     font-size: 15px;
@@ -388,13 +388,13 @@
   }
 
   .OurCollectionsMain-cta-mobile__arrowHover {
-    color: #c1ca7fe2;
+    color: var(--accent-color);
     opacity: 0;
     transform: translateX(-100%);
   }
 
   .OurCollectionsMain-cta-mobile:hover {
-    color: #c1ca7fe2;
+    color: var(--accent-color);
   }
 
   .OurCollectionsMain-cta-mobile:hover .OurCollectionsMain-cta-mobile__arrow {
@@ -444,7 +444,7 @@
 
 .swiper-prev:hover svg,
 .swiper-next:hover svg {
-  stroke: #c1ca7fe2;
+  stroke: var(--accent-color);
 }
 
 .swiper-prev.swiper-button-disabled svg,

@@ -1,0 +1,110 @@
+
+/* Make map fill the container */
+.map-section {
+  position: relative; /* Needed for absolute child */
+  width: 100%;
+  min-height: 100vh; /* At least full viewport height */
+}
+
+
+/* Contact container on top */
+.contact-container {
+  position: absolute;
+  bottom: 5%; 
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  gap: 30px;
+  justify-content: space-between;
+  background-color: #f5f5ea;
+  padding: 40px 20px;
+  font-family: sans-serif;
+  color: #1a2e26;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* optional: lift from map */
+  border-radius: 12px; /* optional */
+}
+
+
+
+.contact-column {
+  flex: 1;
+  min-width: 200px; /* Ensures columns stack on mobile */
+}
+
+.contact-heading {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.contact-subheading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* The small dash before the headings in the image */
+.contact-subheading::before {
+  content: "—";
+  position: absolute;
+  left: -20px;
+  font-weight: 300;
+}
+
+.contact-info-item {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-info-item a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.contact-address {
+  font-style: normal;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+}
+
+.contact-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Reusing your social-button class */
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #1a2e26;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #1a2e26;
+  transition: opacity 0.2s;
+}
+
+.social-button:hover {
+  opacity: 0.7;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-subheading::before {
+    display: none; /* Hide dashes on mobile for cleaner look */
+  }
+}

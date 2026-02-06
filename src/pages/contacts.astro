@@ -1,0 +1,149 @@
+---
+import logo from '../assets/icons/favicon.svg';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import LogoIcon from '../assets/icons/icon.astro';
+import InstagramIcon from '../assets/icons/InstagramIcon.astro';
+import TelegramIcon from '../assets/icons/TelegramIcon.astro';
+import '../styles/global.css';
+import '../styles/NavBar.css';
+import '../styles/Contacts.css';
+import '../styles/Footer.css';
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ISOLA</title>
+    <meta
+      name="description"
+      content="ISOLA — premium furniture manufacturing expertise since 2008."
+    />
+    <link rel="icon" type="image/svg+xml" href={logo.src} />
+    <link rel="canonical" href="https://isola.uz/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ISOLA",
+        "url": "https://isola.uz",
+        "logo": "https://isola.uz/logo.svg",
+        "foundingDate": "2008"
+      }
+    </script>
+    <script
+      src="https://api-maps.yandex.com/2.1/?apikey=YOUR_API_KEY&lang=en_US"
+      type="text/javascript"></script>
+  </head>
+  <body>
+    <NavBar />
+    <main>
+      <section class="map-section">
+        <div id="map" style="width: 100vw; height: 100vh;"></div>
+
+        <div class="contact-container">
+          <div class="contact-column contact-main">
+            <h4 class="contact-heading">Contact</h4>
+            <div class="contact-info-item">
+              <span class="icon">📞</span>
+              <a href="tel:01623555660">01623 555 660</a>
+            </div>
+            <div class="contact-info-item">
+              <span class="icon">✉️</span>
+              <a href="mailto:sales@whitemeadow.com">sales@whitemeadow.com</a>
+            </div>
+            <div class="contact-socials">
+              <a href="#" class="social-button" aria-label="Instagram"
+                ><InstagramIcon /></a
+              >
+              <a href="#" class="social-button" aria-label="LinkedIn"
+                ><TelegramIcon /></a
+              >
+            </div>
+          </div>
+
+          <div class="contact-column">
+            <h5 class="contact-subheading">Whitemeadow Head Office</h5>
+            <address class="contact-address">
+              Orchard Way<br />
+              Calladine Business Park<br />
+              Sutton In Ashfield<br />
+              Nottinghamshire<br />
+              NG17 1JU
+            </address>
+          </div>
+
+          <div class="contact-column">
+            <h5 class="contact-subheading">Whitemeadow Production (Langham)</h5>
+            <address class="contact-address">
+              Langham Park<br />
+              Unit 1-5 High View Rd<br />
+              Berristow Ln<br />
+              South Normanton<br />
+              DE55 2JL
+            </address>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+<script is:inline>
+  ymaps.ready(init);
+
+  function init() {
+    var map = new ymaps.Map('map', {
+      center: [41.356871, 69.256864],
+      zoom: 18,
+      controls: [],
+      behaviors: ['drag'],
+    });
+
+    var MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+      `<div style="
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       transform: translate(5px, -85px); 
+     ">
+     <div style="
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-family: var(--primary-font-style);
+        white-space: nowrap;
+        margin-bottom: 10px;
+     ">
+       Главный офис ISOLA
+     </div>
+     <div>
+       <svg width="35" height="35" viewBox="-3 0 24 24" xmlns="http://www.w3.org/2000/svg">
+         <path d="M8.075 23.52C1.264 13.642 0 12.629 0 9c0-4.971 4.029-9 9-9s9 4.029 9 9c0 3.629-1.264 4.64-8.075 14.516a1.126 1.126 0 0 1-1.847.004l-.002-.004zM9 12.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5"/>
+       </svg>
+     </div>
+   </div>`
+    );
+
+    var placemark = new ymaps.Placemark(
+      [41.356871, 69.256864],
+      {},
+      {
+        iconLayout: MyIconContentLayout,
+        iconShape: {
+          type: 'Rectangle',
+          coordinates: [
+            [-15, -45], // adjust for upward movement
+            [25, 5], // adjust for right movement
+          ],
+        },
+      }
+    );
+
+    map.geoObjects.add(placemark);
+  }
+</script>

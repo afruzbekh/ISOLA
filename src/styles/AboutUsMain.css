@@ -1,6 +1,6 @@
 .about-us_mainPage {
   position: relative;
-  background-color: #f5f6eb;
+  background-color: var(--secondary-color);
   padding: 4.5vw 6.87vw;
 }
 
@@ -26,7 +26,7 @@
   font-size: 0.75vw;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #1e312b;
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -43,14 +43,14 @@
   font-weight: 300;
   line-height: 1.1;
   margin-bottom: 1.25vw;
-  color: #1e312b;
+  color: var(--primary-color);
 }
 
 .about-us_mainPage__left p {
   font-family: var(--secondary-font-style);
   font-size: clamp(0.83vw, 1vw, 1.15vw);
   line-height: 1.5;
-  color: #1e312b;
+  color: var(--primary-color);
   text-align: justify;
 }
 
@@ -75,9 +75,9 @@
   gap: 1.3vw;
   position: relative;
   padding: 0.4vw 1.1vw;
-  border: 1px solid #1e312b;
+  border: 1px solid var(--primary-color);
   border-radius: 50px;
-  color: #1e312b;
+  color: var(--primary-color);
   text-decoration: none;
   font-weight: 300;
   font-family: var(--primary-font-style);
@@ -116,13 +116,13 @@
 }
 
 .btn-block__arrowHover {
-  color: #008a55;
+  color: var(--light-greantea-color);
   opacity: 0;
   transform: translateX(-100%);
 }
 
 .btn-block:hover {
-  border-color: #008a55;
+  border-color: var(--light-greantea-color);
 }
 
 .btn-block:hover .btn-block__arrow {

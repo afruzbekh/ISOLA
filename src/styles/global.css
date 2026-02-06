@@ -4,6 +4,13 @@
 :root {
   --primary-font-style: 'Poppins', sans-serif;
   --secondary-font-style: 'Montserrat', sans-serif;
+  
+  
+  --primary-color: #0c1f1a;
+  --secondary-color: #f5f6eb;
+  --accent-color: #C1CA7F; 
+  --white-color: #FFFFFF; 
+  --light-greantea-color: #008a55; 
 }
 
 * {

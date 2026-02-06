@@ -1,6 +1,6 @@
 .trusted-by_mainPage {
   position: relative;
-  background-color: #f5f6eb;
+  background-color: var(--secondary-color);
   padding: 4.5vw 6.87vw 8vw 6.87vw;
 }
 
@@ -24,7 +24,7 @@
   font-size: 0.75vw;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #1e312b;
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -40,14 +40,14 @@
   font-weight: 300;
   line-height: 0.9;
   margin-bottom: 1.25vw;
-  color: #1e312b;
+  color: var(--primary-color);
 }
 
 .trusted-by_mainPage__left p {
   font-family: var(--secondary-font-style);
   font-size: clamp(0.83vw, 1vw, 1.15vw);
   line-height: 1.5;
-  color: #1e312b;
+  color: var(--primary-color);
   text-align: justify;
 }
 

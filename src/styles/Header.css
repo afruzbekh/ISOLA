@@ -3,7 +3,7 @@
   height: 100vh;
   overflow: hidden;
   background-image: url('../assets/images/bg-hero.jpg');
-  background-size: cover;
+  background-size: 102%;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -97,7 +97,7 @@
   display: inline-block;
   width: 0.8vw;
   height: 0.1vw;
-  background-color: #c7ec60;
+  background-color: var(--accent-color);
 }
 
 @keyframes scroll-text-one-up {
@@ -161,6 +161,5 @@
     display: inline-block;
     width: 10px;
     height: 1.5px;
-    background-color: #c7ec60;
   }
 }
