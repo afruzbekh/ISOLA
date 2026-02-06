@@ -1,33 +1,25 @@
-
-/* Make map fill the container */
-.map-section {
-  position: relative; /* Needed for absolute child */
-  width: 100%;
-  min-height: 100vh; /* At least full viewport height */
+.ymaps-2-1-79-copyright {
+  display: none !important;
 }
 
-
-/* Contact container on top */
 .contact-container {
   position: absolute;
-  bottom: 5%; 
+  bottom: 5%;
   left: 50%;
   transform: translate(-50%, 0%);
   z-index: 2;
   display: flex;
   flex-wrap: wrap;
-  max-width: 1200px;
+  width: 84vw;
   gap: 30px;
   justify-content: space-between;
-  background-color: #f5f5ea;
-  padding: 40px 20px;
+  background-color: var(--secondary-color);
+  padding: 20px 25px;
   font-family: sans-serif;
   color: #1a2e26;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* optional: lift from map */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* optional: lift from map */
   border-radius: 12px; /* optional */
 }
-
-
 
 .contact-column {
   flex: 1;
@@ -35,21 +27,23 @@
 }
 
 .contact-heading {
-  font-size: 2rem;
+  font-family: var(--primary-font-style);
+  font-size: 1.45rem;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .contact-subheading {
-  font-size: 1rem;
+  font-family: var(--primary-font-style);
+  font-size: 1vw;
   font-weight: 700;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   position: relative;
 }
 
 /* The small dash before the headings in the image */
 .contact-subheading::before {
-  content: "—";
+  content: '—';
   position: absolute;
   left: -20px;
   font-weight: 300;
@@ -63,40 +57,49 @@
 }
 
 .contact-info-item a {
+  font-family: var(--secondary-font-style);
   text-decoration: none;
   color: inherit;
-  font-size: 0.95rem;
+  font-size: 1vw;
+  font-weight: 300;
 }
 
 .contact-address {
+  font-family: var(--secondary-font-style);
   font-style: normal;
   line-height: 1.6;
-  font-size: 0.9rem;
+  font-size: 0.95vw;
+  font-weight: 300;
   color: #4a4a4a;
 }
 
 .contact-socials {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 13px;
 }
 
-/* Reusing your social-button class */
-.social-button {
-  display: flex;
+.contact-column .social-button {
+  width: 2.2vw;
+  height: 2.2vw;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #1a2e26;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #1a2e26;
-  transition: opacity 0.2s;
+  border: 1px solid rgba(30, 49, 43, 0.8);
+  border-radius: 0.6vw;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: var(--primary-color);
 }
 
-.social-button:hover {
-  opacity: 0.7;
+.contact-column .social-button svg {
+  width: 1vw;
+  height: 1vw;
+}
+
+.contact-column .social-button:hover {
+  border-color: var(--light-greantea-color);
+  color: var(--light-greantea-color);
 }
 
 /* Responsive adjustment */
