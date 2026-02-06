@@ -4,7 +4,7 @@ import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 ---
 
-<div class="navbar__marquee swiper navbar-marquee">
+<div id="navbar-marquee" class="navbar__marquee swiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
@@ -126,7 +126,8 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
   import { Autoplay } from 'swiper/modules';
   import 'swiper/css';
 
-  new Swiper('.navbar-marquee', {
+  new Swiper('#navbar-marquee', {
+    // <- target only this swiper
     modules: [Autoplay],
     loop: true,
     slidesPerView: 'auto',

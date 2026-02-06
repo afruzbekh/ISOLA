@@ -22,7 +22,8 @@ import '../styles/Footer.css';
       content="ISOLA — premium furniture manufacturing expertise since 2008."
     />
     <link rel="icon" type="image/svg+xml" href={logo.src} />
-    <link rel="canonical" href="https://isola.uz/" />
+    <link rel="canonical" href="https://isola.uz/contacts" />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -30,7 +31,13 @@ import '../styles/Footer.css';
         "name": "ISOLA",
         "url": "https://isola.uz",
         "logo": "https://isola.uz/logo.svg",
-        "foundingDate": "2008"
+        "foundingDate": "2008",
+        "sameAs": ["https://instagram.com/isola", "https://telegram.me/isola"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "url": "https://isola.uz/contacts/"
+        }
       }
     </script>
     <script
@@ -41,7 +48,6 @@ import '../styles/Footer.css';
     <NavBar />
     <main>
       <section class="map-section">
-
         <div class="contact-container">
           <div class="contact-column contact-main-mobile">
             <h4 class="contact-heading">Контакты</h4>
