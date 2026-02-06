@@ -121,6 +121,7 @@
 
 @media (max-width: 1024px) {
   .header {
+    background-size: cover;
     background-position: 78% center;
   }
   .header h1 {

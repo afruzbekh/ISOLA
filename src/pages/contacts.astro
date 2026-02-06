@@ -34,26 +34,22 @@ import '../styles/Footer.css';
       }
     </script>
     <script
-      src="https://api-maps.yandex.com/2.1/?apikey=YOUR_API_KEY&lang=en_US"
+      src="https://api-maps.yandex.com/2.1/?apikey=YOUR_API_KEY&lang=ru_RU"
       type="text/javascript"></script>
   </head>
   <body>
     <NavBar />
     <main>
       <section class="map-section">
-        <div id="map" style="width: 100vw; height: 100vh;"></div>
 
         <div class="contact-container">
-          <div class="contact-column contact-main">
+          <div class="contact-column contact-main-mobile">
             <h4 class="contact-heading">Контакты</h4>
             <div class="contact-info-item">
               <svg
-                width="20"
-                height="20"
                 viewBox="0 0 64 64"
                 xmlns="http://www.w3.org/2000/svg"
                 stroke-width="3"
-                stroke="#000"
                 fill="none"
                 ><path
                   d="M11.11 8.4a2.62 2.62 0 0 0-2.53 2.78c.35 6 2 20.64 9.9 29.77 9.46 11 21.78 14.79 34.42 14.23a2.68 2.68 0 0 0 2.52-2.65v-9.61a4 4 0 0 0-3.09-3.86L46 37.66a4 4 0 0 0-4.16 1.69l-1.4 2.12a1 1 0 0 1-1.22.37C36 40.45 23.17 34.45 21.76 24.33a1 1 0 0 1 .48-1l2.54-1.55a4 4 0 0 0 1.81-4.21l-1.39-6.44a4 4 0 0 0-4-3.12Z"
@@ -63,12 +59,9 @@ import '../styles/Footer.css';
             </div>
             <div class="contact-info-item">
               <svg
-                width="20"
-                height="20"
                 viewBox="0 0 64 64"
                 xmlns="http://www.w3.org/2000/svg"
                 stroke-width="3"
-                stroke="#000"
                 fill="none"
                 ><path
                   d="M11.11 8.4a2.62 2.62 0 0 0-2.53 2.78c.35 6 2 20.64 9.9 29.77 9.46 11 21.78 14.79 34.42 14.23a2.68 2.68 0 0 0 2.52-2.65v-9.61a4 4 0 0 0-3.09-3.86L46 37.66a4 4 0 0 0-4.16 1.69l-1.4 2.12a1 1 0 0 1-1.22.37C36 40.45 23.17 34.45 21.76 24.33a1 1 0 0 1 .48-1l2.54-1.55a4 4 0 0 0 1.81-4.21l-1.39-6.44a4 4 0 0 0-4-3.12Z"
@@ -80,11 +73,64 @@ import '../styles/Footer.css';
             <!-- <div class="contact-info-item">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#000"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2"
+                ></path><path d="m22 6-10 7L2 6"></path></svg
+              >
+              <a href="mailto:sales@whitemeadow.com">example.gmail.com</a>
+            </div> -->
+
+            <div class="contact-socials">
+              <a href="#" class="social-button" aria-label="Instagram"
+                ><InstagramIcon /></a
+              >
+              <a href="#" class="social-button" aria-label="LinkedIn"
+                ><TelegramIcon /></a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="contact-container">
+          <div class="contact-column contact-main-pc">
+            <h4 class="contact-heading">Контакты</h4>
+            <div class="contact-info-item">
+              <svg
+                viewBox="0 0 64 64"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke-width="3"
+                fill="none"
+                ><path
+                  d="M11.11 8.4a2.62 2.62 0 0 0-2.53 2.78c.35 6 2 20.64 9.9 29.77 9.46 11 21.78 14.79 34.42 14.23a2.68 2.68 0 0 0 2.52-2.65v-9.61a4 4 0 0 0-3.09-3.86L46 37.66a4 4 0 0 0-4.16 1.69l-1.4 2.12a1 1 0 0 1-1.22.37C36 40.45 23.17 34.45 21.76 24.33a1 1 0 0 1 .48-1l2.54-1.55a4 4 0 0 0 1.81-4.21l-1.39-6.44a4 4 0 0 0-4-3.12Z"
+                ></path></svg
+              >
+              <a href="tel:+998991227766">+998 99 122 77 66</a>
+            </div>
+            <div class="contact-info-item">
+              <svg
+                viewBox="0 0 64 64"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke-width="3"
+                fill="none"
+                ><path
+                  d="M11.11 8.4a2.62 2.62 0 0 0-2.53 2.78c.35 6 2 20.64 9.9 29.77 9.46 11 21.78 14.79 34.42 14.23a2.68 2.68 0 0 0 2.52-2.65v-9.61a4 4 0 0 0-3.09-3.86L46 37.66a4 4 0 0 0-4.16 1.69l-1.4 2.12a1 1 0 0 1-1.22.37C36 40.45 23.17 34.45 21.76 24.33a1 1 0 0 1 .48-1l2.54-1.55a4 4 0 0 0 1.81-4.21l-1.39-6.44a4 4 0 0 0-4-3.12Z"
+                ></path></svg
+              >
+              <a href="tel:+998901227788">+998 90 122 77 88</a>
+            </div>
+
+            <!-- <div class="contact-info-item">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
                 stroke-width="1"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -105,27 +151,22 @@ import '../styles/Footer.css';
             </div>
           </div>
 
-          <div class="contact-column">
-            <h5 class="contact-subheading">Главный офис ISOLA</h5>
-            <address class="contact-address">
-              улица Джами, <br /> Ташкент, Узбекистан <br />
-              Координаты: <br /> 41.356871, 69.256864
-            </address>
-          </div>
+          <div class="contact-column-right">
+            <div class="contact-column">
+              <h5 class="contact-subheading">Главный офис ISOLA</h5>
+              <address class="contact-address">
+                улица Джами, <br /> Ташкент, Узбекистан <br />
+                Координаты: <br /> 41.356871, 69.256864
+              </address>
+            </div>
 
-          <div class="contact-column">
-            <h5 class="contact-subheading">Производственный цех ISOLA</h5>
-            <address class="contact-address">
-              улица Джами, <br /> Ташкент, Узбекистан <br />
-              Координаты: <br /> 41.356871, 69.256864
-            </address>
-          </div>
-          <div class="contact-column">
-            <h5 class="contact-subheading">Производственный цех ISOLA</h5>
-            <address class="contact-address">
-              улица Джами, <br /> Ташкент, Узбекистан <br />
-              Координаты: <br /> 41.356871, 69.256864
-            </address>
+            <div class="contact-column">
+              <h5 class="contact-subheading">Производственный цех ISOLA</h5>
+              <address class="contact-address">
+                улица Джами, <br /> Ташкент, Узбекистан <br />
+                Координаты: <br /> 41.356871, 69.256864
+              </address>
+            </div>
           </div>
         </div>
       </section>
@@ -164,9 +205,7 @@ import '../styles/Footer.css';
        Главный офис ISOLA
      </div>
      <div>
-       <svg width="35" height="35" viewBox="-3 0 24 24" xmlns="http://www.w3.org/2000/svg">
-         <path d="M8.075 23.52C1.264 13.642 0 12.629 0 9c0-4.971 4.029-9 9-9s9 4.029 9 9c0 3.629-1.264 4.64-8.075 14.516a1.126 1.126 0 0 1-1.847.004l-.002-.004zM9 12.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5"/>
-       </svg>
+       <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="var(--primary-color)" fill-rule="evenodd" d="M11.291 21.706 12 21zM12 21l.708.706a1 1 0 0 1-1.417 0l-.006-.007-.017-.017-.062-.063a48 48 0 0 1-1.04-1.106 50 50 0 0 1-2.456-2.908c-.892-1.15-1.804-2.45-2.497-3.734C4.535 12.612 4 11.248 4 10c0-4.539 3.592-8 8-8s8 3.461 8 8c0 1.248-.535 2.612-1.213 3.87-.693 1.286-1.604 2.585-2.497 3.735a50 50 0 0 1-3.496 4.014l-.062.063-.017.017-.006.006zm0-8a3 3 0 1 0 0-6 3 3 0 0 0 0 6" clip-rule="evenodd"/></svg>
      </div>
    </div>`
     );
@@ -179,8 +218,8 @@ import '../styles/Footer.css';
         iconShape: {
           type: 'Rectangle',
           coordinates: [
-            [-15, -45], // adjust for upward movement
-            [25, 5], // adjust for right movement
+            [-15, -45],
+            [25, 5],
           ],
         },
       }

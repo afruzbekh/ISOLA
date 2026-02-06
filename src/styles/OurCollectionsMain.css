@@ -303,14 +303,14 @@
 
 @media (max-width: 1024px) {
   .OurCollectionsMain {
-    padding: 50px 25px;
+    padding: 50px 25px 75px 25px;
   }
   .OurCollectionsMain-header {
     font-size: 14px;
     line-height: 1.4;
   }
   .OurCollectionsMain-container {
-    top: 0;
+    top: 15px;
     flex-direction: column;
   }
 
