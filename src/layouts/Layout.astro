@@ -17,13 +17,32 @@ import '../styles/Footer.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={logo.src} />
-    <meta name="generator" content={Astro.generator} />
+
     <title>ISOLA</title>
+    <meta
+      name="description"
+      content="ISOLA — premium furniture manufacturing expertise since 2008."
+    />
+    <meta name="google-site-verification" content="AbCdEf123456" />
+
+    <meta name="google-site-verification" content="1txaxF5-djopBgl8cHaPImoEmtSgSTiW1bN_UthEPaY" />
+    <link rel="icon" type="image/svg+xml" href={logo.src} />
+    <link rel="canonical" href="https://isola.uz/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ISOLA",
+        "url": "https://isola.uz",
+        "logo": "https://isola.uz/logo.svg",
+        "foundingDate": "2008"
+      }
+    </script>
   </head>
   <body>
     <NavBar />
