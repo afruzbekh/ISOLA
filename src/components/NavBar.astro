@@ -4,43 +4,42 @@ import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 ---
 
-<div id="navbar-marquee" class="navbar__marquee swiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide navbar-marquee-slide">
+<div class="navbar__marquee navbar-marquee">
+  <div class="navbar-marquee-wrapper">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <!-- duplicate for seamless loop -->
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
-    <div class="swiper-slide navbar-marquee-slide">
+    <div class="navbar-marquee-slide">
       <span>Сайт в тестовом режиме</span>
     </div>
   </div>
@@ -122,13 +121,16 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 </div>
 
 <script>
-  import Swiper from 'swiper';
+import Swiper from 'swiper';
   import { Autoplay } from 'swiper/modules';
   import 'swiper/css';
 
-  new Swiper('#navbar-marquee', {
-    // <- target only this swiper
+  new Swiper('.navbar-marquee', {
     modules: [Autoplay],
+    // Essential: Tell Swiper to use our custom classes
+    wrapperClass: 'navbar-marquee-wrapper',
+    slideClass: 'navbar-marquee-slide',
+    
     loop: true,
     slidesPerView: 'auto',
     spaceBetween: 0,
@@ -139,7 +141,7 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
       disableOnInteraction: false,
     },
   });
-
+  
   document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const overlay = document.querySelector('.mobile-menu-overlay');

@@ -96,13 +96,27 @@
   background: var(--primary-color);
   z-index: 20;
   padding: 0.85vw 0;
-  display: flex;
+  /* Use flex here to align the wrapper vertically if needed */
+  display: flex; 
   align-items: center;
   box-sizing: border-box;
 }
 
+/* NEW: Custom Wrapper Styles (Replaces default .swiper-wrapper styles) */
+.navbar__marquee .navbar-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex; /* Critical for slides to sit side-by-side */
+  transition-property: transform;
+  box-sizing: content-box;
+  transition-timing-function: linear; /* Ensures smooth marquee movement */
+}
+
+/* Slide Styles */
 .navbar__marquee .navbar-marquee-slide {
-  width: auto !important;
+  width: auto !important; /* Forces auto width regardless of global styles */
   flex-shrink: 0;
   margin: 0 0.78vw;
   font-family: var(--secondary-font-style);

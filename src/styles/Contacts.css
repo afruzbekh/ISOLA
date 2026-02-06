@@ -35,6 +35,7 @@
 .contact-heading {
   font-family: var(--primary-font-style);
   font-size: 1.5vw;
+  line-height: 1;
   font-weight: 200;
   margin-bottom: 10px;
 }
