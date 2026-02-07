@@ -35,6 +35,23 @@ import '../styles/Footer.css';
         "foundingDate": "2008"
       }
     </script>
+    <style is:global>
+      html.lenis, html.lenis body {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
     <NavBar />
@@ -45,5 +62,35 @@ import '../styles/Footer.css';
       <TrustedBy />
     </main>
     <Footer />
+   <script>
+      import Lenis from 'lenis';
+
+      function initLenis() {
+        const lenis = new Lenis({
+          lerp: 0,
+          duration: 2,
+          wheelMultiplier: 1,
+        });
+
+        function raf(time: number) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = anchor.getAttribute('href');
+            if (target) lenis.scrollTo(target);
+          });
+        });
+      }
+
+      initLenis();
+
+      document.addEventListener('astro:after-swap', initLenis);
+    </script>
   </body>
 </html>
