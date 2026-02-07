@@ -67,10 +67,9 @@ import '../styles/Footer.css';
 
       function initLenis() {
         const lenis = new Lenis({
-          lerp: 0.1,
-          duration: 2.2,
-          wheelMultiplier: 1,
-        });
+        lerp: 0.1,
+        duration: 2,  
+      });
 
         function raf(time: number) {
           lenis.raf(time);

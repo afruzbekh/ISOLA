@@ -58,9 +58,10 @@
 }
 
 .OurCollectionsMain-index {
+  font-family: var(--secondary-font-style);
   color: var(--accent-color);
   font-size: 1.5vw;
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .OurCollectionsMain-title {
