@@ -1,8 +1,6 @@
 ---
-import logo from '../assets/icons/favicon.svg';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
-import LogoIcon from '../assets/icons/icon.astro';
 import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 import '../styles/global.css';
@@ -21,7 +19,11 @@ import '../styles/Footer.css';
       name="description"
       content="ISOLA — premium furniture manufacturing expertise since 2008."
     />
-    <link rel="icon" type="image/svg+xml" href={logo.src} />
+    <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon-192.png">
     <link rel="canonical" href="https://isola.uz/contacts" />
 
     <script type="application/ld+json">
@@ -196,8 +198,8 @@ import '../styles/Footer.css';
 
       function initLenis() {
         const lenis = new Lenis({
-        lerp: 0.1,
-        duration: 2, 
+        lerp: 0.2,
+        duration: 2.2, 
       });
 
         function raf(time: number) {
