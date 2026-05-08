@@ -236,6 +236,28 @@ import '../styles/Footer.css';
       behaviors: ['drag'],
     });
 
+    function centerControls() {
+      const mapHeight = document.getElementById('map').offsetHeight;
+      const zoomControlHeight = 86;
+      const topOffset = Math.round((mapHeight - zoomControlHeight) / 2);
+      const isMobile = window.innerWidth <= 768;
+      const mobileShift = isMobile ? 60 : 0;
+
+      map.controls.remove('zoomControl');
+      map.controls.remove('fullscreenControl');
+
+      map.controls.add('zoomControl', {
+        position: { right: '20px', top: `${topOffset - 115 + mobileShift}px` }
+      });
+
+      map.controls.add('fullscreenControl', {
+        position: { right: '20px', top: `${topOffset - 115 + mobileShift - 44}px` }
+      });
+    }
+
+    centerControls();
+    window.addEventListener('resize', centerControls);
+
     var MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
       `<div style="
        display: flex;

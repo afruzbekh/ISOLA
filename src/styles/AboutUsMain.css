@@ -137,7 +137,8 @@
 
 @media (max-width: 1024px) {
   .about-us_mainPage {
-    padding: 50px 25px;
+    /* padding: 50px 25px; */
+    padding: 60px 25px;
   }
   .about-us_mainPage__container {
     flex-direction: column-reverse;

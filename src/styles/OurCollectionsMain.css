@@ -303,7 +303,8 @@
 
 @media (max-width: 1024px) {
   .OurCollectionsMain {
-    padding: 50px 25px 75px 25px;
+    /* padding: 50px 25px 75px 25px; */
+    padding: 60px 25px 0 25px;
   }
   .OurCollectionsMain-header {
     font-size: 14px;
@@ -416,6 +417,7 @@
   }
   .OurCollectionsMain-visual-wrapper {
     margin-top: 25px;
+    padding-bottom: 65px;
     width: 100%;
     height: min-content;
   }
