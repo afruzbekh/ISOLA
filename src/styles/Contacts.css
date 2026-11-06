@@ -27,6 +27,23 @@
     rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
+.contact-container {
+  align-items: stretch;
+}
+
+.contact-main-pc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+}
+
+.contact_parent_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+
 .contact-column-right {
   display: flex;
   gap: 80px;
@@ -56,10 +73,8 @@
 }
 
 .contact-info-item {
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 
 .contact-info-item:hover a,

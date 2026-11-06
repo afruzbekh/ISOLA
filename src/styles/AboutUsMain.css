@@ -20,8 +20,8 @@
 
 .about-us_mainPage__left__subtitle {
   position: absolute;
-  top: 9%;
-  left: 7%;
+  top: 4.5vw;     /* same as section padding-top → level with the video's top edge */
+  left: 6.87vw;   /* same as section padding-left → far left edge of the content */
   font-family: var(--secondary-font-style);
   font-size: 0.75vw;
   letter-spacing: 0.05em;
@@ -55,7 +55,7 @@
 }
 
 .about-us_mainPage__right {
-  flex: 0 0 45%;
+  flex: 0 0 48%;
   /* height: 50vw;  */
   position: relative;
   overflow: hidden;
@@ -63,7 +63,14 @@
 
 .about-us_mainPage__right img {
   width: 100%;
-  height: 100%;
+  height: 115vh;
+  object-fit: cover;
+  display: block;
+}
+
+.about-us_mainPage__right video {
+  width: 100%;
+  height: 119vh;
   object-fit: cover;
   display: block;
 }

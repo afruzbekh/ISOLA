@@ -1,6 +1,7 @@
 ---
-import { Image } from 'astro:assets';
-import AboutImg from '../assets/images/aboutUs-img.jpg';
+// import { Image } from 'astro:assets';
+// import AboutImg from '../assets/images/aboutUs-img.jpg';
+import Aboutvideo from '../assets/videos/video-isola.mp4';
 ---
 
 <section id="about" class="about-us_mainPage">
@@ -9,11 +10,11 @@ import AboutImg from '../assets/images/aboutUs-img.jpg';
       <span class="about-us_mainPage__left__subtitle">О нас</span>
       <br />
       <h2>Ведём смело. Впечатляем сильно.</h2>
-      <p>
-        Мы разрабатываем и создаём изысканную мебель для ведущих компаний,
+      <p> Мы разрабатываем и создаём изысканную мебель для ведущих компаний,
         используя высококачественные материалы и фурнитуру, а также внимательную
-        ручную работу. <br />
-        <br /> Более десяти лет опыта — из России в Узбекистан — и масштаб производства
+        ручную работу.</p>
+      <p>
+        Более десяти лет опыта — из России в Узбекистан — и масштаб производства
         позволяют создавать мебель, которая впечатляет и служит долго.
       </p>
 
@@ -50,13 +51,23 @@ import AboutImg from '../assets/images/aboutUs-img.jpg';
       </a>
     </div>
     <div class="about-us_mainPage__right">
-      <Image
+      <!-- <Image
         src={AboutImg}
         alt=""
         loading="lazy"
         decoding="async"
         format="webp"
-      />
+      /> -->
+
+      <video
+        src={Aboutvideo}
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+      >
+      </video>
     </div>
   </div>
 </section>

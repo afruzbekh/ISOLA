@@ -1,7 +1,6 @@
 .site-footer {
   position: relative;
   background-color: var(--primary-color);
-  padding: 3vw 6.87vw;
   font-family: var(--secondary-font-style);
   color: var(--secondary-color);
 }
@@ -10,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   gap: 5vw;
+  padding: 3vw 6.87vw;
   flex-wrap: wrap;
   margin: 0 auto;
 }
@@ -17,6 +17,7 @@
 .footer-container-right {
   display: flex;
   gap: 5vw;
+  align-items: stretch;
 }
 
 .footer-brand {
@@ -84,25 +85,36 @@
 
 .footer-contact {
   font-size: 0.9vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-contact-wrapper {
   display: flex;
   margin-top: 0.9vw;
   gap: 5vw;
+  align-items: stretch; 
+  flex: 1;
 }
 
 .footer-address a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9vw;               /* same as .footer-contact-details */
   font-style: normal;
-  line-height: 1.6;
   color: var(--secondary-color);
   transition: color 0.2s ease-in-out;
+  /* line-height removed, so it matches the phone links */
 }
 
 .footer-contact-details {
   display: flex;
   flex-direction: column;
-  gap: 0.42vw;
+  gap: 0.9vw;
+}
+
+.footer-email {
+  margin-top: auto;      
 }
 
 .footer-contact-details a {
@@ -143,7 +155,6 @@
 }
 
 footer hr {
-  margin: 3.2vw 0 2.3vw 0;
   width: 100vw;
   border: none;
   border-top: 1px solid var(--secondary-color);
@@ -155,27 +166,57 @@ footer hr {
 }
 
 .back-to-top {
+  padding: 2.6vw 6.87vw;
   font-size: 0.91vw;
   font-weight: 300;
   color: var(--secondary-color);
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   width: 100%;
-  text-align: right;
-  display: block;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5vw;
 }
 
 .back-to-top:hover {
   color: var(--accent-color);
 }
 
-.footerScrolltoTop__arrow {
-  width: 1vw;
-  height: 0.7vw;
+/* Clipping window for the arrows */
+.footerScrolltoTop__arrow-wrap {
+  position: relative;
+  display: block;
+  width: 0.8vw;
+  height: 0.9vw;
+  overflow: hidden;
+  color: var(--accent-color);
 }
 
+.footerScrolltoTop__arrow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.52s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Resting state: second arrow waits below the window */
+.footerScrolltoTop__arrow--next {
+  transform: translateY(110%);
+  transition-delay: 0.05s;
+}
+
+/* Hover: first arrow exits up, second enters from below */
+.back-to-top:hover .footerScrolltoTop__arrow--current {
+  transform: translateY(-110%);
+}
+
+.back-to-top:hover .footerScrolltoTop__arrow--next {
+  transform: translateY(0);
+}
 .footer-bottom--mobile {
   display: none;
 }
