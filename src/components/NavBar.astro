@@ -2,48 +2,19 @@
 import LogoIcon from '../assets/icons/icon.astro';
 import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
----
 
-<div class="navbar__marquee navbar-marquee" style="display: none">
-  <div class="navbar-marquee-wrapper">
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-    <div class="navbar-marquee-slide">
-      <span>Сайт в тестовом режиме</span>
-    </div>
-  </div>
-</div>
+import denzaShowroom from '../assets/images/denza_showroom.jpg';
+
+
+const collections = [
+  { name: 'Автосалоны', href: '/#collections', image: denzaShowroom.src },
+  { name: 'Рестораны',  href: '/#collections', image: denzaShowroom.src },
+  { name: 'Отели',      href: '/#collections', image: denzaShowroom.src },
+  { name: 'Офисы',      href: '/#collections', image: denzaShowroom.src },
+  { name: 'Учебные центры',      href: '/#collections', image: denzaShowroom.src },
+  { name: 'Интерьеры',  href: '/#collections', image: denzaShowroom.src },
+];
+---
 
 <nav class="navbar" aria-label="Main navigation">
   <div class="navbar-inner">
@@ -54,7 +25,25 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 
     <ul class="nav-links">
       <li><a href="/#about">О нас</a></li>
-      <li><a href="/#collections">Наши коллекции</a></li>
+      <li class="nav-item--dropdown" data-collections-trigger>
+        <a href="/#collections" aria-haspopup="true" aria-expanded="false">
+          Наши коллекции
+          <svg
+            class="nav-arrow"
+            viewBox="0 0 12 12"
+            width="12"
+            height="12"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M2 4.25 6 8l4-3.75"></path>
+          </svg>
+        </a>
+      </li>
       <li><a href="/#partners">Наши партнёры</a></li>
       <!-- <li><a href="#faq">Часто задаваемые вопросы</a></li> -->
       <li><a href="/contacts">Контакты</a></li>
@@ -67,6 +56,62 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
     </button>
   </div>
 </nav>
+
+<!-- Collections mega menu (desktop only) -->
+<div class="collections-panel" aria-hidden="true">
+  <div class="collections-panel__grid">
+    {
+      collections.map((item) => (
+        <a href={item.href} class="collection-card">
+  <span class="collection-card__media">
+    <img src={item.image} alt={item.name} loading="lazy" />
+    <span class="collection-card__overlay">
+      <span class="collection-card__name">{item.name}</span>
+    </span>
+  </span>
+  <span class="collection-card__footer">
+    <span class="collection-card__label">{item.name}</span>
+    <span class="collection-card__view">View</span>
+  </span>
+</a>
+      ))
+    }
+  </div>
+
+  <a
+      href="#"
+      id="collection-link"
+      class="OurCollectionsMain-cta-pc"
+    >
+      <span class="OurCollectionsMain-cta-pc__label">Посмотреть коллекцию</span>
+
+      <div class="OurCollectionsMain-cta-pc__arrowWrapper">
+        <svg
+          class="OurCollectionsMain-cta-pc__arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 45 10"
+        >
+          <path
+            stroke="currentColor"
+            stroke-width="1"
+            d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+        </svg>
+
+        <svg
+          class="OurCollectionsMain-cta-pc__arrowHover"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 45 10"
+        >
+          <path
+            stroke="currentColor"
+            stroke-width="1"
+            d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+        </svg>
+      </div>
+    </a>
+</div>
 
 <div class="mobile-menu-overlay" aria-hidden="true">
   <ul class="mobile-menu">
@@ -120,46 +165,84 @@ import TelegramIcon from '../assets/icons/TelegramIcon.astro';
   </ul>
 </div>
 
-<script>
-import Swiper from 'swiper';
-  import { Autoplay } from 'swiper/modules';
-  import 'swiper/css';
-
-  new Swiper('.navbar-marquee', {
-    modules: [Autoplay],
-    // Essential: Tell Swiper to use our custom classes
-    wrapperClass: 'navbar-marquee-wrapper',
-    slideClass: 'navbar-marquee-slide',
-    
-    loop: true,
-    slidesPerView: 'auto',
-    spaceBetween: 0,
-    speed: 9000,
-    allowTouchMove: false,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-    },
-  });
-  
+<script>  
   document.addEventListener('DOMContentLoaded', () => {
+    /* ===== Mobile menu ===== */
     const hamburger = document.querySelector('.hamburger');
     const overlay = document.querySelector('.mobile-menu-overlay');
 
-    if (!hamburger || !overlay) return;
+    if (hamburger && overlay) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('is-active');
+        overlay.classList.toggle('is-visible', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+      });
 
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.toggle('is-active');
-      overlay.classList.toggle('is-visible', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
+      overlay.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('is-active');
+          overlay.classList.remove('is-visible');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    /* ===== Collections mega menu (desktop) ===== */
+    const trigger = document.querySelector('[data-collections-trigger]');
+    const triggerLink = trigger?.querySelector('a');
+    const panel = document.querySelector('.collections-panel');
+    const navbar = document.querySelector('.navbar');
+    const otherLinks = document.querySelectorAll(
+      '.nav-links li:not([data-collections-trigger])'
+    );
+
+    if (!trigger || !panel || !navbar) return;
+
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    let closeTimer: ReturnType<typeof setTimeout> | undefined;
+
+    const open = () => {
+      if (!desktop.matches) return;
+      clearTimeout(closeTimer);
+      panel.classList.add('is-open');
+      trigger.classList.add('is-open');
+      panel.setAttribute('aria-hidden', 'false');
+      triggerLink?.setAttribute('aria-expanded', 'true');
+    };
+
+    const close = () => {
+      clearTimeout(closeTimer);
+      panel.classList.remove('is-open');
+      trigger.classList.remove('is-open');
+      panel.setAttribute('aria-hidden', 'true');
+      triggerLink?.setAttribute('aria-expanded', 'false');
+    };
+
+    // Small delay so the cursor can travel between navbar and panel
+    const scheduleClose = () => {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(close, 120);
+    };
+
+    trigger.addEventListener('mouseenter', open);
+    panel.addEventListener('mouseenter', open);
+    navbar.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+
+    // Leaving the whole section (navbar + panel) closes the menu
+    navbar.addEventListener('mouseleave', scheduleClose);
+    panel.addEventListener('mouseleave', scheduleClose);
+
+    // Hovering another nav link closes it right away
+    otherLinks.forEach((li) => li.addEventListener('mouseenter', close));
+
+    // Keyboard access
+    triggerLink?.addEventListener('focus', open);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
     });
 
-    overlay.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('is-active');
-        overlay.classList.remove('is-visible');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
+    desktop.addEventListener('change', (e) => {
+      if (!e.matches) close();
     });
   });
 </script>
