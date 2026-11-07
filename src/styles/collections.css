@@ -1,0 +1,415 @@
+
+  .showroom-page {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 9vw 1.27vw 7vw;
+    font-family: var(--primary-font-style);
+  }
+
+
+  /* ========================================
+     INTRO
+  ======================================== */
+
+  .showroom-intro {
+    margin-bottom: 9vw;
+  }
+
+  .showroom-intro__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4vw;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65vw;
+    font-family: var(--secondary-font-style);
+    font-size: 0.7vw;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow__line {
+    width: 2vw;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .intro-index {
+    font-family: var(--secondary-font-style);
+    font-size: 0.7vw;
+    opacity: 0.6;
+  }
+
+  .showroom-intro__content {
+    display: grid;
+    grid-template-columns: 1.5fr 0.65fr;
+    align-items: end;
+    gap: 4vw;
+  }
+
+  .showroom-intro h1 {
+    margin: 0;
+    font-size: 5.5vw;
+    line-height: 0.98;
+    font-weight: 400;
+    letter-spacing: -0.055em;
+  }
+
+  .showroom-intro h1 span,
+  .showroom-closing h2 span {
+    color: var(--light-greantea-color);
+  }
+
+  .showroom-intro__content p {
+    max-width: 25vw;
+    margin: 0 0 0.5vw;
+    font-family: var(--secondary-font-style);
+    font-size: 0.9vw;
+    line-height: 1.8;
+    opacity: 0.75;
+  }
+
+
+  /* ========================================
+     PROJECT
+  ======================================== */
+
+  .project {
+    margin-bottom: 10vw;
+  }
+
+  .project__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 2.5vw;
+  }
+
+  .project__number {
+    font-family: var(--secondary-font-style);
+    font-size: 0.7vw;
+    letter-spacing: 0.08em;
+    opacity: 0.65;
+  }
+
+  .project__heading h2 {
+    margin: 0.7vw 0 0;
+    font-size: 5vw;
+    line-height: 0.9;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+  }
+
+  .project__location {
+    padding-bottom: 0.5vw;
+    font-family: var(--secondary-font-style);
+    font-size: 0.7vw;
+    letter-spacing: 0.06em;
+    opacity: 0.65;
+  }
+
+
+  /* ========================================
+     DYNAMIC GALLERY
+  ======================================== */
+
+  .project-gallery {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: 5vw;
+    gap: 1.35vw;
+  }
+
+  .project-gallery__item {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--light-greantea-color);
+  }
+
+  /* Horizontal image */
+  .project-gallery__item.is-landscape {
+    grid-column: span 8;
+    grid-row: span 5;
+  }
+
+  /* Vertical image */
+  .project-gallery__item.is-portrait {
+    grid-column: span 4;
+    grid-row: span 7;
+  }
+
+  /* Square image */
+  .project-gallery__item.is-square {
+    grid-column: span 4;
+    grid-row: span 5;
+  }
+
+  .project-gallery__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+      transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .project-gallery__item:hover img {
+    transform: scale(1.04);
+  }
+
+  .image-index {
+    position: absolute;
+    right: 1vw;
+    bottom: 1vw;
+    z-index: 2;
+    color: #fff;
+    font-family: var(--secondary-font-style);
+    font-size: 0.7vw;
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  }
+
+
+  /* ========================================
+     PROJECT INFO
+  ======================================== */
+
+  .project-info {
+    display: grid;
+    grid-template-columns: 1.5fr 0.65fr;
+    gap: 4vw;
+    margin-top: 4vw;
+  }
+
+  .project-info__description h3 {
+    max-width: 40vw;
+    margin: 1.5vw 0 0;
+    font-size: 2.2vw;
+    line-height: 1.15;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+  }
+
+  .project-info__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+  }
+
+  .project-info__text p {
+    margin: 0;
+    font-family: var(--secondary-font-style);
+    font-size: 0.85vw;
+    line-height: 1.8;
+    opacity: 0.75;
+  }
+
+
+  /* ========================================
+     CLOSING
+  ======================================== */
+
+  .showroom-closing {
+    padding: 5vw 0 2vw;
+    border-top: 1px solid rgba(12, 31, 26, 0.2);
+  }
+
+  .showroom-closing h2 {
+    margin: 2vw 0 0;
+    font-size: 4.5vw;
+    line-height: 1.05;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+  }
+
+
+  /* ========================================
+     TABLET
+  ======================================== */
+
+  @media (max-width: 1023px) {
+
+    .showroom-page {
+      padding: 13vw 2vw 8vw;
+    }
+
+    .eyebrow,
+    .intro-index,
+    .project__number,
+    .project__location {
+      font-size: 1.1vw;
+    }
+
+    .showroom-intro h1 {
+      font-size: 7vw;
+    }
+
+    .showroom-intro__content p {
+      max-width: 35vw;
+      font-size: 1.3vw;
+    }
+
+    .project__heading h2 {
+      font-size: 6vw;
+    }
+
+    .project-gallery {
+      grid-auto-rows: 7vw;
+      gap: 1.5vw;
+    }
+
+    .project-info__description h3 {
+      font-size: 3vw;
+    }
+
+    .project-info__text p {
+      font-size: 1.2vw;
+    }
+
+    .image-index {
+      font-size: 1vw;
+    }
+
+    .showroom-closing h2 {
+      font-size: 6vw;
+    }
+
+  }
+
+
+  /* ========================================
+     MOBILE
+  ======================================== */
+
+  @media (max-width: 600px) {
+
+    .showroom-page {
+      padding: 110px 16px 70px;
+    }
+
+    .showroom-intro {
+      margin-bottom: 70px;
+    }
+
+    .showroom-intro__top {
+      margin-bottom: 45px;
+    }
+
+    .eyebrow,
+    .intro-index,
+    .project__number,
+    .project__location {
+      font-size: 10px;
+    }
+
+    .eyebrow {
+      gap: 8px;
+    }
+
+    .eyebrow__line {
+      width: 20px;
+    }
+
+    .showroom-intro__content {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .showroom-intro h1 {
+      font-size: 12vw;
+      line-height: 1;
+    }
+
+    .showroom-intro__content p {
+      max-width: 90%;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .project {
+      margin-bottom: 75px;
+    }
+
+    .project__heading {
+      align-items: end;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .project__heading h2 {
+      margin-top: 10px;
+      font-size: 12vw;
+    }
+
+    .project__location {
+      max-width: 120px;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .project-gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 36vw;
+      gap: 10px;
+    }
+
+    .project-gallery__item.is-landscape {
+      grid-column: span 2;
+      grid-row: span 3;
+    }
+
+    .project-gallery__item.is-portrait {
+      grid-column: span 1;
+      grid-row: span 3;
+    }
+
+    .project-gallery__item.is-square {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+
+    .image-index {
+      right: 10px;
+      bottom: 10px;
+      font-size: 10px;
+    }
+
+    .project-info {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .project-info__description h3 {
+      max-width: 100%;
+      margin-top: 15px;
+      font-size: 7vw;
+      line-height: 1.15;
+    }
+
+    .project-info__text {
+      gap: 12px;
+    }
+
+    .project-info__text p {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .showroom-closing {
+      padding: 40px 0 10px;
+    }
+
+    .showroom-closing h2 {
+      margin-top: 20px;
+      font-size: 9vw;
+    }
+
+  }

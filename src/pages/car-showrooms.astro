@@ -1,0 +1,316 @@
+
+---
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/global.css';
+import '../styles/NavBar.css';
+import '../styles/collections.css';
+import '../styles/Footer.css';
+
+// DENZA images
+import denza01 from '../assets/images/denza_showroom.jpg';
+import denza02 from '../assets/images/denza_bar.jpg';
+import denza03 from '../assets/images/denza_showroom.jpg';
+import denza04 from '../assets/images/denza_showroom.jpg';
+
+// PROJECT DATA
+const projects = [
+  {
+    name: 'DENZA',
+    category: 'АВТОСАЛОН',
+    location: 'TASHKENT, UZBEKISTAN',
+
+    description: [
+      'Для автосалона DENZA мы разработали и реализовали мебельные решения, уделяя особое внимание эстетике, функциональности и качеству исполнения.',
+      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.'
+    ],
+
+    images: [
+      { src: denza01.src, alt: 'Интерьер автосалона DENZA' },
+      { src: denza02.src, alt: 'Мебель автосалона DENZA' },
+      { src: denza03.src, alt: 'Детали проекта DENZA' },
+      { src: denza04.src, alt: 'Реализованный проект DENZA' },
+    ]
+  },
+
+  {
+    name: 'BYD',
+    category: 'АВТОСАЛОН',
+    location: 'NAMANGAN, UZBEKISTAN',
+
+    description: [
+      'Для автосалона DENZA мы разработали и реализовали мебельные решения, уделяя особое внимание эстетике, функциональности и качеству исполнения.',
+      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.'
+    ],
+
+    images: [
+      { src: denza01.src, alt: 'Интерьер автосалона DENZA' },
+      { src: denza02.src, alt: 'Мебель автосалона DENZA' },
+      { src: denza03.src, alt: 'Детали проекта DENZA' },
+      { src: denza04.src, alt: 'Реализованный проект DENZA' },
+    ]
+  },
+
+  // Add more projects here
+];
+
+const totalProjects = String(projects.length).padStart(2, '0');
+---
+
+<!doctype html>
+<html lang="ru">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Автосалоны — реализованные проекты | ISOLA</title>
+
+    <meta
+      name="description"
+      content="Реализованные проекты ISOLA для автосалонов. Производство мебели и интерьерные решения для коммерческих пространств."
+    />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="isola.uz" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="canonical" href="https://isola.uz/car-showrooms/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ISOLA",
+        "url": "https://isola.uz",
+        "logo": "https://isola.uz/logo.svg",
+        "foundingDate": "2008",
+        "sameAs": [
+          "https://instagram.com/isola",
+          "https://telegram.me/isola"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "url": "https://isola.uz/contacts/"
+        }
+      }
+    </script>
+
+    <script
+      src="https://api-maps.yandex.com/2.1/?apikey=YOUR_API_KEY&lang=ru_RU"
+      type="text/javascript">
+    </script>
+
+    <style is:global>
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <NavBar />
+
+    <main>
+      <section class="showroom-page">
+
+        <!-- INTRO -->
+        <div class="showroom-intro">
+
+          <div class="showroom-intro__top">
+            <span class="eyebrow">
+              <span class="eyebrow__line"></span>
+              ISOLA — НАШИ ПРОЕКТЫ
+            </span>
+
+            <span class="intro-index">
+              01 / {totalProjects}
+            </span>
+          </div>
+
+          <div class="showroom-intro__content">
+            <h1>
+              Пространства,<br />
+              созданные <span>для впечатлений.</span>
+            </h1>
+
+            <p>
+              Мы создаём мебель и интерьерные решения, которые формируют
+              характер пространства. От концепции и проектирования до
+              производства и реализации — каждая деталь имеет значение.
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- PROJECTS -->
+        <div class="showroom-projects">
+
+          {projects.map((project, projectIndex) => (
+
+            <article class="project">
+
+              <!-- PROJECT HEADING -->
+              <div class="project__heading">
+
+                <div class="project__title">
+                  <span class="project__number">
+                    {String(projectIndex + 1).padStart(2, '0')} — {project.category}
+                  </span>
+
+                  <h2>{project.name}</h2>
+                </div>
+
+                <span class="project__location">
+                  {project.location}
+                </span>
+
+              </div>
+
+
+              <!-- DYNAMIC IMAGE GALLERY -->
+              <div class="project-gallery">
+
+                {project.images.map((image, imageIndex) => (
+
+                  <div class="project-gallery__item">
+
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      loading={projectIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+
+                    <span class="image-index">
+                      {String(imageIndex + 1).padStart(2, '0')} /
+                      {String(project.images.length).padStart(2, '0')}
+                    </span>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+
+              <!-- PROJECT DESCRIPTION -->
+              <div class="project-info">
+
+                <div class="project-info__description">
+
+                  <span class="eyebrow">О ПРОЕКТЕ</span>
+
+                  <h3>
+                    Пространство, в котором дизайн встречается с функциональностью.
+                  </h3>
+
+                </div>
+
+                <div class="project-info__text">
+
+                  {project.description.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+
+                </div>
+
+              </div>
+
+            </article>
+
+          ))}
+
+        </div>
+
+
+        <!-- CLOSING STATEMENT -->
+        <div class="showroom-closing">
+
+          <span class="eyebrow">
+            ISOLA — МЕБЕЛЬ И ПРОСТРАНСТВО
+          </span>
+
+          <h2>
+            Внимание к деталям.<br />
+            <span>Совершенство в исполнении.</span>
+          </h2>
+
+        </div>
+
+      </section>
+    </main>
+
+    <Footer />
+
+    <!-- IMAGE ORIENTATION DETECTION -->
+    <script>
+      function setImageOrientation() {
+
+        const images = document.querySelectorAll<HTMLImageElement>(
+          '.project-gallery__item img'
+        );
+
+        images.forEach((img) => {
+
+          const updateOrientation = () => {
+
+            const item = img.closest('.project-gallery__item');
+
+            if (!item || !img.naturalWidth || !img.naturalHeight) return;
+
+            item.classList.remove(
+              'is-landscape',
+              'is-portrait',
+              'is-square'
+            );
+
+            if (img.naturalWidth > img.naturalHeight) {
+              item.classList.add('is-landscape');
+            } else if (img.naturalHeight > img.naturalWidth) {
+              item.classList.add('is-portrait');
+            } else {
+              item.classList.add('is-square');
+            }
+
+          };
+
+          if (img.complete && img.naturalWidth > 0) {
+            updateOrientation();
+          } else {
+            img.addEventListener('load', updateOrientation, { once: true });
+          }
+
+        });
+
+      }
+
+      setImageOrientation();
+    </script>
+
+  </body>
+</html>
