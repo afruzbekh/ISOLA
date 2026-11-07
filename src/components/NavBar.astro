@@ -4,15 +4,19 @@ import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 
 import denzaShowroom from '../assets/images/denza_showroom.jpg';
-
+const restaurants = 'https://images.pexels.com/photos/18177440/pexels-photo-18177440.jpeg';
+const hotels = 'https://images.pexels.com/photos/40756987/pexels-photo-40756987.jpeg';
+const offices = 'https://images.pexels.com/photos/33827333/pexels-photo-33827333.jpeg';
+import learningCenters from '../assets/images/learningCenters.jpg';
+import interiors from '../assets/images/interior.jpg';
 
 const collections = [
   { name: 'Автосалоны', href: '/#collections', image: denzaShowroom.src },
-  { name: 'Рестораны',  href: '/#collections', image: denzaShowroom.src },
-  { name: 'Отели',      href: '/#collections', image: denzaShowroom.src },
-  { name: 'Офисы',      href: '/#collections', image: denzaShowroom.src },
-  { name: 'Учебные центры',      href: '/#collections', image: denzaShowroom.src },
-  { name: 'Интерьеры',  href: '/#collections', image: denzaShowroom.src },
+  { name: 'Рестораны',  href: '/#collections', image: restaurants },
+  { name: 'Отели',      href: '/#collections', image: hotels },
+  { name: 'Офисы',      href: '/#collections', image: offices },
+  { name: 'Учебные центры',      href: '/#collections', image: learningCenters.src },
+  { name: 'Интерьеры',  href: '/#collections', image: interiors.src },
 ];
 ---
 

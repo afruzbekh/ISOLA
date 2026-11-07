@@ -1,7 +1,7 @@
 ---
 import reception2 from '../assets/images/reception2.jpg';
 import conferenceHall from '../assets/images/confrenceHall.jpg';
-import reception1 from '../assets/images/reception1.jpg';
+import carshowroom from '../assets/images/carShowroom1.jpg';
 import bar from '../assets/images/denza_bar.jpg';
 import kitchen from '../assets/images/kitchen.jpg';
 
@@ -10,7 +10,7 @@ const collections = [
     index: '01',
     title: 'Автосалоны',
     desc: 'Архитектурный подход к созданию первого впечатления.',
-    img: reception1.src,
+    img: carshowroom.src,
     link: '#',
   },
   {
@@ -43,7 +43,6 @@ const collections = [
     link: '#',
   },
 ];
-
 ---
 
 <section id="collections" class="OurCollectionsMain">
@@ -63,65 +62,64 @@ const collections = [
     />
   </div>
 
-  <span class="OurCollectionsMain-header">Откройте для себя наши коллекции</span
-  >
-
   <div class="OurCollectionsMain-container">
+    <!-- LEFT COLUMN: header (top) / title block (middle) / CTA (bottom) -->
     <div class="OurCollectionsMain-content">
-      <div class="content-layer layer-1 active">
-        <div class="OurCollectionsMain-title-group">
-          <span class="OurCollectionsMain-index">{collections[0].index}</span>
-          <div class="OurCollectionsMain-title-group__inner">
-            <h2 class="OurCollectionsMain-title">{collections[0].title}</h2>
-            <p class="OurCollectionsMain-description">{collections[0].desc}</p>
+      <span class="OurCollectionsMain-header">Откройте для себя наши коллекции</span>
+
+      <div class="OurCollectionsMain-layers">
+        <div class="content-layer layer-1 active">
+          <div class="OurCollectionsMain-title-group">
+            <div class="OurCollectionsMain-title-group__inner">
+              <span class="OurCollectionsMain-index">{collections[0].index}</span>
+              <h2 class="OurCollectionsMain-title">{collections[0].title}</h2>
+              <p class="OurCollectionsMain-description">{collections[0].desc}</p>
+            </div>
+          </div>
+        </div>
+        <div class="content-layer layer-2">
+          <div class="OurCollectionsMain-title-group">
+            <div class="OurCollectionsMain-title-group__inner">
+              <span class="OurCollectionsMain-index"></span>
+              <h2 class="OurCollectionsMain-title"></h2>
+              <p class="OurCollectionsMain-description"></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="content-layer layer-2">
-        <div class="OurCollectionsMain-title-group">
-          <span class="OurCollectionsMain-index"></span>
-          <div class="OurCollectionsMain-title-group__inner">
-            <h2 class="OurCollectionsMain-title"></h2>
-            <p class="OurCollectionsMain-description"></p>
-          </div>
+
+      <a href={collections[0].link} class="OurCollectionsMain-cta-pc">
+        <span class="OurCollectionsMain-cta-pc__label">Посмотреть коллекцию</span>
+
+        <div class="OurCollectionsMain-cta-pc__arrowWrapper">
+          <svg
+            class="OurCollectionsMain-cta-pc__arrow"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 45 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="1"
+              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+          </svg>
+
+          <svg
+            class="OurCollectionsMain-cta-pc__arrowHover"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 45 10"
+          >
+            <path
+              stroke="currentColor"
+              stroke-width="1"
+              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+          </svg>
         </div>
-      </div>
+      </a>
     </div>
 
-    <a
-      href={collections[0].link}
-      id="collection-link"
-      class="OurCollectionsMain-cta-pc"
-    >
-      <span class="OurCollectionsMain-cta-pc__label">Посмотреть коллекцию</span>
-
-      <div class="OurCollectionsMain-cta-pc__arrowWrapper">
-        <svg
-          class="OurCollectionsMain-cta-pc__arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 45 10"
-        >
-          <path
-            stroke="currentColor"
-            stroke-width="1"
-            d="M0 5h44m0 0-4-4m4 4-4 4"></path>
-        </svg>
-
-        <svg
-          class="OurCollectionsMain-cta-pc__arrowHover"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 45 10"
-        >
-          <path
-            stroke="currentColor"
-            stroke-width="1"
-            d="M0 5h44m0 0-4-4m4 4-4 4"></path>
-        </svg>
-      </div>
-    </a>
-
+    <!-- RIGHT COLUMN: slider -->
     <div class="OurCollectionsMain-visual-wrapper">
       <div class="swiper OurCollectionsSwiper">
         <div class="swiper-wrapper">
@@ -147,11 +145,7 @@ const collections = [
         </div>
       </div>
 
-      <a
-        href={collections[0].link}
-        id="collection-link"
-        class="OurCollectionsMain-cta-mobile"
-      >
+      <a href={collections[0].link} class="OurCollectionsMain-cta-mobile">
         <span class="OurCollectionsMain-cta-mobile__label"
           >Посмотреть коллекцию</span
         >
@@ -218,7 +212,7 @@ const collections = [
   import { Navigation, Pagination, EffectFade } from 'swiper/modules';
   // @ts-ignore
   import 'swiper/css/pagination';
-  
+
   const swiper = new Swiper('.OurCollectionsSwiper', {
     modules: [Navigation, Pagination, EffectFade],
     loop: false,
@@ -235,9 +229,9 @@ const collections = [
     '.swiper-progress-fill'
   ) as HTMLElement;
 
-  const ctaLink = document.querySelector(
-    '.OurCollectionsMain-cta'
-  ) as HTMLAnchorElement;
+  const ctaLinks = document.querySelectorAll<HTMLAnchorElement>(
+    '.OurCollectionsMain-cta-pc, .OurCollectionsMain-cta-mobile'
+  );
 
   const updateContent = () => {
     const totalSlides = swiper.slides.length;
@@ -249,9 +243,9 @@ const collections = [
       progressFill.style.width = `${percentage}%`;
     }
 
-    if (activeSlide && ctaLink) {
+    if (activeSlide) {
       const newHref = activeSlide.getAttribute('data-link') || '#';
-      ctaLink.href = newHref;
+      ctaLinks.forEach((a) => (a.href = newHref));
     }
 
     const nextImgSrc = activeSlide

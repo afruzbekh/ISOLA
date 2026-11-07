@@ -233,6 +233,7 @@ footer hr {
   }
   .footer-container {
     flex-direction: column;
+    padding: 0;
     gap: 25px;
   }
   .footer-container-right {
@@ -331,6 +332,7 @@ footer hr {
     font-size: 15px;
     align-items: first baseline;
     text-align: center;
+    padding: 0;
   }
 
   .footerScrolltoTop__arrow {

@@ -1,11 +1,13 @@
 .OurCollectionsMain {
   position: relative;
   overflow: hidden;
-  padding: 9vw 6.87vw 12vw 6.87vw;
+  padding: 11.2vw 6.87vw 11.2vw 6.87vw;
   color: var(--secondary-color);
   font-family: sans-serif;
   min-height: 40vw;
 }
+
+/* ---------- Background ---------- */
 
 .OurCollectionsMain-bg {
   position: absolute;
@@ -28,14 +30,62 @@
   background-color: rgba(10, 24, 20, 0.7);
 }
 
+#bg-image-current,
+#bg-image-next {
+  transition: opacity 1s ease-out;
+  position: absolute;
+}
+
+#bg-image-next {
+  opacity: 0;
+}
+
+/* ---------- Layout ---------- */
+
 .OurCollectionsMain-container {
-  position: relative;
+  /* position: relative;
   top: 3.6vw;
-  z-index: 1;
+  z-index: 1; */
   display: flex;
   justify-content: space-between;
   gap: 0vw;
 }
+
+/* Left column: header at top, title block in the middle, CTA at bottom.
+   Height matches the slider image so the top/bottom line up with it. */
+.OurCollectionsMain-content {
+  position: relative;
+  width: 24vw;
+  /* height: 32vw; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+/* Middle block: both layers share the same grid cell (for the crossfade),
+   and the cell is vertically centered between header and CTA. */
+.OurCollectionsMain-layers {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 14vw;   /* fixed height: must fit the longest slide */
+  align-content: center;      /* centers this fixed box between header and CTA */
+}
+
+.content-layer {
+  grid-area: 1 / 1;
+  align-self: start;          /* content starts at the top of the fixed box */
+  opacity: 0;
+  transition: opacity 1s ease-out;
+  pointer-events: none;
+}
+
+.content-layer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- Header ---------- */
 
 .OurCollectionsMain-header {
   font-family: var(--secondary-font-style);
@@ -45,16 +95,16 @@
   color: var(--secondary-color);
   font-weight: 500;
 }
-.OurCollectionsMain-title-group {
-  display: flex;
-  align-items: baseline;
-  gap: 1.3vw;
-}
+
+/* ---------- Title block ---------- */
+
+
+
 .OurCollectionsMain-title-group__inner {
   display: flex;
   flex-direction: column;
-  gap: 0.8vw;
-  margin-bottom: 1.5vw;
+  gap: 1.5vw;
+  /* margin-bottom: 1.5vw; */
 }
 
 .OurCollectionsMain-index {
@@ -68,7 +118,6 @@
   font-family: var(--primary-font-style);
   letter-spacing: normal;
   font-size: 3.8vw;
-  /* font-size: 3.3vw; */
   font-weight: 300;
   line-height: 1;
   max-width: 21vw;
@@ -78,21 +127,22 @@
   font-family: var(--secondary-font-style);
   font-size: 0.85vw;
   line-height: 1.5;
-  margin-bottom: 3vw;
+  margin-bottom: 0;
   max-width: 100%;
 }
+
+/* ---------- CTA (desktop) ---------- */
 
 .OurCollectionsMain-cta-mobile {
   display: none;
 }
 
 .OurCollectionsMain-cta-pc {
-  position: absolute;
-  bottom: 10%;
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 1.3vw;
-  padding: 0.4vw 1.1vw;
+  padding: 0.3vw 1.1vw 0.3vw 0;
   border: none;
   color: var(--secondary-color);
   text-decoration: none;
@@ -103,7 +153,6 @@
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.5s cubic-bezier(0.77, 0.25, 0.11, 0.92);
-  margin-top: 1.25vw;
 }
 
 .OurCollectionsMain-cta-pc__label {
@@ -151,6 +200,8 @@
   transform: translateX(0);
 }
 
+/* ---------- Slider ---------- */
+
 .OurCollectionsMain-visual {
   width: 56.5vw;
   height: 32vw;
@@ -162,21 +213,9 @@
 }
 
 .OurCollectionsSwiper {
-  width: 100%;
-  height: 32vw;
-  overflow: hidden;
-}
-
-.OurCollectionsMain-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2vw;
-  margin-top: 1.6vw;
-}
-
-.OurCollectionsSwiper {
   position: relative;
+  width: 100%;
+  height: 34vw;
   overflow: hidden;
 }
 
@@ -198,46 +237,15 @@
   transition: opacity 1s ease-out;
   opacity: 1;
 }
-#bg-image-current,
-#bg-image-next,
-.OurCollectionsMain-content {
-  transition: opacity 1s ease-out;
-  position: absolute;
-}
 
-.OurCollectionsMain-content {
-  position: relative;
-  width: 24vw;
-  height: max-content;
-  margin-top: 10vw;
-  z-index: 10;
-}
-#bg-image-next {
-  opacity: 0;
-}
+/* ---------- Controls ---------- */
 
-.content-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-out;
-  pointer-events: none;
-}
-
-.content-layer.active {
-  position: relative;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.OurCollectionsMain-content[style*='opacity: 0'] {
-  opacity: 0;
-}
-
-.OurCollectionsMain-content[style*='opacity: 1'] {
-  opacity: 1;
+.OurCollectionsMain-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2vw;
+  margin-top: 1.8vw;
 }
 
 .swiper-navigation-group {
@@ -249,8 +257,11 @@
 
 .swiper-prev,
 .swiper-next {
-  min-width: 44px;
-  min-height: 44px;
+  position: relative;
+  min-width: 0;       /* was 44px */
+  min-height: 0;      /* was 44px */
+  padding: 0;
+  line-height: 0;
   cursor: pointer;
   background: none;
   border: none;
@@ -261,6 +272,22 @@
   appearance: none;
 }
 
+/* invisible 44x44 hit area, doesn't affect layout */
+.swiper-prev::after,
+.swiper-next::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+.swiper-prev svg,
+.swiper-next svg {
+  display: block;     /* removes the inline gap under the svg */
+}
 .swiper-prev svg {
   transform: rotate(180deg);
 }
@@ -301,34 +328,46 @@
   transition: width 0.4s ease;
 }
 
+/* ---------- Tablet / Mobile ---------- */
+
 @media (max-width: 1024px) {
   .OurCollectionsMain {
-    /* padding: 50px 25px 75px 25px; */
     padding: 60px 25px 0 25px;
   }
+
   .OurCollectionsMain-header {
     font-size: 14px;
     line-height: 1.4;
   }
+
   .OurCollectionsMain-container {
     top: 15px;
     flex-direction: column;
   }
 
-  .OurCollectionsMain-title-group__inner {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8vw;
-    margin-bottom: 1.5vw;
-  }
+  /* Natural flow on mobile: header, then title block, with a gap between */
   .OurCollectionsMain-content {
     width: 100%;
-    margin-top: 20px;
+    height: auto;
+    justify-content: flex-start;
+    gap: 25px;
+  }
+
+    .OurCollectionsMain-layers {
+    flex: none;
+    align-content: start;
+    grid-template-rows: auto; /* was inherited 14vw */
   }
 
   .OurCollectionsMain-title-group {
     gap: 25px;
   }
+
+  .OurCollectionsMain-title-group__inner {
+    gap: 4vw;
+    padding: 2vw 0;
+  }
+
   .OurCollectionsMain-index {
     font-size: 25px;
     font-weight: 300;
@@ -336,6 +375,7 @@
 
   .OurCollectionsMain-title {
     font-size: 45px;
+    max-width: 100%;
   }
 
   .OurCollectionsMain-description {
@@ -415,52 +455,36 @@
     gap: 2vw;
     margin-top: 50px;
   }
+
   .OurCollectionsMain-visual-wrapper {
     margin-top: 25px;
     padding-bottom: 65px;
     width: 100%;
     height: min-content;
   }
+
   .OurCollectionsSwiper {
     width: 100%;
     height: 68vw;
     overflow: hidden;
   }
+
   .swiper-navigation-group {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  align-items: center;
-}
+    gap: 15px;
+  }
 
-.swiper-prev,
-.swiper-next {
-  min-width: 44px;
-  min-height: 44px;
-}
+  .swiper-prev,
+  .swiper-next {
+    min-width: 44px;
+    min-height: 44px;
+  }
 
-.swiper-prev svg,
-.swiper-next svg {
-  width: 50px;
-}
+  .swiper-prev svg,
+  .swiper-next svg {
+    width: 50px;
+  }
 
-.swiper-prev:hover svg,
-.swiper-next:hover svg {
-  stroke: var(--accent-color);
-}
-
-.swiper-prev.swiper-button-disabled svg,
-.swiper-next.swiper-button-disabled svg {
-  stroke: rgb(130, 130, 130);
-}
-
-.swiper-progress-bar {
-  width: 100%;
-  height: 2px;
-  background: rgb(0, 0, 0);
-  border-radius: 2px;
-  overflow: hidden;
-  margin: 1rem 0;
-}
-
+  .swiper-progress-bar {
+    width: 100%;
+  }
 }

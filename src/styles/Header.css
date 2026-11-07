@@ -1,6 +1,8 @@
 .header {
-  position: relative;
-  height: 100vh;
+   position: relative;
+  height: 100vh;   /* fallback */
+  height: 100dvh;  /* tracks the actual visible height, toolbars shown or hidden */
+  min-height: -webkit-fill-available; /* older iOS Safari fallback */
   overflow: hidden;
   background-image: url('../assets/images/bg-hero.jpg');
   background-size: 102%;
