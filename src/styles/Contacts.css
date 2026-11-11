@@ -51,9 +51,9 @@
 
 .contact-heading {
   font-family: var(--primary-font-style);
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   line-height: 1;
-  font-weight: 200;
+  font-weight: 700;
   margin-bottom: 15px;
 }
 
@@ -113,6 +113,7 @@
   margin-top: 15px;
 }
 
+/* Original button (used by mobile and as the base for the desktop pill) */
 .contact-column .social-button {
   width: 2.2vw;
   height: 2.2vw;
@@ -139,6 +140,94 @@
 .contact-main-mobile {
   display: none;
 }
+
+/* ================= Social pill (desktop) ================= */
+
+/* The row takes no width in the column layout, so growing pills
+   never stretch the contact box or move the right-hand column */
+.contact-main-pc .contact-socials {
+  width: 0;
+  white-space: nowrap;
+}
+
+.contact-column .social-button.social-pill {
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 2.2vw;
+  height: 2.2vw;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* icon stays centered in the original square, then fades out on hover */
+.social-pill-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.2vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity 0.25s ease,
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-pill-text {
+  white-space: nowrap;
+  font-family: var(--secondary-font-style);
+  font-size: 0.85vw;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateY(40%);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+@media (hover: hover) and (min-width: 1025px) {
+  .contact-column .social-button.social-pill:hover,
+  .contact-column .social-button.social-pill:focus-visible {
+    width: 9vw;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    outline: none;
+  }
+
+  .social-pill:hover .social-pill-icon,
+  .social-pill:focus-visible .social-pill-icon {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  .social-pill:hover .social-pill-text,
+  .social-pill:focus-visible .social-pill-text {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.3s ease 0.15s,
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-column .social-button.social-pill,
+  .social-pill-icon,
+  .social-pill-text {
+    transition-duration: 0.01s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* ================= Tablet / mobile ================= */
 
 @media (max-width: 1024px) {
   #map {
