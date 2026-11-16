@@ -22,7 +22,7 @@ const projects = [
 
     description: [
       'Для автосалона DENZA мы разработали и реализовали мебельные решения, уделяя особое внимание эстетике, функциональности и качеству исполнения.',
-      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.'
+      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.',
     ],
 
     images: [
@@ -30,25 +30,7 @@ const projects = [
       { src: denza02.src, alt: 'Мебель автосалона DENZA' },
       { src: denza03.src, alt: 'Детали проекта DENZA' },
       { src: denza04.src, alt: 'Реализованный проект DENZA' },
-    ]
-  },
-
-  {
-    name: 'BYD',
-    category: 'АВТОСАЛОН',
-    location: 'NAMANGAN, UZBEKISTAN',
-
-    description: [
-      'Для автосалона DENZA мы разработали и реализовали мебельные решения, уделяя особое внимание эстетике, функциональности и качеству исполнения.',
-      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.'
     ],
-
-    images: [
-      { src: denza01.src, alt: 'Интерьер автосалона DENZA' },
-      { src: denza02.src, alt: 'Мебель автосалона DENZA' },
-      { src: denza03.src, alt: 'Детали проекта DENZA' },
-      { src: denza04.src, alt: 'Реализованный проект DENZA' },
-    ]
   },
 
   // Add more projects here
@@ -59,16 +41,15 @@ const totalProjects = String(projects.length).padStart(2, '0');
 
 <!doctype html>
 <html lang="ru">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title>Автосалоны — реализованные проекты | ISOLA</title>
+    <title>Рестораны — реализованные проекты | ISOLA</title>
 
     <meta
       name="description"
-      content="Реализованные проекты ISOLA для автосалонов. Производство мебели и интерьерные решения для коммерческих пространств."
+      content="Реализованные проекты ISOLA для ресторанов. Производство мебели и интерьерные решения для коммерческих пространств."
     />
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -88,10 +69,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
         "url": "https://isola.uz",
         "logo": "https://isola.uz/logo.svg",
         "foundingDate": "2008",
-        "sameAs": [
-          "https://instagram.com/isola",
-          "https://telegram.me/isola"
-        ],
+        "sameAs": ["https://instagram.com/isola", "https://telegram.me/isola"],
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
@@ -126,29 +104,27 @@ const totalProjects = String(projects.length).padStart(2, '0');
   </head>
 
   <body>
-
     <NavBar />
 
     <main>
       <section class="showroom-page">
-
         <!-- INTRO -->
         <div class="showroom-intro">
-
           <div class="showroom-intro__top">
             <span class="eyebrow">
               <span class="eyebrow__line"></span>
-              ISOLA - НАШИ ПРОЕКТЫ - АВТОСАЛОНЫ
+              ISOLA - НАШИ ПРОЕКТЫ - Рестораны
             </span>
 
-            <span class="intro-index">
-              01 / {totalProjects}
+            <span class="intro-index" data-count={projects.length}>
+              01
             </span>
           </div>
 
           <div class="showroom-intro__content">
             <h1>
-              Пространства,<br />
+              Пространства,
+              <br />
               созданные <span>для впечатлений.</span>
             </h1>
 
@@ -158,46 +134,38 @@ const totalProjects = String(projects.length).padStart(2, '0');
               производства и реализации — каждая деталь имеет значение.
             </p>
           </div>
-
         </div>
-
 
         <!-- PROJECTS -->
         <div class="showroom-projects">
-
           {projects.map((project, projectIndex) => (
-
             <article class="project">
-
               <!-- PROJECT HEADING -->
               <div class="project__heading">
-
                 <div class="project__title">
                   <span class="project__number">
-                    {String(projectIndex + 1).padStart(2, '0')} — {project.category}
+                    {String(projectIndex + 1).padStart(2, '0')} —{' '}
+                    {project.category}
                   </span>
 
                   <h2>{project.name}</h2>
                 </div>
 
-                <span class="project__location">
-                  {project.location}
-                </span>
-
+                <span class="project__location">{project.location}</span>
               </div>
-
 
               <!-- DYNAMIC IMAGE GALLERY -->
               <div class="project-gallery">
-
                 {project.images.map((image, imageIndex) => (
-
                   <div class="project-gallery__item">
-
                     <img
                       src={image.src}
                       alt={image.alt}
-                      loading={projectIndex === 0 && imageIndex === 0 ? 'eager' : 'lazy'}
+                      loading={
+                        projectIndex === 0 && imageIndex === 0
+                          ? 'eager'
+                          : 'lazy'
+                      }
                       decoding="async"
                     />
 
@@ -205,58 +173,41 @@ const totalProjects = String(projects.length).padStart(2, '0');
                       {String(imageIndex + 1).padStart(2, '0')} /
                       {String(project.images.length).padStart(2, '0')}
                     </span>
-
                   </div>
-
                 ))}
-
               </div>
-
 
               <!-- PROJECT DESCRIPTION -->
               <div class="project-info">
-
                 <div class="project-info__description">
-
                   <span class="eyebrow">О ПРОЕКТЕ</span>
 
                   <h3>
-                    Пространство, в котором дизайн встречается с функциональностью.
+                    Пространство, в котором дизайн встречается с
+                    функциональностью.
                   </h3>
-
                 </div>
 
                 <div class="project-info__text">
-
                   {project.description.map((paragraph) => (
                     <p>{paragraph}</p>
                   ))}
-
                 </div>
-
               </div>
-
             </article>
-
           ))}
-
         </div>
-
 
         <!-- CLOSING STATEMENT -->
         <div class="showroom-closing">
-
-          <span class="eyebrow">
-            ISOLA — МЕБЕЛЬ И ПРОСТРАНСТВО
-          </span>
+          <span class="eyebrow">ISOLA — МЕБЕЛЬ И ПРОСТРАНСТВО</span>
 
           <h2>
-            Внимание к деталям.<br />
+            Внимание к деталям.
+            <br />
             <span>Совершенство в исполнении.</span>
           </h2>
-
         </div>
-
       </section>
     </main>
 
@@ -296,24 +247,17 @@ const totalProjects = String(projects.length).padStart(2, '0');
     <!-- IMAGE ORIENTATION DETECTION -->
     <script>
       function setImageOrientation() {
-
         const images = document.querySelectorAll<HTMLImageElement>(
           '.project-gallery__item img'
         );
 
         images.forEach((img) => {
-
           const updateOrientation = () => {
-
             const item = img.closest('.project-gallery__item');
 
             if (!item || !img.naturalWidth || !img.naturalHeight) return;
 
-            item.classList.remove(
-              'is-landscape',
-              'is-portrait',
-              'is-square'
-            );
+            item.classList.remove('is-landscape', 'is-portrait', 'is-square');
 
             if (img.naturalWidth > img.naturalHeight) {
               item.classList.add('is-landscape');
@@ -322,7 +266,6 @@ const totalProjects = String(projects.length).padStart(2, '0');
             } else {
               item.classList.add('is-square');
             }
-
           };
 
           if (img.complete && img.naturalWidth > 0) {
@@ -330,13 +273,94 @@ const totalProjects = String(projects.length).padStart(2, '0');
           } else {
             img.addEventListener('load', updateOrientation, { once: true });
           }
-
         });
-
       }
 
       setImageOrientation();
     </script>
 
+    <!-- INTRO COUNTER ANIMATION -->
+    <script>
+      // Odometer-style counter: each digit is a vertical reel that rolls
+      // up to its final number.
+      function animateIntroCounter() {
+        const counter = document.querySelector<HTMLElement>(
+          '.intro-index[data-count]'
+        );
+        if (!counter || counter.dataset.ready) return;
+
+        const el: HTMLElement = counter;
+        const target = Math.max(Number(el.dataset.count) || 1, 1);
+        const finalText = String(target).padStart(2, '0');
+
+        el.dataset.ready = 'true';
+        el.setAttribute('aria-label', finalText);
+
+        const reduceMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        if (reduceMotion) {
+          el.textContent = finalText;
+          return;
+        }
+
+        // ---- Settings you can tweak ----
+        const startDelay = 600; // ms before the roll begins
+        const lastDigitDuration = 3200; // ms, the rightmost digit
+        const otherDigitDuration = 2400; // ms, the other digits
+        const stagger = 150; // ms delay between digits
+        // --------------------------------
+
+        el.textContent = '';
+
+        const reels: { reel: HTMLElement; finalIndex: number }[] = [];
+
+        [...finalText].forEach((char, i) => {
+          const digit = Number(char);
+          const isLast = i === finalText.length - 1;
+
+          // The last digit makes one extra full spin so the motion is
+          // clearly visible, even when the total is small.
+          const spins = isLast ? 1 : 0;
+
+          const wrap = document.createElement('span');
+          wrap.className = 'intro-digit';
+          wrap.setAttribute('aria-hidden', 'true');
+
+          const reel = document.createElement('span');
+          reel.className = 'intro-digit__reel';
+          reel.style.transitionDuration = `${
+            isLast ? lastDigitDuration : otherDigitDuration
+          }ms`;
+          reel.style.transitionDelay = `${i * stagger}ms`;
+
+          for (let n = 0; n < 10 * (spins + 1); n++) {
+            const cell = document.createElement('span');
+            cell.textContent = String(n % 10);
+            reel.appendChild(cell);
+          }
+
+          wrap.appendChild(reel);
+          el.appendChild(wrap);
+
+          reels.push({ reel, finalIndex: 10 * spins + digit });
+        });
+
+        // Make sure the starting position is painted before rolling.
+        void el.offsetWidth;
+
+        window.setTimeout(() => {
+          requestAnimationFrame(() => {
+            reels.forEach(({ reel, finalIndex }) => {
+              reel.style.transform = `translateY(calc(${-finalIndex} * 1.25em))`;
+            });
+          });
+        }, startDelay);
+      }
+
+      animateIntroCounter();
+      document.addEventListener('astro:after-swap', animateIntroCounter);
+    </script>
   </body>
 </html>

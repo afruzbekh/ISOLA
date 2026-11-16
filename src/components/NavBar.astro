@@ -4,19 +4,21 @@ import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 
 import denzaShowroom from '../assets/images/denza_showroom.jpg';
-const restaurants = 'https://images.pexels.com/photos/18177440/pexels-photo-18177440.jpeg';
-const hotels = 'https://images.pexels.com/photos/40756987/pexels-photo-40756987.jpeg';
-const offices = 'https://images.pexels.com/photos/33827333/pexels-photo-33827333.jpeg';
+const restaurants =
+  'https://images.pexels.com/photos/18177440/pexels-photo-18177440.jpeg';
+const hotels =
+  'https://images.pexels.com/photos/40756987/pexels-photo-40756987.jpeg';
+const offices =
+  'https://images.pexels.com/photos/33827333/pexels-photo-33827333.jpeg';
 import learningCenters from '../assets/images/learningCenters.jpg';
 import interiors from '../assets/images/interior.jpg';
 
 const collections = [
-  { name: 'Автосалоны', href: '/car-showrooms', image: denzaShowroom.src },
-  { name: 'Рестораны',  href: '/#collections', image: restaurants },
-  { name: 'Отели',      href: '/#collections', image: hotels },
-  { name: 'Офисы',      href: '/#collections', image: offices },
-  { name: 'Учебные центры',      href: '/#collections', image: learningCenters.src },
-  { name: 'Интерьеры',  href: '/#collections', image: interiors.src },
+  { name: 'АВТОСАЛОНЫ', href: '/car-showrooms', image: denzaShowroom.src },
+  { name: 'HoReCa', href: '/HoReCa', image: restaurants },
+  { name: 'ОФИСЫ', href: '/offices', image: offices },
+  { name: 'ОБРАЗОВАНИЕ', href: '/education', image: learningCenters.src },
+  { name: 'ИНТЕРЬЕРЫ', href: '/interiors', image: interiors.src },
 ];
 ---
 
@@ -28,7 +30,9 @@ const collections = [
     </a>
 
     <ul class="nav-links">
-      <li><a href="/#about">О нас</a></li>
+      <li>
+        <a href="/#about">О нас</a>
+      </li>
       <li class="nav-item--dropdown" data-collections-trigger>
         <a aria-haspopup="true" aria-expanded="false">
           Наши коллекции
@@ -48,9 +52,13 @@ const collections = [
           </svg>
         </a>
       </li>
-      <li><a href="/#partners">Наши партнёры</a></li>
+      <li>
+        <a href="/#partners">Наши партнёры</a>
+      </li>
       <!-- <li><a href="#faq">Часто задаваемые вопросы</a></li> -->
-      <li><a href="/contacts">Контакты</a></li>
+      <li>
+        <a href="/contacts">Контакты</a>
+      </li>
     </ul>
 
     <button class="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -64,65 +72,69 @@ const collections = [
 <!-- Collections mega menu (desktop only) -->
 <div class="collections-panel" aria-hidden="true">
   <div class="collections-panel__grid">
-    {
-      collections.map((item) => (
-        <a href={item.href} class="collection-card">
-  <span class="collection-card__media">
-    <img src={item.image} alt={item.name} loading="lazy" />
-    <span class="collection-card__overlay">
-      <span class="collection-card__name">{item.name}</span>
-    </span>
-  </span>
-  <span class="collection-card__footer">
-    <span class="collection-card__label">{item.name}</span>
-    <span class="collection-card__view">View</span>
-  </span>
-</a>
-      ))
-    }
+    {collections.map((item) => (
+      <a href={item.href} class="collection-card">
+        <span class="collection-card__media">
+          <img src={item.image} alt={item.name} loading="lazy" />
+          <span class="collection-card__overlay">
+            <span class="collection-card__name">{item.name}</span>
+          </span>
+        </span>
+        <span class="collection-card__footer">
+          <span class="collection-card__label">{item.name}</span>
+          <span class="collection-card__view">View</span>
+        </span>
+      </a>
+    ))}
   </div>
 
-  <a
-      href="#"
-      id="collection-link"
-      class="OurCollectionsMain-cta-pc"
-    >
-      <span class="OurCollectionsMain-cta-pc__label">Посмотреть коллекцию</span>
+  <a href="#" id="collection-link" class="OurCollectionsMain-cta-pc">
+    <span class="OurCollectionsMain-cta-pc__label">Посмотреть коллекцию</span>
 
-      <div class="OurCollectionsMain-cta-pc__arrowWrapper">
-        <svg
-          class="OurCollectionsMain-cta-pc__arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 45 10"
-        >
-          <path
-            stroke="currentColor"
-            stroke-width="1"
-            d="M0 5h44m0 0-4-4m4 4-4 4"></path>
-        </svg>
+    <div class="OurCollectionsMain-cta-pc__arrowWrapper">
+      <svg
+        class="OurCollectionsMain-cta-pc__arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 45 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-width="1"
+          d="M0 5h44m0 0-4-4m4 4-4 4"
+        ></path>
+      </svg>
 
-        <svg
-          class="OurCollectionsMain-cta-pc__arrowHover"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 45 10"
-        >
-          <path
-            stroke="currentColor"
-            stroke-width="1"
-            d="M0 5h44m0 0-4-4m4 4-4 4"></path>
-        </svg>
-      </div>
-    </a>
+      <svg
+        class="OurCollectionsMain-cta-pc__arrowHover"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 45 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-width="1"
+          d="M0 5h44m0 0-4-4m4 4-4 4"
+        ></path>
+      </svg>
+    </div>
+  </a>
 </div>
 
 <div class="mobile-menu-overlay" aria-hidden="true">
   <ul class="mobile-menu">
-    <li><a href="/#about">О нас</a></li>
-    <li><a href="/#collections">Наши коллекции</a></li>
-    <li><a href="/#partners">Наши партнёры</a></li>
-    <li><a href="/contacts">Контакты</a></li>
+    <li>
+      <a href="/#about">О нас</a>
+    </li>
+    <li>
+      <a href="/#collections">Наши коллекции</a>
+    </li>
+    <li>
+      <a href="/#partners">Наши партнёры</a>
+    </li>
+    <li>
+      <a href="/contacts">Контакты</a>
+    </li>
     <li class="social-item">
       <a
         href="https://www.instagram.com/isola_uz?igsh=aXptaWo4bGJrZGVs"
@@ -152,7 +164,7 @@ const collections = [
         +998 99 122 77 66
       </a>
       <a
-        href="tel:+998901227788"
+        href="tel:+998991227788"
         class="contact-button-menu"
         aria-label="Call +998 99 122 77 88"
       >
@@ -169,7 +181,7 @@ const collections = [
   </ul>
 </div>
 
-<script>  
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     /* ===== Mobile menu ===== */
     const hamburger = document.querySelector('.hamburger');

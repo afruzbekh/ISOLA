@@ -15,24 +15,25 @@ const collections = [
   },
   {
     index: '02',
-    title: 'Рестораны',
+    title: 'HoReCa',
     desc: 'Пространство, которое подчеркивает статус ваших конференций.',
     img: conferenceHall.src,
-    link: '#',
+    link: '/restaurants/',
   },
   {
     index: '03',
-    title: 'Отели',
-    desc: 'Безупречная гармония линий и текстур для создания пространства, в котором эстетика встречается с уютом.',
-    img: bar.src,
-    link: '#',
-  },
-  {
-    index: '04',
     title: 'Офисы',
     desc: 'Атмосфера спокойствия и утончённого вкуса, где каждая деталь подчёркивает стиль и статус.',
     img: reception2.src,
-    link: '#',
+    link: '/offices/',
+  },
+  {
+    index: '04',
+    title: 'Образование',
+    desc: 'Смелые формы и умная эргономика для тех, кто ценит стиль и комфорт.',
+    img: kitchen.src,
+    // img: `https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg`,
+    link: '/education/',
   },
   {
     index: '05',
@@ -40,7 +41,7 @@ const collections = [
     desc: 'Смелые формы и умная эргономика для тех, кто ценит стиль и комфорт.',
     img: kitchen.src,
     // img: `https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg`,
-    link: '#',
+    link: '/interiors/',
   },
 ];
 ---
@@ -65,15 +66,21 @@ const collections = [
   <div class="OurCollectionsMain-container">
     <!-- LEFT COLUMN: header (top) / title block (middle) / CTA (bottom) -->
     <div class="OurCollectionsMain-content">
-      <span class="OurCollectionsMain-header">Откройте для себя наши коллекции</span>
+      <span class="OurCollectionsMain-header">
+        Откройте для себя наши коллекции
+      </span>
 
       <div class="OurCollectionsMain-layers">
         <div class="content-layer layer-1 active">
           <div class="OurCollectionsMain-title-group">
             <div class="OurCollectionsMain-title-group__inner">
-              <span class="OurCollectionsMain-index">{collections[0].index}</span>
+              <span class="OurCollectionsMain-index">
+                {collections[0].index}
+              </span>
               <h2 class="OurCollectionsMain-title">{collections[0].title}</h2>
-              <p class="OurCollectionsMain-description">{collections[0].desc}</p>
+              <p class="OurCollectionsMain-description">
+                {collections[0].desc}
+              </p>
             </div>
           </div>
         </div>
@@ -89,7 +96,9 @@ const collections = [
       </div>
 
       <a href={collections[0].link} class="OurCollectionsMain-cta-pc">
-        <span class="OurCollectionsMain-cta-pc__label">Посмотреть коллекцию</span>
+        <span class="OurCollectionsMain-cta-pc__label">
+          Посмотреть коллекцию
+        </span>
 
         <div class="OurCollectionsMain-cta-pc__arrowWrapper">
           <svg
@@ -101,7 +110,8 @@ const collections = [
             <path
               stroke="currentColor"
               stroke-width="1"
-              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+              d="M0 5h44m0 0-4-4m4 4-4 4"
+            ></path>
           </svg>
 
           <svg
@@ -113,7 +123,8 @@ const collections = [
             <path
               stroke="currentColor"
               stroke-width="1"
-              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+              d="M0 5h44m0 0-4-4m4 4-4 4"
+            ></path>
           </svg>
         </div>
       </a>
@@ -123,32 +134,30 @@ const collections = [
     <div class="OurCollectionsMain-visual-wrapper">
       <div class="swiper OurCollectionsSwiper">
         <div class="swiper-wrapper">
-          {
-            collections.map((item) => (
-              <div
-                class="swiper-slide"
-                data-index={item.index}
-                data-title={item.title}
-                data-desc={item.desc}
-                data-link={item.link}
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  class="OurCollectionsMain-img"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            ))
-          }
+          {collections.map((item) => (
+            <div
+              class="swiper-slide"
+              data-index={item.index}
+              data-title={item.title}
+              data-desc={item.desc}
+              data-link={item.link}
+            >
+              <img
+                src={item.img}
+                alt={item.title}
+                class="OurCollectionsMain-img"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
         </div>
       </div>
 
       <a href={collections[0].link} class="OurCollectionsMain-cta-mobile">
-        <span class="OurCollectionsMain-cta-mobile__label"
-          >Посмотреть коллекцию</span
-        >
+        <span class="OurCollectionsMain-cta-mobile__label">
+          Посмотреть коллекцию
+        </span>
 
         <div class="OurCollectionsMain-cta-mobile__arrowWrapper">
           <svg
@@ -160,7 +169,8 @@ const collections = [
             <path
               stroke="currentColor"
               stroke-width="1"
-              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+              d="M0 5h44m0 0-4-4m4 4-4 4"
+            ></path>
           </svg>
 
           <svg
@@ -172,7 +182,8 @@ const collections = [
             <path
               stroke="currentColor"
               stroke-width="1"
-              d="M0 5h44m0 0-4-4m4 4-4 4"></path>
+              d="M0 5h44m0 0-4-4m4 4-4 4"
+            ></path>
           </svg>
         </div>
       </a>

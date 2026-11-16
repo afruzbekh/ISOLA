@@ -1,0 +1,543 @@
+---
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/global.css';
+import '../styles/NavBar.css';
+import '../styles/collections.css';
+import '../styles/Footer.css';
+
+// A-RISTORANTE images
+import a_ristorante01 from '../assets/images/restaurants/A-RISTORANTE/1.jpg';
+import a_ristorante02 from '../assets/images/restaurants/A-RISTORANTE/2.jpg';
+import a_ristorante03 from '../assets/images/restaurants/A-RISTORANTE/3.jpg';
+import a_ristorante04 from '../assets/images/restaurants/A-RISTORANTE/4.jpg';
+import a_ristorante05 from '../assets/images/restaurants/A-RISTORANTE/5.jpg';
+import a_ristorante06 from '../assets/images/restaurants/A-RISTORANTE/6.jpg';
+
+// BOSC O CAFE images
+import bosc_o_cafe01 from '../assets/images/restaurants/Bosco/1.jpg';
+import bosc_o_cafe02 from '../assets/images/restaurants/Bosco/2.jpg';
+import bosc_o_cafe03 from '../assets/images/restaurants/Bosco/3.jpg';
+import bosc_o_cafe04 from '../assets/images/restaurants/Bosco/4.jpg';
+import bosc_o_cafe05 from '../assets/images/restaurants/Bosco/5.jpg';
+import bosc_o_cafe06 from '../assets/images/restaurants/Bosco/6.jpg';
+
+// GLOBAL COFFEE images
+import global_coffee01 from '../assets/images/restaurants/Global_Coffee/1.jpg';
+import global_coffee02 from '../assets/images/restaurants/Global_Coffee/2.jpg';
+import global_coffee03 from '../assets/images/restaurants/Global_Coffee/3.jpg';
+
+// OLTINBEL RESORT images
+import oltinbel_resort01 from '../assets/images/hotels/Kumushkon_Oltinbel/1.jpg';
+import oltinbel_resort02 from '../assets/images/hotels/Kumushkon_Oltinbel/2.jpg';
+import oltinbel_resort03 from '../assets/images/hotels/Kumushkon_Oltinbel/3.jpg';
+import oltinbel_resort04 from '../assets/images/hotels/Kumushkon_Oltinbel/4.jpg';
+import oltinbel_resort05 from '../assets/images/hotels/Kumushkon_Oltinbel/5.jpg';
+import oltinbel_resort06 from '../assets/images/hotels/Kumushkon_Oltinbel/6.jpg';
+import oltinbel_resort07 from '../assets/images/hotels/Kumushkon_Oltinbel/7.jpg';
+import oltinbel_resort08 from '../assets/images/hotels/Kumushkon_Oltinbel/8.jpg';
+import oltinbel_resort09 from '../assets/images/hotels/Kumushkon_Oltinbel/9.jpg';
+import oltinbel_resort10 from '../assets/images/hotels/Kumushkon_Oltinbel/10.jpg';
+import oltinbel_resort11 from '../assets/images/hotels/Kumushkon_Oltinbel/11.jpg';
+import oltinbel_resort12 from '../assets/images/hotels/Kumushkon_Oltinbel/12.jpg';
+import oltinbel_resort13 from '../assets/images/hotels/Kumushkon_Oltinbel/13.jpg';
+import oltinbel_resort14 from '../assets/images/hotels/Kumushkon_Oltinbel/14.jpg';
+import oltinbel_resort15 from '../assets/images/hotels/Kumushkon_Oltinbel/15.jpg';
+import oltinbel_resort16 from '../assets/images/hotels/Kumushkon_Oltinbel/16.jpg';
+import oltinbel_resort17 from '../assets/images/hotels/Kumushkon_Oltinbel/17.jpg';
+import oltinbel_resort18 from '../assets/images/hotels/Kumushkon_Oltinbel/18.jpg';
+import oltinbel_resort19 from '../assets/images/hotels/Kumushkon_Oltinbel/19.jpg';
+import oltinbel_resort20 from '../assets/images/hotels/Kumushkon_Oltinbel/20.jpg';
+import oltinbel_resort21 from '../assets/images/hotels/Kumushkon_Oltinbel/21.jpg';
+import oltinbel_resort22 from '../assets/images/hotels/Kumushkon_Oltinbel/22.jpg';
+import oltinbel_resort23 from '../assets/images/hotels/Kumushkon_Oltinbel/23.jpg';
+
+// Kumushkon RESORT images
+import kumushkon_resort01 from '../assets/images/hotels/KumushkonResort/1.jpg';
+import kumushkon_resort02 from '../assets/images/hotels/KumushkonResort/2.jpg';
+import kumushkon_resort03 from '../assets/images/hotels/KumushkonResort/3.jpg';
+import kumushkon_resort04 from '../assets/images/hotels/KumushkonResort/4.jpg';
+
+// PROJECT DATA
+const projects = [
+  {
+    name: 'A-RISTORANTE',
+    category: 'РЕСТОРАНЫ',
+    location: 'ТАШКЕНТ, УЗБЕКИСТАН',
+
+    description: [
+      'Для ресторана A-RISTORANTE мы разработали и реализовали индивидуальные мебельные решения, гармонично дополняющие архитектуру пространства и подчёркивающие его уникальную атмосферу.',
+      'Особое внимание уделено эстетике форм, качеству материалов и точности исполнения, чтобы каждый элемент сочетал в себе функциональность, комфорт и изысканный дизайн.',
+    ],
+
+    images: [
+      { src: a_ristorante01.src, alt: 'Интерьер ресторана A-RISTORANTE' },
+      { src: a_ristorante02.src, alt: 'Мебель ресторана A-RISTORANTE' },
+      { src: a_ristorante03.src, alt: 'Детали проекта A-RISTORANTE' },
+      { src: a_ristorante06.src, alt: 'Реализованный проект A-RISTORANTE' },
+      { src: a_ristorante05.src, alt: 'Детали проекта A-RISTORANTE' },
+      { src: a_ristorante04.src, alt: 'Реализованный проект A-RISTORANTE' },
+    ],
+  },
+  {
+    name: 'BoscO Cafe',
+    category: 'РЕСТОРАНЫ',
+    location: 'ТАШКЕНТ, УЗБЕКИСТАН',
+
+    description: [
+      'Для BoscO Cafe мы разработали и изготовили мебельные решения, отражающие концепцию заведения и создающие гармоничную атмосферу для гостей.',
+      'Каждый элемент спроектирован с учётом особенностей пространства, сочетая современную эстетику, практичность и высокое качество исполнения.',
+    ],
+    images: [
+      { src: bosc_o_cafe01.src, alt: 'Интерьер ресторана BOSC-O-CAFE' },
+      { src: bosc_o_cafe05.src, alt: 'Детали проекта BOSC-O-CAFE' },
+      { src: bosc_o_cafe02.src, alt: 'Мебель ресторана BOSC-O-CAFE' },
+      { src: bosc_o_cafe03.src, alt: 'Детали проекта BOSC-O-CAFE' },
+      { src: bosc_o_cafe04.src, alt: 'Реализованный проект BOSC-O-CAFE' },
+      { src: bosc_o_cafe06.src, alt: 'Реализованный проект BOSC-O-CAFE' },
+    ],
+  },
+  {
+    name: 'GLOBAL COFFEE',
+    category: 'РЕСТОРАНЫ',
+    location: 'ТАШКЕНТ, УЗБЕКИСТАН',
+
+    description: [
+      'Для GLOBAL COFFEE мы разработали и изготовили мебельные решения, отражающие концепцию заведения и создающие гармоничную атмосферу для гостей.',
+      'Каждый элемент спроектирован с учётом особенностей пространства, сочетая современную эстетику, практичность и высокое качество исполнения.',
+    ],
+    images: [
+      { src: global_coffee01.src, alt: 'Интерьер ресторана GLOBAL COFFEE' },
+      { src: global_coffee02.src, alt: 'Мебель ресторана GLOBAL COFFEE' },
+      { src: global_coffee03.src, alt: 'Детали проекта GLOBAL COFFEE' },
+    ],
+  },
+
+  //HOTELS
+
+  {
+    name: 'OLTINBEL RESORT',
+    category: 'Отель',
+    location: 'ПАРКЕНТ, УЗБЕКИСТАН',
+
+    description: [
+      'Для гостиничного комплекса в Кумушкане мы реализовали масштабный проект по изготовлению и оснащению интерьеров мебелью, охватив широкий спектр функциональных и декоративных решений.',
+      'Каждая деталь была разработана с учётом архитектуры объекта, особенностей пространства и требований к комфорту гостей. Комплексный подход, качественные материалы и внимание к мельчайшим деталям позволили создать гармоничную и целостную интерьерную среду.',
+    ],
+    images: [
+      { src: oltinbel_resort01.src, alt: 'Мебель для гостиничного номера' },
+      { src: oltinbel_resort02.src, alt: 'Индивидуальная мебель для отеля' },
+      { src: oltinbel_resort03.src, alt: 'Интерьерная мебель для гостиницы' },
+      { src: oltinbel_resort04.src, alt: 'Мебель для зоны отдыха' },
+      { src: oltinbel_resort05.src, alt: 'Современная мебель для отеля' },
+      { src: oltinbel_resort06.src, alt: 'Мебель для гостиничного холла' },
+      {
+        src: oltinbel_resort07.src,
+        alt: 'Дизайнерская мебель для курортного комплекса',
+      },
+      { src: oltinbel_resort08.src, alt: 'Мебель для гостевой зоны' },
+      { src: oltinbel_resort09.src, alt: 'Корпусная мебель для гостиницы' },
+      { src: oltinbel_resort10.src, alt: 'Мебель для ресторанной зоны отеля' },
+      {
+        src: oltinbel_resort11.src,
+        alt: 'Индивидуальные мебельные конструкции',
+      },
+      {
+        src: oltinbel_resort12.src,
+        alt: 'Мебель для комфортного отдыха гостей',
+      },
+      {
+        src: oltinbel_resort13.src,
+        alt: 'Современные интерьерные решения для отеля',
+      },
+      {
+        src: oltinbel_resort14.src,
+        alt: 'Мебель для гостиничных апартаментов',
+      },
+      {
+        src: oltinbel_resort15.src,
+        alt: 'Функциональная мебель для курортного отеля',
+      },
+      { src: oltinbel_resort16.src, alt: 'Мебель для лаунж-зоны' },
+      { src: oltinbel_resort17.src, alt: 'Элементы гостиничного интерьера' },
+      { src: oltinbel_resort18.src, alt: 'Мебель на заказ для гостиницы' },
+      { src: oltinbel_resort19.src, alt: 'Премиальная мебель для отеля' },
+      {
+        src: oltinbel_resort20.src,
+        alt: 'Мебельное оснащение курортного комплекса',
+      },
+      {
+        src: oltinbel_resort21.src,
+        alt: 'Мебель для общественных пространств отеля',
+      },
+      {
+        src: oltinbel_resort22.src,
+        alt: 'Детали и отделка гостиничной мебели',
+      },
+      {
+        src: oltinbel_resort23.src,
+        alt: 'Комплексные мебельные решения для OLTINBEL RESORT',
+      },
+    ],
+  },
+  {
+    name: 'Kumushkon Resort',
+    category: 'Отель',
+    location: 'КУМУШКОН, УЗБЕКИСТАН',
+
+    description: [
+      'Для гостиничного комплекса в Кумушкане мы реализовали масштабный проект по изготовлению и оснащению интерьеров мебелью, охватив широкий спектр функциональных и декоративных решений.',
+      'Каждая деталь была разработана с учётом архитектуры объекта, особенностей пространства и требований к комфорту гостей. Комплексный подход, качественные материалы и внимание к мельчайшим деталям позволили создать гармоничную и целостную интерьерную среду.',
+    ],
+    images: [
+      {
+        src: kumushkon_resort02.src,
+        alt: 'Мебель гостиницы Kumushkon Resort',
+      },
+      {
+        src: kumushkon_resort01.src,
+        alt: 'Интерьер гостиницы Kumushkon Resort',
+      },
+      {
+        src: kumushkon_resort03.src,
+        alt: 'Детали проекта Kumushkon Resort',
+      },
+      {
+        src: kumushkon_resort04.src,
+        alt: 'Детали проекта Kumushkon Resort',
+      },
+    ],
+  },
+
+  // Add more projects here
+];
+
+const totalProjects = String(projects.length).padStart(2, '0');
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Рестораны — реализованные проекты | ISOLA</title>
+
+    <meta
+      name="description"
+      content="Реализованные проекты ISOLA для ресторанов. Производство мебели и интерьерные решения для коммерческих пространств."
+    />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="isola.uz" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="canonical" href="https://isola.uz/car-showrooms/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ISOLA",
+        "url": "https://isola.uz",
+        "logo": "https://isola.uz/logo.svg",
+        "foundingDate": "2008",
+        "sameAs": ["https://instagram.com/isola", "https://telegram.me/isola"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "url": "https://isola.uz/contacts/"
+        }
+      }
+    </script>
+
+    <!-- LENIS SMOOTH SCROLL STYLES -->
+    <style is:global>
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <NavBar />
+
+    <main>
+      <section class="showroom-page">
+        <!-- INTRO -->
+        <div class="showroom-intro">
+          <div class="showroom-intro__top">
+            <span class="eyebrow">
+              <span class="eyebrow__line"></span>
+              ISOLA - НАШИ ПРОЕКТЫ - Рестораны
+            </span>
+
+            <span class="intro-index" data-count={projects.length}>
+              01
+            </span>
+          </div>
+
+          <div class="showroom-intro__content">
+            <h1>
+              Пространства,
+              <br />
+              созданные <span>для впечатлений.</span>
+            </h1>
+
+            <p>
+              Мы создаём мебель и интерьерные решения, которые формируют
+              характер пространства. От концепции и проектирования до
+              производства и реализации — каждая деталь имеет значение.
+            </p>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="showroom-projects">
+          {projects.map((project, projectIndex) => (
+            <article class="project">
+              <!-- PROJECT HEADING -->
+              <div class="project__heading">
+                <div class="project__title">
+                  <span class="project__number">
+                    {String(projectIndex + 1).padStart(2, '0')} —{' '}
+                    {project.category}
+                  </span>
+
+                  <h2>{project.name}</h2>
+                </div>
+
+                <span class="project__location">{project.location}</span>
+              </div>
+
+              <!-- DYNAMIC IMAGE GALLERY -->
+              <div class="project-gallery">
+                {project.images.map((image, imageIndex) => (
+                  <div class="project-gallery__item">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      loading={
+                        projectIndex === 0 && imageIndex === 0
+                          ? 'eager'
+                          : 'lazy'
+                      }
+                      decoding="async"
+                    />
+
+                    <span class="image-index">
+                      {String(imageIndex + 1).padStart(2, '0')} /
+                      {String(project.images.length).padStart(2, '0')}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- PROJECT DESCRIPTION -->
+              <div class="project-info">
+                <div class="project-info__description">
+                  <span class="eyebrow">О ПРОЕКТЕ</span>
+
+                  <h3>
+                    Пространство, в котором дизайн встречается с
+                    функциональностью.
+                  </h3>
+                </div>
+
+                <div class="project-info__text">
+                  {project.description.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- CLOSING STATEMENT -->
+        <div class="showroom-closing">
+          <span class="eyebrow">ISOLA — МЕБЕЛЬ И ПРОСТРАНСТВО</span>
+
+          <h2>
+            Внимание к деталям.
+            <br />
+            <span>Совершенство в исполнении.</span>
+          </h2>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+
+    <!-- LENIS SMOOTH SCROLL -->
+    <script>
+      import Lenis from 'lenis';
+
+      function initLenis() {
+        const lenis = new Lenis({
+          lerp: 0.2,
+          duration: 2.2,
+        });
+
+        function raf(time: number) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = anchor.getAttribute('href');
+            if (target) lenis.scrollTo(target);
+          });
+        });
+      }
+
+      initLenis();
+
+      document.addEventListener('astro:after-swap', initLenis);
+    </script>
+
+    <!-- IMAGE ORIENTATION DETECTION -->
+    <script>
+      function setImageOrientation() {
+        const images = document.querySelectorAll<HTMLImageElement>(
+          '.project-gallery__item img'
+        );
+
+        images.forEach((img) => {
+          const updateOrientation = () => {
+            const item = img.closest('.project-gallery__item');
+
+            if (!item || !img.naturalWidth || !img.naturalHeight) return;
+
+            item.classList.remove('is-landscape', 'is-portrait', 'is-square');
+
+            if (img.naturalWidth > img.naturalHeight) {
+              item.classList.add('is-landscape');
+            } else if (img.naturalHeight > img.naturalWidth) {
+              item.classList.add('is-portrait');
+            } else {
+              item.classList.add('is-square');
+            }
+          };
+
+          if (img.complete && img.naturalWidth > 0) {
+            updateOrientation();
+          } else {
+            img.addEventListener('load', updateOrientation, { once: true });
+          }
+        });
+      }
+
+      setImageOrientation();
+    </script>
+
+    <!-- INTRO COUNTER ANIMATION -->
+    <script>
+      // Odometer-style counter: each digit is a vertical reel that rolls
+      // up to its final number.
+      function animateIntroCounter() {
+        const counter = document.querySelector<HTMLElement>(
+          '.intro-index[data-count]'
+        );
+        if (!counter || counter.dataset.ready) return;
+
+        const el: HTMLElement = counter;
+        const target = Math.max(Number(el.dataset.count) || 1, 1);
+        const finalText = String(target).padStart(2, '0');
+
+        el.dataset.ready = 'true';
+        el.setAttribute('aria-label', finalText);
+
+        const reduceMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        if (reduceMotion) {
+          el.textContent = finalText;
+          return;
+        }
+
+        // ---- Settings you can tweak ----
+        const startDelay = 600; // ms before the roll begins
+        const lastDigitDuration = 3200; // ms, the rightmost digit
+        const otherDigitDuration = 2400; // ms, the other digits
+        const stagger = 150; // ms delay between digits
+        // --------------------------------
+
+        el.textContent = '';
+
+        const reels: { reel: HTMLElement; finalIndex: number }[] = [];
+
+        [...finalText].forEach((char, i) => {
+          const digit = Number(char);
+          const isLast = i === finalText.length - 1;
+
+          // The last digit makes one extra full spin so the motion is
+          // clearly visible, even when the total is small.
+          const spins = isLast ? 1 : 0;
+
+          const wrap = document.createElement('span');
+          wrap.className = 'intro-digit';
+          wrap.setAttribute('aria-hidden', 'true');
+
+          const reel = document.createElement('span');
+          reel.className = 'intro-digit__reel';
+          reel.style.transitionDuration = `${
+            isLast ? lastDigitDuration : otherDigitDuration
+          }ms`;
+          reel.style.transitionDelay = `${i * stagger}ms`;
+
+          for (let n = 0; n < 10 * (spins + 1); n++) {
+            const cell = document.createElement('span');
+            cell.textContent = String(n % 10);
+            reel.appendChild(cell);
+          }
+
+          wrap.appendChild(reel);
+          el.appendChild(wrap);
+
+          reels.push({ reel, finalIndex: 10 * spins + digit });
+        });
+
+        // Make sure the starting position is painted before rolling.
+        void el.offsetWidth;
+
+        window.setTimeout(() => {
+          requestAnimationFrame(() => {
+            reels.forEach(({ reel, finalIndex }) => {
+              reel.style.transform = `translateY(calc(${-finalIndex} * 1.25em))`;
+            });
+          });
+        }, startDelay);
+      }
+
+      animateIntroCounter();
+      document.addEventListener('astro:after-swap', animateIntroCounter);
+    </script>
+  </body>
+</html>
