@@ -1,3 +1,7 @@
+/* ========================================
+   SHOWROOM PAGE
+======================================== */
+
 .showroom-page {
   background: var(--secondary-color);
   color: var(--primary-color);
@@ -6,8 +10,8 @@
 }
 
 /* ========================================
-     INTRO
-  ======================================== */
+   INTRO
+======================================== */
 
 .showroom-intro {
   margin-bottom: 9vw;
@@ -47,6 +51,7 @@
 }
 
 /* Rolling digit counter */
+
 .intro-digit {
   display: inline-block;
   height: 1.25em;
@@ -98,8 +103,8 @@
 }
 
 /* ========================================
-     PROJECT
-  ======================================== */
+   PROJECT
+======================================== */
 
 .project {
   margin-bottom: 10vw;
@@ -120,7 +125,7 @@
 }
 
 .project__heading h2 {
-  margin: 0.7vw 0 0 -0.065em; /* optical left alignment */
+  margin: 0.7vw 0 0 -0.065em;
   font-size: 5vw;
   line-height: 0.9;
   font-weight: 400;
@@ -136,53 +141,51 @@
 }
 
 /* ========================================
-     DYNAMIC GALLERY
-  ======================================== */
+   MASONRY IMAGE GALLERY
+======================================== */
 
 .project-gallery {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-auto-flow: dense;
-  grid-auto-rows: 5vw;
-  gap: 1.35vw;
+  columns: 2;
+  column-gap: 1.35vw;
+  width: 100%;
 }
 
 .project-gallery__item {
   position: relative;
-  min-width: 0;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1.35vw;
+  break-inside: avoid;
   overflow: hidden;
-  background: var(--light-greantea-color);
-}
-
-/* Horizontal image */
-.project-gallery__item.is-landscape {
-  grid-column: span 8;
-  grid-row: span 5;
-}
-
-/* Vertical image */
-.project-gallery__item.is-portrait {
-  grid-column: span 4;
-  grid-row: span 7;
-}
-
-/* Square image */
-.project-gallery__item.is-square {
-  grid-column: span 4;
-  grid-row: span 5;
+  background: transparent;
+  vertical-align: top;
 }
 
 .project-gallery__item img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
   transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.project-gallery__item:hover img {
-  transform: scale(1.04);
+/* Orientation classes */
+
+.project-gallery__item.is-landscape,
+.project-gallery__item.is-portrait,
+.project-gallery__item.is-square {
+  width: 100%;
 }
+
+/* Hover effect */
+
+.project-gallery__item:hover img {
+  transform: scale(1.025);
+}
+
+/* Image numbering */
 
 .image-index {
   position: absolute;
@@ -193,12 +196,13 @@
   font-family: var(--secondary-font-style);
   font-size: 0.7vw;
   letter-spacing: 0.05em;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 /* ========================================
-     PROJECT INFO
-  ======================================== */
+   PROJECT INFO
+======================================== */
 
 .project-info {
   display: grid;
@@ -231,8 +235,8 @@
 }
 
 /* ========================================
-     CLOSING
-  ======================================== */
+   CLOSING
+======================================== */
 
 .showroom-closing {
   padding: 5vw 0 2vw;
@@ -248,8 +252,8 @@
 }
 
 /* ========================================
-     TABLET
-  ======================================== */
+   TABLET
+======================================== */
 
 @media (max-width: 1023px) {
   .showroom-page {
@@ -277,8 +281,11 @@
   }
 
   .project-gallery {
-    grid-auto-rows: 7vw;
-    gap: 1.5vw;
+    column-gap: 1.5vw;
+  }
+
+  .project-gallery__item {
+    margin-bottom: 1.5vw;
   }
 
   .project-info__description h3 {
@@ -299,8 +306,8 @@
 }
 
 /* ========================================
-     MOBILE
-  ======================================== */
+   MOBILE
+======================================== */
 
 @media (max-width: 600px) {
   .showroom-page {
@@ -346,6 +353,8 @@
     line-height: 1.7;
   }
 
+  /* PROJECT */
+
   .project {
     margin-bottom: 75px;
   }
@@ -367,25 +376,21 @@
     line-height: 1.5;
   }
 
+  /* MOBILE MASONRY GALLERY */
+
   .project-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 36vw;
-    gap: 10px;
+    columns: 2;
+    column-gap: 10px;
   }
 
-  .project-gallery__item.is-landscape {
-    grid-column: span 2;
-    grid-row: span 3;
+  .project-gallery__item {
+    margin-bottom: 10px;
   }
 
-  .project-gallery__item.is-portrait {
-    grid-column: span 1;
-    grid-row: span 3;
-  }
-
-  .project-gallery__item.is-square {
-    grid-column: span 1;
-    grid-row: span 2;
+  .project-gallery__item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .image-index {
@@ -393,6 +398,8 @@
     bottom: 10px;
     font-size: 10px;
   }
+
+  /* PROJECT INFO */
 
   .project-info {
     grid-template-columns: 1fr;
@@ -416,6 +423,8 @@
     line-height: 1.7;
   }
 
+  /* CLOSING */
+
   .showroom-closing {
     padding: 40px 0 10px;
   }
@@ -423,5 +432,19 @@
   .showroom-closing h2 {
     margin-top: 20px;
     font-size: 9vw;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-gallery__item img {
+    transition: none;
+  }
+
+  .project-gallery__item:hover img {
+    transform: none;
   }
 }

@@ -4,21 +4,24 @@ import InstagramIcon from '../assets/icons/InstagramIcon.astro';
 import TelegramIcon from '../assets/icons/TelegramIcon.astro';
 
 import denzaShowroom from '../assets/images/denza_showroom.jpg';
-const restaurants =
-  'https://images.pexels.com/photos/18177440/pexels-photo-18177440.jpeg';
-const hotels =
-  'https://images.pexels.com/photos/40756987/pexels-photo-40756987.jpeg';
-const offices =
-  'https://images.pexels.com/photos/33827333/pexels-photo-33827333.jpeg';
-import learningCenters from '../assets/images/learningCenters.jpg';
+import HoReCa from '../assets/images/HoReCa.jpg';
+import offices from '../assets/images/office.jpg';
+import education from '../assets/images/learningCenters.jpg';
 import interiors from '../assets/images/interior.jpg';
+import receptions from '../assets/images/receptionBYD.jpg';
 
 const collections = [
   { name: 'АВТОСАЛОНЫ', href: '/car-showrooms', image: denzaShowroom.src },
-  { name: 'HoReCa', href: '/HoReCa', image: restaurants },
-  { name: 'ОФИСЫ', href: '/offices', image: offices },
-  { name: 'ОБРАЗОВАНИЕ', href: '/education', image: learningCenters.src },
+  {
+    name: 'Hotels\nRestaurants\nCafes',
+    label: 'HoReCa',
+    href: '/HoReCa',
+    image: HoReCa.src,
+  },
+  { name: 'ОФИСЫ', href: '/offices', image: offices.src },
+  { name: 'ОБРАЗОВАНИЕ', href: '/education', image: education.src },
   { name: 'ИНТЕРЬЕРЫ', href: '/interiors', image: interiors.src },
+  { name: 'РЕСЕПШЕНЫ', href: '/receptions', image: receptions.src },
 ];
 ---
 
@@ -75,13 +78,17 @@ const collections = [
     {collections.map((item) => (
       <a href={item.href} class="collection-card">
         <span class="collection-card__media">
-          <img src={item.image} alt={item.name} loading="lazy" />
+          <img
+            src={item.image}
+            alt={(item.label ?? item.name).replace(/\n/g, ' ')}
+            loading="lazy"
+          />
           <span class="collection-card__overlay">
             <span class="collection-card__name">{item.name}</span>
           </span>
         </span>
         <span class="collection-card__footer">
-          <span class="collection-card__label">{item.name}</span>
+          <span class="collection-card__label">{item.label ?? item.name}</span>
           <span class="collection-card__view">View</span>
         </span>
       </a>

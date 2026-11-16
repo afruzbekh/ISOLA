@@ -148,8 +148,7 @@
 
 .collections-panel__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  /* grid-template-columns: repeat(6, 1fr); */
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.35vw;
 }
 
@@ -204,19 +203,23 @@
   display: block;
   flex: 0 0 auto;
   overflow: hidden;
+  isolation: isolate; /* NEW: own stacking/clipping context */
   /* border-radius: 0.3vw; */
 }
 
 .collection-card img {
   width: 100%;
-  height: 20vw; /* image height lives here now */
+  height: 20vw;
   object-fit: cover;
   display: block;
+  transform: translateZ(0) scale(1); /* NEW: own GPU layer */
+  backface-visibility: hidden; /* NEW: stops sub-pixel shimmer */
+  will-change: transform; /* NEW */
   transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .collection-card:hover img {
-  transform: scale(1.04);
+  transform: translateZ(0) scale(1.04);
 }
 
 .collection-card__overlay {
@@ -242,6 +245,7 @@
   letter-spacing: 0.12em;
   /* text-transform: uppercase; */
   text-align: center;
+  white-space: pre-line; /* NEW: turns \n into a line break */
   transform: translateY(0.8vw);
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -263,6 +267,8 @@
   font-family: var(--primary-font-style);
   font-size: 0.8vw;
   letter-spacing: 0.12em;
+  line-height: 1.3; /* NEW: keeps the two lines tight */
+  white-space: pre-line; /* NEW */
   /* text-transform: uppercase; */
 }
 

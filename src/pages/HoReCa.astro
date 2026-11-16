@@ -7,6 +7,16 @@ import '../styles/NavBar.css';
 import '../styles/collections.css';
 import '../styles/Footer.css';
 
+// Farovon Khiva Hotel images
+import khivaHotel01 from '../assets/images/hotels/Khiva_Hotel/1.jpg';
+import khivaHotel02 from '../assets/images/hotels/Khiva_Hotel/2.jpg';
+import khivaHotel03 from '../assets/images/hotels/Khiva_Hotel/3.jpg';
+import khivaHotel04 from '../assets/images/hotels/Khiva_Hotel/4.jpg';
+import khivaHotel05 from '../assets/images/hotels/Khiva_Hotel/5.jpg';
+import khivaHotel06 from '../assets/images/hotels/Khiva_Hotel/6.jpg';
+import khivaHotel07 from '../assets/images/hotels/Khiva_Hotel/7.jpg';
+import khivaHotel08 from '../assets/images/hotels/Khiva_Hotel/8.jpg';
+
 // A-RISTORANTE images
 import a_ristorante01 from '../assets/images/restaurants/A-RISTORANTE/1.jpg';
 import a_ristorante02 from '../assets/images/restaurants/A-RISTORANTE/2.jpg';
@@ -62,6 +72,51 @@ import kumushkon_resort04 from '../assets/images/hotels/KumushkonResort/4.jpg';
 // PROJECT DATA
 const projects = [
   {
+    name: 'Farovon Khiva Hotel',
+    category: 'Отель',
+    location: 'ХОРЕЗМ, УЗБЕКИСТАН',
+
+    description: [
+      'Для FAROVON KHIVA HOTEL мы разработали и реализовали комплекс мебельных решений, объединив современные дизайнерские подходы с функциональными требованиями гостиничного пространства.',
+      'Особое внимание уделено индивидуальности каждой конструкции, качеству материалов и точности исполнения. Результатом стала гармоничная мебельная среда, отвечающая высоким стандартам комфорта, эстетики и долговечности.',
+    ],
+
+    images: [
+      {
+        src: khivaHotel01.src,
+        alt: 'FAROVON KHIVA HOTEL — изготовление и установка мебели для гостиницы в Хорезме, Узбекистан. Индивидуальные мебельные решения для премиального отеля.',
+      },
+      {
+        src: khivaHotel02.src,
+        alt: 'Мебель для гостиничных номеров FAROVON KHIVA HOTEL — корпусная мебель, современные интерьерные решения, функциональное оснащение гостиницы на заказ.',
+      },
+      {
+        src: khivaHotel03.src,
+        alt: 'Дизайнерская мебель для отеля в Хиве — изготовление гостиничной мебели, индивидуальный дизайн, качественные материалы и премиальная отделка.',
+      },
+      {
+        src: khivaHotel04.src,
+        alt: 'Мебельное оснащение FAROVON KHIVA HOTEL — производство мебели для гостиниц, отелей, курортных комплексов и общественных пространств.',
+      },
+      {
+        src: khivaHotel05.src,
+        alt: 'Современный интерьер гостиницы FAROVON KHIVA — мебель на заказ, индивидуальные конструкции, функциональность и эстетика гостиничного пространства.',
+      },
+      {
+        src: khivaHotel06.src,
+        alt: 'Корпусная мебель для гостиницы — шкафы, тумбы, столы и индивидуальные мебельные конструкции от производителя ISOLA.',
+      },
+      {
+        src: khivaHotel07.src,
+        alt: 'Премиальная мебель для гостиничного комплекса в Хорезме — проектирование, производство и реализация интерьерных решений компанией ISOLA.',
+      },
+      {
+        src: khivaHotel08.src,
+        alt: 'FAROVON KHIVA HOTEL, Хорезм, Узбекистан — комплексный проект по изготовлению гостиничной мебели, индивидуальные интерьерные решения от ISOLA.',
+      },
+    ],
+  },
+  {
     name: 'A-RISTORANTE',
     category: 'РЕСТОРАНЫ',
     location: 'ТАШКЕНТ, УЗБЕКИСТАН',
@@ -76,7 +131,6 @@ const projects = [
       { src: a_ristorante02.src, alt: 'Мебель ресторана A-RISTORANTE' },
       { src: a_ristorante03.src, alt: 'Детали проекта A-RISTORANTE' },
       { src: a_ristorante06.src, alt: 'Реализованный проект A-RISTORANTE' },
-      { src: a_ristorante05.src, alt: 'Детали проекта A-RISTORANTE' },
       { src: a_ristorante04.src, alt: 'Реализованный проект A-RISTORANTE' },
     ],
   },
@@ -290,7 +344,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
           <div class="showroom-intro__top">
             <span class="eyebrow">
               <span class="eyebrow__line"></span>
-              ISOLA - НАШИ ПРОЕКТЫ - Рестораны
+              ISOLA - НАШИ ПРОЕКТЫ - Hotels, Restaurants, Cafes
             </span>
 
             <span class="intro-index" data-count={projects.length}>
