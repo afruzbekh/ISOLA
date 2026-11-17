@@ -1,55 +1,59 @@
 ---
-import reception2 from '../assets/images/reception2.jpg';
-import conferenceHall from '../assets/images/confrenceHall.jpg';
-import carshowroom from '../assets/images/carShowroom1.jpg';
-import bar from '../assets/images/denza_bar.jpg';
-import kitchen from '../assets/images/kitchen.jpg';
+import carshowroom from '../assets/images/carShowroom1.png';
+import horeca from '../assets/images/hotels/Khiva_Hotel/2.jpg';
+import office from '../assets/images/office.jpg';
+import education from '../assets/images/education.jpg';
+import interior from '../assets/images/kitchen.jpg';
+import reception from '../assets/images/reception2.jpg';
 
 const collections = [
   {
     index: '01',
     title: 'Автосалоны',
-    desc: 'Архитектурный подход к созданию первого впечатления.',
+    desc: 'Архитектура премиального сервиса: от первого взгляда до передачи ключей.',
     img: carshowroom.src,
+    alt: 'Мебель на заказ для автосалона премиум-класса: металлическая кофе-стойка, белый стеллаж и круглые столики с серыми стульями.',
     link: '/car-showrooms/',
   },
   {
     index: '02',
     title: 'HoReCa',
-    desc: 'Пространство, которое подчеркивает статус ваших конференций.',
-    img: conferenceHall.src,
-    link: '/restaurants/',
+    desc: 'Эстетика притяжения: мебель, которая формирует характер вашего заведения.',
+    img: horeca.src,
+    alt: 'Мебель для ресторанов, кафе и отелей на заказ в Ташкенте: барная стойка, красные стулья и полукруглые зеленые велюровые диваны.',
+    link: '/HoReCa/',
   },
   {
     index: '03',
     title: 'Офисы',
-    desc: 'Атмосфера спокойствия и утончённого вкуса, где каждая деталь подчёркивает стиль и статус.',
-    img: reception2.src,
+    desc: 'Форма власти и ясности: интерьер, который говорит о масштабе бизнеса без лишних слов.',
+    img: office.src,
+    alt: 'Изготовление офисной мебели на заказ в Ташкенте: угловой стол директора в цвете дуб и графит со встроенным стеллажом до потолка.',
     link: '/offices/',
   },
   {
     index: '04',
     title: 'Образование',
-    desc: 'Смелые формы и умная эргономика для тех, кто ценит стиль и комфорт.',
-    img: kitchen.src,
-    // img: `https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg`,
+    desc: 'Надежность, рассчитанная на тысячи студентов, и эстетика, вдохновляющая на развитие.',
+    img: education.src,
+    alt: 'Мебель для учебного центра на заказ в Ташкенте: современные учебные столы, зона ресепшн и встроенные стеллажи для аудиторий.',
     link: '/education/',
   },
   {
     index: '05',
     title: 'Интерьеры',
-    desc: 'Смелые формы и умная эргономика для тех, кто ценит стиль и комфорт.',
-    img: kitchen.src,
-    // img: `https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg`,
+    desc: 'Архитектура домашнего уюта: кухни, гардеробные и системы хранения, созданные под ваш ритм жизни.',
+    img: interior.src,
+    alt: 'Дизайнерский кухонный гарнитур на заказ в Ташкенте с островом, каменной столешницей и высокими шкафами под потолок.',
     link: '/interiors/',
   },
   {
-    index: '05',
-    title: 'Интерьеры',
-    desc: 'Смелые формы и умная эргономика для тех, кто ценит стиль и комфорт.',
-    img: kitchen.src,
-    // img: `https://images.pexels.com/photos/1080721/pexels-photo-1080721.jpeg`,
-    link: '/receptions/',
+    index: '06',
+    title: 'Ресепшены',
+    desc: 'Безупречные радиусы, благородные фактуры и ювелирная точность исполнения.',
+    img: reception.src,
+    alt: 'Эксклюзивная стойка администратора сложной формы для автоцентра BYD в Ташкенте — премиальная мебель на заказ.',
+    link: '/reception/',
   },
 ];
 ---
@@ -59,13 +63,13 @@ const collections = [
     <img
       id="bg-image-current"
       src={collections[0].img}
-      alt=""
+      alt={collections[0].alt}
       fetchpriority="high"
     />
     <img
       id="bg-image-next"
       src={collections[0].img}
-      alt=""
+      alt={collections[0].alt}
       loading="lazy"
       style="opacity: 0;"
     />

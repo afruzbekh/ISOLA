@@ -141,48 +141,78 @@
 }
 
 /* ========================================
-   MASONRY IMAGE GALLERY
+   EDITORIAL IMAGE GRID
+   Mixed gallery:
+   landscape = 6 cols, portrait = 3 cols, square = 3 cols
+   (6+6, 6+3+3, 3+3+3+3 all fill a row perfectly)
 ======================================== */
 
 .project-gallery {
-  columns: 2;
-  column-gap: 1.35vw;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 30vw;
+  grid-auto-flow: dense; /* fills holes left by mixed orientations */
+  gap: 1.35vw;
   width: 100%;
 }
 
 .project-gallery__item {
   position: relative;
-  display: inline-block;
-  width: 100%;
-  margin: 0 0 1.35vw;
-  break-inside: avoid;
+  grid-column: span 3; /* default before JS tags the image */
   overflow: hidden;
-  background: transparent;
-  vertical-align: top;
+  background: rgba(12, 31, 26, 0.06);
+}
+
+.project-gallery__item.is-landscape {
+  grid-column: span 6;
+}
+
+.project-gallery__item.is-portrait {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.project-gallery__item.is-square {
+  grid-column: span 3;
+}
+
+/* Hero: the first landscape image goes full width (mixed galleries) */
+.project-gallery__item.is-landscape:first-child {
+  grid-column: 1 / -1;
+  grid-row: span 1;
 }
 
 .project-gallery__item img {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: contain;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
   object-position: center;
   transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Orientation classes */
-
-.project-gallery__item.is-landscape,
-.project-gallery__item.is-portrait,
-.project-gallery__item.is-square {
-  width: 100%;
-}
-
-/* Hover effect */
-
 .project-gallery__item:hover img {
   transform: scale(1.025);
+}
+
+/* ----------------------------------------
+   ALL-LANDSCAPE GALLERY: 3 per row
+   Applies when the gallery has no portrait or square images.
+   No hero image, rows are shorter to suit wide photos.
+---------------------------------------- */
+
+.project-gallery:not(:has(.is-portrait, .is-square)) {
+  grid-auto-rows: 22vw;
+}
+
+.project-gallery:not(:has(.is-portrait, .is-square)) .project-gallery__item,
+.project-gallery:not(:has(.is-portrait, .is-square))
+  .project-gallery__item.is-landscape,
+.project-gallery:not(:has(.is-portrait, .is-square))
+  .project-gallery__item.is-landscape:first-child {
+  grid-column: span 4;
 }
 
 /* Image numbering */
@@ -281,11 +311,12 @@
   }
 
   .project-gallery {
-    column-gap: 1.5vw;
+    gap: 1.5vw;
+    grid-auto-rows: 34vw;
   }
 
-  .project-gallery__item {
-    margin-bottom: 1.5vw;
+  .project-gallery:not(:has(.is-portrait, .is-square)) {
+    grid-auto-rows: 24vw;
   }
 
   .project-info__description h3 {
@@ -376,21 +407,36 @@
     line-height: 1.5;
   }
 
-  /* MOBILE MASONRY GALLERY */
+  /* MOBILE GALLERY */
 
   .project-gallery {
-    columns: 2;
-    column-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 58vw;
+    gap: 10px;
   }
 
-  .project-gallery__item {
-    margin-bottom: 10px;
+  .project-gallery__item,
+  .project-gallery__item.is-portrait,
+  .project-gallery__item.is-square {
+    grid-column: span 1;
   }
 
-  .project-gallery__item img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+  .project-gallery__item.is-landscape,
+  .project-gallery__item.is-landscape:first-child {
+    grid-column: 1 / -1;
+  }
+
+  /* All-landscape on mobile: one wide image per row */
+  .project-gallery:not(:has(.is-portrait, .is-square)) {
+    grid-auto-rows: 62vw;
+  }
+
+  .project-gallery:not(:has(.is-portrait, .is-square)) .project-gallery__item,
+  .project-gallery:not(:has(.is-portrait, .is-square))
+    .project-gallery__item.is-landscape,
+  .project-gallery:not(:has(.is-portrait, .is-square))
+    .project-gallery__item.is-landscape:first-child {
+    grid-column: 1 / -1;
   }
 
   .image-index {
