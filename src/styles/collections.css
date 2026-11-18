@@ -336,6 +336,195 @@
   }
 }
 
+/* ---------- Collapsed / reveal ---------- */
+/* =====================================================
+   GALLERY: collapsed items, reveal animation, "show more" bar
+   Import in the page:  import '../styles/gallery-more.css';
+
+   Dark version for a light (cream) page background:
+   --primary-color:        #0c1f1a   deep green  -> text, lines, arrow
+   --light-greantea-color: #008a55   green       -> hover, progress, counter
+   ===================================================== */
+
+/* ---------- Collapsed / reveal ---------- */
+
+.project-gallery__item.is-collapsed {
+  display: none;
+}
+
+.project-gallery__item.is-revealing {
+  animation: galleryReveal 1s cubic-bezier(0.77, 0.25, 0.11, 0.92) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+@keyframes galleryReveal {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* ---------- Show more: full-width bar ---------- */
+
+.gallery-more {
+  padding: 4rem 0 2rem;
+}
+
+.gallery-more[hidden] {
+  display: none;
+}
+
+.gallery-more__btn {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 3vw;
+  width: 100%;
+  padding: 2.4vw 0;
+  background: none;
+  border: none;
+  border-top: 1px solid
+    color-mix(in srgb, var(--primary-color, #0c1f1a) 30%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--primary-color, #0c1f1a) 30%, transparent);
+  color: var(--primary-color, #0c1f1a);
+  cursor: pointer;
+  overflow: hidden;
+  text-align: left;
+}
+
+/* green tint that sweeps up on hover */
+.gallery-more__btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(
+    in srgb,
+    var(--light-greantea-color, #008a55) 10%,
+    transparent
+  );
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s cubic-bezier(0.77, 0.25, 0.11, 0.92);
+}
+
+.gallery-more__btn:hover::before {
+  transform: scaleY(1);
+}
+
+/* progress line on top of the bar */
+.gallery-more__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: calc(var(--progress, 0) * 100%);
+  background: var(--light-greantea-color, #008a55);
+  transition: width 1s cubic-bezier(0.77, 0.25, 0.11, 0.92);
+}
+
+.gallery-more__label {
+  position: relative;
+  font-family: var(--primary-font-style);
+  font-size: clamp(1.4rem, 2.6vw, 3.2rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--primary-color, #0c1f1a);
+  transition:
+    transform 0.6s cubic-bezier(0.77, 0.25, 0.11, 0.92),
+    color 0.3s ease;
+}
+
+.gallery-more__btn:hover .gallery-more__label {
+  transform: translateX(1.5vw);
+  color: var(--light-greantea-color, #008a55);
+}
+
+.gallery-more__count {
+  position: relative;
+  font-family: var(--secondary-font-style);
+  font-size: clamp(0.8rem, 0.9vw, 1.1rem);
+  letter-spacing: 0.15em;
+  color: color-mix(in srgb, var(--primary-color, #0c1f1a) 75%, transparent);
+}
+
+.gallery-more__count b {
+  display: inline-block;
+  font-weight: 500;
+  color: var(--light-greantea-color, #008a55);
+}
+
+.gallery-more__count b.is-tick {
+  animation: countTick 0.5s ease;
+}
+
+@keyframes countTick {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  45% {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(60%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.gallery-more__arrow {
+  position: relative;
+  width: clamp(1.4rem, 2vw, 2.6rem);
+  fill: none;
+  stroke: var(--primary-color, #0c1f1a);
+  stroke-width: 1;
+  transition:
+    transform 0.6s cubic-bezier(0.77, 0.25, 0.11, 0.92),
+    stroke 0.3s ease;
+}
+
+.gallery-more__btn:hover .gallery-more__arrow {
+  transform: translateY(0.6vw);
+  stroke: var(--light-greantea-color, #008a55);
+}
+
+.gallery-more__btn:focus-visible {
+  outline: 1px solid var(--light-greantea-color, #008a55);
+  outline-offset: -4px;
+}
+
+/* ---------- Tablet / Mobile ---------- */
+
+@media (max-width: 1024px) {
+  .gallery-more {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .gallery-more__btn {
+    gap: 4vw;
+    padding: 6vw 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-gallery__item.is-revealing,
+  .gallery-more__count b.is-tick {
+    animation: none;
+  }
+}
 /* ========================================
    MOBILE
 ======================================== */

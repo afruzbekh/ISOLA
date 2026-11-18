@@ -36,6 +36,9 @@ import reception25 from '../assets/images/reception1.jpg';
 import reception26 from '../assets/images/receptions/25.jpg';
 import reception27 from '../assets/images/hotels/Khiva_Hotel/1.jpg';
 import reception28 from '../assets/images/receptions/28.jpg';
+import reception29 from '../assets/images/receptions/29.jpg';
+import reception30 from '../assets/images/receptions/30.jpg';
+import reception31 from '../assets/images/receptions/31.jpg';
 
 // PROJECT DATA
 const projects = [
@@ -162,6 +165,18 @@ const projects = [
         src: reception28.src,
         alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
       },
+      {
+        src: reception29.src,
+        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
+      },
+      {
+        src: reception30.src,
+        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
+      },
+      {
+        src: reception31.src,
+        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
+      },
     ],
   },
 
@@ -169,6 +184,7 @@ const projects = [
 ];
 
 const totalProjects = String(projects.length).padStart(2, '0');
+const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
 ---
 
 <!doctype html>
@@ -248,7 +264,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
               ISOLA - НАШИ ПРОЕКТЫ - Ресепшны
             </span>
 
-            <span class="intro-index" data-count={projects.length}>
+            <span class="intro-index" data-count={totalImages}>
               01
             </span>
           </div>
@@ -307,6 +323,24 @@ const totalProjects = String(projects.length).padStart(2, '0');
                     </span>
                   </div>
                 ))}
+              </div>
+
+              <!-- SHOW MORE (hidden until the script finds hidden rows) -->
+              <div class="gallery-more" hidden>
+                <button type="button" class="gallery-more__btn">
+                  <span class="gallery-more__progress"></span>
+                  <span class="gallery-more__label">Показать ещё</span>
+                  <span class="gallery-more__count">
+                    <b data-shown>00</b> / <span data-total>00</span>
+                  </span>
+                  <svg
+                    class="gallery-more__arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 3v18M5 14l7 7 7-7" />
+                  </svg>
+                </button>
               </div>
 
               <!-- PROJECT DESCRIPTION -->
@@ -409,6 +443,166 @@ const totalProjects = String(projects.length).padStart(2, '0');
       }
 
       setImageOrientation();
+    </script>
+
+    <!-- GALLERY: SHOW 5 ROWS AT A TIME -->
+    <script>
+      const ROWS_PER_STEP = 5;
+
+      function initGalleryLimit() {
+        document
+          .querySelectorAll<HTMLElement>('.project')
+          .forEach((project) => {
+            const gallery =
+              project.querySelector<HTMLElement>('.project-gallery');
+            const more = project.querySelector<HTMLElement>('.gallery-more');
+            const btn =
+              more?.querySelector<HTMLButtonElement>('.gallery-more__btn');
+
+            if (!gallery || !more || !btn || more.dataset.ready) return;
+            more.dataset.ready = 'true';
+
+            const items = [
+              ...gallery.querySelectorAll<HTMLElement>(
+                '.project-gallery__item'
+              ),
+            ];
+            const shownEl = more.querySelector<HTMLElement>('[data-shown]');
+            const totalEl = more.querySelector<HTMLElement>('[data-total]');
+            const pad = (n: number) => String(n).padStart(2, '0');
+
+            let visibleRows = ROWS_PER_STEP;
+            let rowStarts: number[] = [];
+
+            // Index of the first item of every visual row
+            function measureRows() {
+              items.forEach((i) => i.classList.remove('is-collapsed'));
+              rowStarts = [];
+              let lastTop = -Infinity;
+
+              items.forEach((item, idx) => {
+                const top = item.offsetTop;
+                if (top - lastTop > 8) {
+                  rowStarts.push(idx);
+                  lastTop = top;
+                }
+              });
+            }
+
+            function currentLimit() {
+              return visibleRows < rowStarts.length
+                ? rowStarts[visibleRows]
+                : items.length;
+            }
+
+            function apply(animateFrom = -1) {
+              const limit = currentLimit();
+
+              items.forEach((item, i) => {
+                item.classList.toggle('is-collapsed', i >= limit);
+                item.classList.remove('is-revealing');
+
+                if (animateFrom >= 0 && i >= animateFrom && i < limit) {
+                  // these images have their own "show more" animation,
+                  // so skip the scroll reveal for them
+                  item.classList.remove('reveal-ready', 'is-inview');
+                  item.style.setProperty('--i', String(i - animateFrom));
+                  void item.offsetWidth; // restart animation
+                  item.classList.add('is-revealing');
+                }
+              });
+
+              if (shownEl && shownEl.textContent !== pad(limit)) {
+                shownEl.textContent = pad(limit);
+                shownEl.classList.remove('is-tick');
+                void shownEl.offsetWidth;
+                shownEl.classList.add('is-tick');
+              }
+
+              if (totalEl) totalEl.textContent = pad(items.length);
+
+              // 0 → 1, used by the progress line in CSS
+              more!.style.setProperty(
+                '--progress',
+                String(limit / items.length)
+              );
+
+              more!.hidden = limit >= items.length;
+            }
+
+            btn.addEventListener('click', () => {
+              const from = currentLimit();
+              visibleRows += ROWS_PER_STEP;
+              apply(from);
+            });
+
+            const refresh = () => {
+              measureRows();
+              apply();
+            };
+
+            refresh();
+            window.addEventListener('load', refresh);
+
+            let t: number;
+            window.addEventListener('resize', () => {
+              clearTimeout(t);
+              t = window.setTimeout(refresh, 200);
+            });
+          });
+      }
+
+      initGalleryLimit();
+      document.addEventListener('astro:after-swap', initGalleryLimit);
+    </script>
+
+    <!-- GALLERY: REVEAL IMAGES ON SCROLL -->
+    <script>
+      function initScrollReveal() {
+        const reduceMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+        const items = document.querySelectorAll<HTMLElement>(
+          '.project-gallery__item:not([data-reveal])'
+        );
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort(
+                (a, b) =>
+                  a.boundingClientRect.top - b.boundingClientRect.top ||
+                  a.boundingClientRect.left - b.boundingClientRect.left
+              );
+
+            visible.forEach((entry, i) => {
+              const el = entry.target as HTMLElement;
+              el.style.setProperty('--d', `${i * 80}ms`);
+              el.classList.add('is-inview');
+              observer.unobserve(el);
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+        );
+
+        items.forEach((item) => {
+          item.dataset.reveal = 'true';
+
+          // Images already on screen at load stay visible: no animation
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight) return;
+
+          item.classList.add('reveal-ready');
+          observer.observe(item);
+        });
+      }
+
+      initScrollReveal();
+      document.addEventListener('astro:after-swap', initScrollReveal);
     </script>
 
     <!-- INTRO COUNTER ANIMATION -->
