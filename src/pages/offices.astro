@@ -7,36 +7,138 @@ import '../styles/NavBar.css';
 import '../styles/collections.css';
 import '../styles/Footer.css';
 
-// DENZA images
-import denza01 from '../assets/images/denza_showroom.jpg';
-import denza02 from '../assets/images/denza_bar.jpg';
-import denza03 from '../assets/images/denza_showroom.jpg';
-import denza04 from '../assets/images/denza_showroom.jpg';
+// offices images
+import offices1 from '../assets/images/offices/1.jpg';
+import offices2 from '../assets/images/offices/2.jpg';
+import offices3 from '../assets/images/offices/3.jpg';
+import offices5 from '../assets/images/offices/5.jpg';
+import offices6 from '../assets/images/offices/6.jpg';
+import offices7 from '../assets/images/offices/7.jpg';
+import offices8 from '../assets/images/offices/8.jpg';
+import offices9 from '../assets/images/offices/9.jpg';
+import offices10 from '../assets/images/offices/10.jpg';
+import offices11 from '../assets/images/offices/11.jpg';
+import offices12 from '../assets/images/offices/12.jpg';
+import offices13 from '../assets/images/offices/13.jpg';
+import offices14 from '../assets/images/offices/14.jpg';
+import offices15 from '../assets/images/offices/15.jpg';
+import offices16 from '../assets/images/offices/16.jpg';
+import offices17 from '../assets/images/offices/17.jpg';
+import offices18 from '../assets/images/offices/18.jpg';
+import offices19 from '../assets/images/offices/19.jpg';
+import offices20 from '../assets/images/offices/20.jpg';
+import offices21 from '../assets/images/offices/21.jpg';
+import offices22 from '../assets/images/offices/22.jpg';
+import offices23 from '../assets/images/offices/23.jpg';
+import offices24 from '../assets/images/offices/24.jpg';
+import offices25 from '../assets/images/offices/25.jpg';
+import offices26 from '../assets/images/offices/26.jpg';
+import offices27 from '../assets/images/offices/27.jpg';
+import offices28 from '../assets/images/offices/28.jpg';
+import offices29 from '../assets/images/offices/29.jpg';
+import offices30 from '../assets/images/offices/30.jpg';
+import offices31 from '../assets/images/offices/31.jpg';
+import offices32 from '../assets/images/offices/32.jpg';
+import offices33 from '../assets/images/offices/33.jpg';
+import offices34 from '../assets/images/offices/34.jpg';
+import offices35 from '../assets/images/offices/35.jpg';
+import offices36 from '../assets/images/offices/36.jpg';
+import offices37 from '../assets/images/offices/37.jpg';
+import offices38 from '../assets/images/offices/38.jpg';
+import offices39 from '../assets/images/offices/39.jpg';
+import offices40 from '../assets/images/offices/40.jpg';
+import offices41 from '../assets/images/offices/41.jpg';
+
+// Alt text helper: one place to edit the wording
+const altFor = (brand: string) =>
+  `Стойка ресепшен на заказ для автосалона ${brand} — индивидуальное производство мебели`;
+
+// Each entry: the imported image + the brand used in the alt text.
+// Order here = order on the page.
+const receptionImages = [
+  { img: offices39, brand: 'BYD' },
+
+  { img: offices3, brand: 'Kumushkon' },
+  { img: offices5, brand: 'BYD' },
+  { img: offices6, brand: 'BYD' },
+  { img: offices9, brand: 'BYD' },
+  { img: offices8, brand: 'BYD' },
+  { img: offices10, brand: 'BYD' },
+  { img: offices11, brand: 'BYD' },
+  { img: offices12, brand: 'BYD' },
+  { img: offices32, brand: 'BYD' },
+  { img: offices13, brand: 'BYD' },
+  { img: offices14, brand: 'BYD' },
+  { img: offices15, brand: 'BYD' },
+  { img: offices16, brand: 'BYD' },
+  { img: offices17, brand: 'BYD' },
+  { img: offices18, brand: 'BYD' },
+  { img: offices19, brand: 'BYD' },
+  { img: offices7, brand: 'BYD' },
+  { img: offices20, brand: 'BYD' },
+  { img: offices21, brand: 'BYD' },
+  { img: offices22, brand: 'BYD' },
+  { img: offices23, brand: 'BYD' },
+  { img: offices24, brand: 'BYD' },
+  { img: offices25, brand: 'BYD' },
+  { img: offices26, brand: 'BYD' },
+  { img: offices27, brand: 'BYD' },
+  { img: offices28, brand: 'BYD' },
+  { img: offices29, brand: 'BYD' },
+  { img: offices30, brand: 'BYD' },
+  { img: offices1, brand: 'DENZA' },
+  { img: offices31, brand: 'BYD' },
+  { img: offices32, brand: 'BYD' },
+  { img: offices33, brand: 'BYD' },
+  { img: offices34, brand: 'BYD' },
+  { img: offices35, brand: 'BYD' },
+  { img: offices36, brand: 'BYD' },
+  { img: offices37, brand: 'BYD' },
+  { img: offices38, brand: 'BYD' },
+  { img: offices40, brand: 'BYD' },
+  { img: offices41, brand: 'BYD' },
+];
+
+// Width/height come from Astro's image import metadata, so the
+// orientation is known at build time (no waiting for the browser).
+const toGalleryImage = ({
+  img,
+  brand,
+}: {
+  img: ImageMetadata;
+  brand: string;
+}) => ({
+  src: img.src,
+  width: img.width,
+  height: img.height,
+  alt: altFor(brand),
+  orientation:
+    img.width > img.height
+      ? 'is-landscape'
+      : img.height > img.width
+        ? 'is-portrait'
+        : 'is-square',
+});
 
 // PROJECT DATA
 const projects = [
   {
-    name: 'DENZA',
-    category: 'АВТОСАЛОН',
+    name: 'Офисы',
+    category: 'Офисы',
     location: 'ТАШКЕНТ, УЗБЕКИСТАН',
 
     description: [
-      'Для автосалона DENZA мы разработали и реализовали мебельные решения, уделяя особое внимание эстетике, функциональности и качеству исполнения.',
-      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.',
+      'Комплексное оснащение офисов мебелью премиум-класса: авторские столы, переговорные группы, стеновые панели и функциональные системы хранения.',
+      'Каждое решение разрабатывается под задачи бизнеса, объединяя выразительную эстетику, порядок на рабочем месте и надёжность на долгие годы.',
     ],
 
-    images: [
-      { src: denza01.src, alt: 'Интерьер автосалона DENZA' },
-      { src: denza02.src, alt: 'Мебель автосалона DENZA' },
-      { src: denza03.src, alt: 'Детали проекта DENZA' },
-      { src: denza04.src, alt: 'Реализованный проект DENZA' },
-    ],
+    images: receptionImages.map(toGalleryImage),
   },
 
   // Add more projects here
 ];
 
-const totalProjects = String(projects.length).padStart(2, '0');
+const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
 ---
 
 <!doctype html>
@@ -49,7 +151,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
 
     <meta
       name="description"
-      content="Проектирование и изготовление мебели для офисов от ISOLA. Премиальные корпоративные интерьеры, рабочие зоны и функциональные решения для бизнеса в Ташкенте."
+      content="Производство офисной мебели премиум-класса от ISOLA в Ташкенте и по всему Узбекистану. Индивидуальный дизайн, безупречное качество и оснащение офисов под ключ."
     />
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -59,7 +161,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
     <meta name="apple-mobile-web-app-title" content="isola.uz" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="canonical" href="https://isola.uz/offices/" />
+    <link rel="canonical" href="https://isola.uz/receptions/" />
 
     <script type="application/ld+json">
       {
@@ -113,25 +215,26 @@ const totalProjects = String(projects.length).padStart(2, '0');
           <div class="showroom-intro__top">
             <span class="eyebrow">
               <span class="eyebrow__line"></span>
-              ISOLA - НАШИ ПРОЕКТЫ - Рестораны
+              ISOLA - НАШИ ПРОЕКТЫ - Офисы
             </span>
 
-            <span class="intro-index" data-count={projects.length}>
+            <span class="intro-index" data-count={totalImages}>
               01
             </span>
           </div>
 
           <div class="showroom-intro__content">
             <h1>
-              Пространства,
+              Уникальный дизайн,
               <br />
-              созданные <span>для впечатлений.</span>
+              воплощённый <span>в качестве.</span>
             </h1>
 
             <p>
-              Мы создаём мебель и интерьерные решения, которые формируют
-              характер пространства. От концепции и проектирования до
-              производства и реализации — каждая деталь имеет значение.
+              Мы проектируем и производим эксклюзивную мебель для современных
+              офисов: выверенные пропорции, премиальные материалы и
+              индивидуальные конструктивные решения, которые выделяют ваш
+              интерьер и создают комфорт на каждый день.
             </p>
           </div>
         </div>
@@ -154,13 +257,15 @@ const totalProjects = String(projects.length).padStart(2, '0');
                 <span class="project__location">{project.location}</span>
               </div>
 
-              <!-- DYNAMIC IMAGE GALLERY -->
+              <!-- IMAGE GALLERY (orientation class + size rendered at build time) -->
               <div class="project-gallery">
                 {project.images.map((image, imageIndex) => (
-                  <div class="project-gallery__item">
+                  <div class={`project-gallery__item ${image.orientation}`}>
                     <img
                       src={image.src}
                       alt={image.alt}
+                      width={image.width}
+                      height={image.height}
                       loading={
                         projectIndex === 0 && imageIndex === 0
                           ? 'eager'
@@ -175,6 +280,24 @@ const totalProjects = String(projects.length).padStart(2, '0');
                     </span>
                   </div>
                 ))}
+              </div>
+
+              <!-- SHOW MORE (hidden until the script finds hidden rows) -->
+              <div class="gallery-more" hidden>
+                <button type="button" class="gallery-more__btn">
+                  <span class="gallery-more__progress"></span>
+                  <span class="gallery-more__label">Показать ещё</span>
+                  <span class="gallery-more__count">
+                    <b data-shown>00</b> / <span data-total>00</span>
+                  </span>
+                  <svg
+                    class="gallery-more__arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 3v18M5 14l7 7 7-7" />
+                  </svg>
+                </button>
               </div>
 
               <!-- PROJECT DESCRIPTION -->
@@ -244,39 +367,169 @@ const totalProjects = String(projects.length).padStart(2, '0');
       document.addEventListener('astro:after-swap', initLenis);
     </script>
 
-    <!-- IMAGE ORIENTATION DETECTION -->
+    <!-- The old IMAGE ORIENTATION DETECTION script is removed:
+         orientation classes are now rendered on the server. -->
+
+    <!-- GALLERY: SHOW 5 ROWS AT A TIME -->
     <script>
-      function setImageOrientation() {
-        const images = document.querySelectorAll<HTMLImageElement>(
-          '.project-gallery__item img'
+      const ROWS_PER_STEP = 5;
+
+      function initGalleryLimit() {
+        document
+          .querySelectorAll<HTMLElement>('.project')
+          .forEach((project) => {
+            const gallery =
+              project.querySelector<HTMLElement>('.project-gallery');
+            const more = project.querySelector<HTMLElement>('.gallery-more');
+            const btn =
+              more?.querySelector<HTMLButtonElement>('.gallery-more__btn');
+
+            if (!gallery || !more || !btn || more.dataset.ready) return;
+            more.dataset.ready = 'true';
+
+            const items = [
+              ...gallery.querySelectorAll<HTMLElement>(
+                '.project-gallery__item'
+              ),
+            ];
+            const shownEl = more.querySelector<HTMLElement>('[data-shown]');
+            const totalEl = more.querySelector<HTMLElement>('[data-total]');
+            const pad = (n: number) => String(n).padStart(2, '0');
+
+            let visibleRows = ROWS_PER_STEP;
+            let rowStarts: number[] = [];
+
+            // Index of the first item of every visual row
+            function measureRows() {
+              items.forEach((i) => i.classList.remove('is-collapsed'));
+              rowStarts = [];
+              let lastTop = -Infinity;
+
+              items.forEach((item, idx) => {
+                const top = item.offsetTop;
+                if (top - lastTop > 8) {
+                  rowStarts.push(idx);
+                  lastTop = top;
+                }
+              });
+            }
+
+            function currentLimit() {
+              return visibleRows < rowStarts.length
+                ? rowStarts[visibleRows]
+                : items.length;
+            }
+
+            function apply(animateFrom = -1) {
+              const limit = currentLimit();
+
+              items.forEach((item, i) => {
+                item.classList.toggle('is-collapsed', i >= limit);
+                item.classList.remove('is-revealing');
+
+                if (animateFrom >= 0 && i >= animateFrom && i < limit) {
+                  // these images have their own "show more" animation,
+                  // so skip the scroll reveal for them
+                  item.classList.remove('reveal-ready', 'is-inview');
+                  item.style.setProperty('--i', String(i - animateFrom));
+                  void item.offsetWidth; // restart animation
+                  item.classList.add('is-revealing');
+                }
+              });
+
+              if (shownEl && shownEl.textContent !== pad(limit)) {
+                shownEl.textContent = pad(limit);
+                shownEl.classList.remove('is-tick');
+                void shownEl.offsetWidth;
+                shownEl.classList.add('is-tick');
+              }
+
+              if (totalEl) totalEl.textContent = pad(items.length);
+
+              // 0 → 1, used by the progress line in CSS
+              more!.style.setProperty(
+                '--progress',
+                String(limit / items.length)
+              );
+
+              more!.hidden = limit >= items.length;
+            }
+
+            btn.addEventListener('click', () => {
+              const from = currentLimit();
+              visibleRows += ROWS_PER_STEP;
+              apply(from);
+            });
+
+            const refresh = () => {
+              measureRows();
+              apply();
+            };
+
+            refresh();
+            window.addEventListener('load', refresh);
+            // Re-measure once web fonts are ready (they can shift layout)
+            document.fonts?.ready.then(refresh);
+
+            let t: number;
+            window.addEventListener('resize', () => {
+              clearTimeout(t);
+              t = window.setTimeout(refresh, 200);
+            });
+          });
+      }
+
+      initGalleryLimit();
+      document.addEventListener('astro:after-swap', initGalleryLimit);
+    </script>
+
+    <!-- GALLERY: REVEAL IMAGES ON SCROLL -->
+    <script>
+      function initScrollReveal() {
+        const reduceMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+        const items = document.querySelectorAll<HTMLElement>(
+          '.project-gallery__item:not([data-reveal])'
         );
 
-        images.forEach((img) => {
-          const updateOrientation = () => {
-            const item = img.closest('.project-gallery__item');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            const visible = entries
+              .filter((entry) => entry.isIntersecting)
+              .sort(
+                (a, b) =>
+                  a.boundingClientRect.top - b.boundingClientRect.top ||
+                  a.boundingClientRect.left - b.boundingClientRect.left
+              );
 
-            if (!item || !img.naturalWidth || !img.naturalHeight) return;
+            visible.forEach((entry, i) => {
+              const el = entry.target as HTMLElement;
+              el.style.setProperty('--d', `${i * 80}ms`);
+              el.classList.add('is-inview');
+              observer.unobserve(el);
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+        );
 
-            item.classList.remove('is-landscape', 'is-portrait', 'is-square');
+        items.forEach((item) => {
+          item.dataset.reveal = 'true';
 
-            if (img.naturalWidth > img.naturalHeight) {
-              item.classList.add('is-landscape');
-            } else if (img.naturalHeight > img.naturalWidth) {
-              item.classList.add('is-portrait');
-            } else {
-              item.classList.add('is-square');
-            }
-          };
+          // Images already on screen at load stay visible: no animation
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight) return;
 
-          if (img.complete && img.naturalWidth > 0) {
-            updateOrientation();
-          } else {
-            img.addEventListener('load', updateOrientation, { once: true });
-          }
+          item.classList.add('reveal-ready');
+          observer.observe(item);
         });
       }
 
-      setImageOrientation();
+      initScrollReveal();
+      document.addEventListener('astro:after-swap', initScrollReveal);
     </script>
 
     <!-- INTRO COUNTER ANIMATION -->
