@@ -14,7 +14,7 @@
 ======================================== */
 
 .showroom-intro {
-  margin-bottom: 9vw;
+  margin-bottom: 6vw;
 }
 
 .showroom-intro__top {
@@ -75,9 +75,10 @@
 
 .showroom-intro__content {
   display: grid;
-  grid-template-columns: 1.5fr 0.65fr;
+  grid-template-columns: 1fr auto;
   align-items: end;
-  gap: 4vw;
+  justify-content: space-between;
+  column-gap: 4vw;
 }
 
 .showroom-intro h1 {
@@ -100,6 +101,7 @@
   font-size: 0.9vw;
   line-height: 1.8;
   opacity: 0.75;
+  text-align: justify;
 }
 
 /* ========================================

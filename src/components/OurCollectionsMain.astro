@@ -3,7 +3,7 @@ import carshowroom from '../assets/images/carShowroom1.png';
 import horeca from '../assets/images/hotels/Khiva_Hotel/2.jpg';
 import office from '../assets/images/office.jpg';
 import education from '../assets/images/education.jpg';
-import interior from '../assets/images/kitchen.jpg';
+import interior from '../assets/images/interiors/kitchen/9.jpg';
 import reception from '../assets/images/reception2.jpg';
 
 const collections = [
@@ -252,7 +252,9 @@ const collections = [
     '.swiper-progress-fill'
   ) as HTMLElement;
 
-  const ctaLinks = document.querySelectorAll<HTMLAnchorElement>(
+  const section = document.getElementById('collections');
+
+  const ctaLinks = section!.querySelectorAll<HTMLAnchorElement>(
     '.OurCollectionsMain-cta-pc, .OurCollectionsMain-cta-mobile'
   );
 

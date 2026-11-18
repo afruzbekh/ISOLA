@@ -7,36 +7,294 @@ import '../styles/NavBar.css';
 import '../styles/collections.css';
 import '../styles/Footer.css';
 
-// DENZA images
-import denza01 from '../assets/images/denza_showroom.jpg';
-import denza02 from '../assets/images/denza_bar.jpg';
-import denza03 from '../assets/images/denza_showroom.jpg';
-import denza04 from '../assets/images/denza_showroom.jpg';
+// Kitchen images
+import kitchen01 from '../assets/images/interiors/kitchen/1.jpg';
+import kitchen02 from '../assets/images/interiors/kitchen/2.jpg';
+import kitchen03 from '../assets/images/interiors/kitchen/3.jpg';
+import kitchen05 from '../assets/images/interiors/kitchen/5.jpg';
+import kitchen06 from '../assets/images/interiors/kitchen/6.jpg';
+import kitchen07 from '../assets/images/interiors/kitchen/7.jpg';
+import kitchen08 from '../assets/images/interiors/kitchen/8.jpg';
+import kitchen09 from '../assets/images/interiors/kitchen/9.jpg';
+import kitchen10 from '../assets/images/interiors/kitchen/10.jpg';
+import kitchen11 from '../assets/images/interiors/kitchen/11.jpg';
+import kitchen12 from '../assets/images/interiors/kitchen/12.jpg';
+import kitchen13 from '../assets/images/interiors/kitchen/13.jpg';
+import kitchen14 from '../assets/images/interiors/kitchen/14.jpg';
+import kitchen15 from '../assets/images/interiors/kitchen/15.jpg';
+import kitchen16 from '../assets/images/interiors/kitchen/16.jpg';
+import kitchen17 from '../assets/images/interiors/kitchen/17.jpg';
+import kitchen18 from '../assets/images/interiors/kitchen/18.jpg';
+import kitchen19 from '../assets/images/interiors/kitchen/19.jpg';
+import kitchen20 from '../assets/images/interiors/kitchen/20.jpg';
+import kitchen21 from '../assets/images/interiors/kitchen/21.jpg';
+import kitchen22 from '../assets/images/interiors/kitchen/22.jpg';
+import kitchen23 from '../assets/images/interiors/kitchen/23.jpg';
+import kitchen24 from '../assets/images/interiors/kitchen/24.jpg';
+import kitchen25 from '../assets/images/interiors/kitchen/25.jpg';
+import kitchen26 from '../assets/images/interiors/kitchen/26.jpg';
+import kitchen27 from '../assets/images/interiors/kitchen/27.jpg';
+import kitchen28 from '../assets/images/interiors/kitchen/28.jpg';
+import kitchen29 from '../assets/images/interiors/kitchen/29.jpg';
+import kitchen30 from '../assets/images/interiors/kitchen/30.jpg';
+import kitchen31 from '../assets/images/interiors/kitchen/31.jpg';
+import kitchen32 from '../assets/images/interiors/kitchen/32.jpg';
+import kitchen33 from '../assets/images/interiors/kitchen/33.jpg';
+import kitchen34 from '../assets/images/interiors/kitchen/34.jpg';
+import kitchen35 from '../assets/images/interiors/kitchen/35.jpg';
+import kitchen36 from '../assets/images/interiors/kitchen/36.jpg';
+
+// wardrobe images
+import wardrobe01 from '../assets/images/interiors/wardrobe/1.jpg';
+import wardrobe02 from '../assets/images/interiors/wardrobe/2.jpg';
+import wardrobe03 from '../assets/images/interiors/wardrobe/3.jpg';
+import wardrobe04 from '../assets/images/interiors/wardrobe/4.jpg';
+
+// tvZoneImages images
+import tvZone01 from '../assets/images/interiors/tv-zone/1.jpg';
+import tvZone02 from '../assets/images/interiors/tv-zone/2.jpg';
+import tvZone03 from '../assets/images/interiors/tv-zone/3.jpg';
+// import tvZone04 from '../assets/images/interiors/tv-zone/4.jpg';
+
+// Each entry: the imported image + its own alt text (ends with "— ISOLA").
+// Order here = order on the page.
+const kitchenImages = [
+  {
+    img: kitchen05,
+    alt: 'Красивая минималистичная кухня на заказ в современном интерьере — ISOLA',
+  },
+  {
+    img: kitchen09,
+    alt: 'Стильная кухня с гладкими фасадами и скрытой фурнитурой — ISOLA',
+  },
+
+  {
+    img: kitchen02,
+    alt: 'Современная кухня в стиле минимализм с продуманной эргономикой — ISOLA',
+  },
+  {
+    img: kitchen03,
+    alt: 'Просторная кухня с островом и удобной рабочей зоной для всей семьи — ISOLA',
+  },
+
+  {
+    img: kitchen01,
+    alt: 'Минималистичная кухня с лаконичными фасадами и встроенной техникой — ISOLA',
+  },
+  {
+    img: kitchen06,
+    alt: 'Эргономичная кухня на заказ с системами хранения до потолка — ISOLA',
+  },
+  {
+    img: kitchen07,
+    alt: 'Премиальная кухня с чистыми линиями и благородной отделкой — ISOLA',
+  },
+  {
+    img: kitchen08,
+    alt: 'Светлая современная кухня с продуманным освещением рабочей зоны — ISOLA',
+  },
+  {
+    img: kitchen10,
+    alt: 'Кухонный гарнитур по индивидуальному проекту для современной квартиры — ISOLA',
+  },
+  {
+    img: kitchen11,
+    alt: 'Элегантная кухня без ручек с аккуратными стыками фасадов — ISOLA',
+  },
+  {
+    img: kitchen12,
+    alt: 'Красивая угловая кухня на заказ с вместительными шкафами — ISOLA',
+  },
+  {
+    img: kitchen13,
+    alt: 'Современная прямая кухня с лаконичным дизайном и встроенной техникой — ISOLA',
+  },
+  {
+    img: kitchen14,
+    alt: 'Стильная кухня с матовыми фасадами в современном минималистичном интерьере — ISOLA',
+  },
+  {
+    img: kitchen15,
+    alt: 'Кухня с барной стойкой и островом для просторного интерьера — ISOLA',
+  },
+  {
+    img: kitchen16,
+    alt: 'Минималистичный кухонный гарнитур с удобным расположением рабочих зон — ISOLA',
+  },
+  {
+    img: kitchen17,
+    alt: 'Дизайнерская кухня на заказ с вниманием к деталям и качеству материалов — ISOLA',
+  },
+  {
+    img: kitchen18,
+    alt: 'Уютная современная кухня с тёплой отделкой и удобным хранением — ISOLA',
+  },
+  {
+    img: kitchen19,
+    alt: 'Функциональная кухня с выдвижными системами и скрытыми нишами — ISOLA',
+  },
+  {
+    img: kitchen20,
+    alt: 'Кухня премиум-класса с безупречной сборкой и точной подгонкой фасадов — ISOLA',
+  },
+  {
+    img: kitchen20,
+    alt: 'Кухонный гарнитур премиум-класса в современном минималистичном стиле — ISOLA',
+  },
+  {
+    img: kitchen21,
+    alt: 'Красивая кухня с акцентной столешницей и лаконичными шкафами — ISOLA',
+  },
+  {
+    img: kitchen22,
+    alt: 'Современная кухня на заказ с интегрированной вытяжкой и техникой — ISOLA',
+  },
+  {
+    img: kitchen23,
+    alt: 'Минималистичная кухня с гармоничным сочетанием цвета и фактуры материалов — ISOLA',
+  },
+  {
+    img: kitchen24,
+    alt: 'Просторная кухня-столовая с продуманной планировкой и удобным хранением — ISOLA',
+  },
+  {
+    img: kitchen25,
+    alt: 'Лаконичная кухня в светлых тонах с чистыми линиями и функциональным дизайном — ISOLA',
+  },
+  {
+    img: kitchen26,
+    alt: 'Кухня на заказ с глубокими ящиками и эргономичными выдвижными системами — ISOLA',
+  },
+  {
+    img: kitchen27,
+    alt: 'Стильный кухонный гарнитур с высокими шкафами и скрытой подсветкой — ISOLA',
+  },
+  {
+    img: kitchen28,
+    alt: 'Современная кухня с гладкими матовыми фасадами и аккуратной фурнитурой — ISOLA',
+  },
+  {
+    img: kitchen29,
+    alt: 'Красивая минималистичная кухня, созданная по индивидуальному проекту — ISOLA',
+  },
+  {
+    img: kitchen35,
+    alt: 'Эксклюзивная кухня на заказ с продуманной эргономикой и качественной отделкой — ISOLA',
+  },
+  {
+    img: kitchen30,
+    alt: 'Современный кухонный интерьер с островом и удобной зоной приготовления — ISOLA',
+  },
+  {
+    img: kitchen31,
+    alt: 'Кухня в стиле минимализм с безупречными линиями и скрытыми системами хранения — ISOLA',
+  },
+  {
+    img: kitchen32,
+    alt: 'Элегантная кухня с благородной отделкой фасадов и встроенной бытовой техникой — ISOLA',
+  },
+  {
+    img: kitchen33,
+    alt: 'Светлая просторная кухня на заказ с гармоничным современным дизайном — ISOLA',
+  },
+  {
+    img: kitchen34,
+    alt: 'Функциональная минималистичная кухня с вместительными шкафами и столешницей — ISOLA',
+  },
+  {
+    img: kitchen36,
+    alt: 'Премиальный кухонный гарнитур с акцентом на эстетику и долговечность — ISOLA',
+  },
+];
+
+const wardrobeImages = [
+  {
+    img: wardrobe01,
+    alt: 'Премиальная гардеробная на заказ со встроенной подсветкой в современном интерьере — ISOLA',
+  },
+  {
+    img: wardrobe02,
+    alt: 'Индивидуальная система хранения и шкафы на заказ в Ташкенте — ISOLA',
+  },
+  {
+    img: wardrobe03,
+    alt: 'Современная гардеробная комната с продуманной эргономикой — ISOLA',
+  },
+  {
+    img: wardrobe04,
+    alt: 'Минималистичные фасады и премиальная фурнитура в гардеробной на заказ — ISOLA',
+  },
+];
+
+const tvZoneImages = [
+  {
+    img: tvZone01,
+    alt: 'Современная ТВ-зона на заказ в минималистичном стиле для гостиной — ISOLA',
+  },
+  {
+    img: tvZone02,
+    alt: 'Дизайнерская мебель для гостиной и ТВ-комплекс со скрытым хранением — ISOLA',
+  },
+  {
+    img: tvZone03,
+    alt: 'Интерьерное решение зоны телевидения с премиальной отделкой — ISOLA',
+  },
+];
+
+// Width/height come from Astro's image import metadata, so the
+// orientation is known at build time (no waiting for the browser).
+// This matters for "show more": rows are measured by layout, so the
+// layout must already be final when the script runs.
+const toGalleryImage = ({ img, alt }: { img: ImageMetadata; alt: string }) => ({
+  src: img.src,
+  width: img.width,
+  height: img.height,
+  alt,
+  orientation:
+    img.width > img.height
+      ? 'is-landscape'
+      : img.height > img.width
+        ? 'is-portrait'
+        : 'is-square',
+});
 
 // PROJECT DATA
 const projects = [
   {
-    name: 'DENZA',
-    category: 'АВТОСАЛОН',
-    location: 'ТАШКЕНТ, УЗБЕКИСТАН',
+    name: 'Кухня',
+    category: 'ИНТЕРЬЕР',
 
     description: [
-      'Для автосалона DENZA мы разработали и реализовали мебельные решения, уделяя особое внимание эстетике, функциональности и качеству исполнения.',
-      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.',
+      'Мы спроектировали и реализовали индивидуальную систему хранения, в которой строгая эстетика сочетается с продуманной внутренней эргономикой.',
+      'Использование премиальной фурнитуры, точная геометрия фасадов и грамотное зонирование пространства обеспечивают удобство и порядок на долгие годы.',
     ],
 
-    images: [
-      { src: denza01.src, alt: 'Интерьер автосалона DENZA' },
-      { src: denza02.src, alt: 'Мебель автосалона DENZA' },
-      { src: denza03.src, alt: 'Детали проекта DENZA' },
-      { src: denza04.src, alt: 'Реализованный проект DENZA' },
-    ],
+    images: kitchenImages.map(toGalleryImage),
   },
+  {
+    name: 'Гардеробы',
+    category: 'ИНТЕРЬЕР',
 
+    description: [
+      'Мы спроектировали и реализовали индивидуальную гардеробную систему, в которой архитектурная чистота линий сочетается с безупречной внутренней эргономикой.',
+      'Продуманная организация отделений, встроенная подсветка и премиальная фурнитура обеспечивают лёгкий доступ к вещам и идеальный порядок на долгие годы.',
+    ],
+
+    images: wardrobeImages.map(toGalleryImage),
+  },
+  {
+    name: 'ТВ-зоны',
+    category: 'ИНТЕРЬЕР',
+
+    description: [
+      'Мы спроектировали и реализовали индивидуальные ТВ-зоны, становящиеся архитектурным и эстетическим центром современной гостиной.',
+      'Скрытые системы хранения, точная стыковка материалов и лаконичная геометрия форм формируют визуально лёгкое, упорядоченное и функциональное пространство.',
+    ],
+
+    images: tvZoneImages.map(toGalleryImage),
+  },
   // Add more projects here
 ];
-
-const totalProjects = String(projects.length).padStart(2, '0');
 ---
 
 <!doctype html>
@@ -45,11 +303,11 @@ const totalProjects = String(projects.length).padStart(2, '0');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <title>Рестораны — реализованные проекты | ISOLA</title>
+    <title>Иинтерьер — реализованные проекты | ISOLA</title>
 
     <meta
       name="description"
-      content="Реализованные проекты ISOLA для ресторанов. Производство мебели и интерьерные решения для коммерческих пространств."
+      content="Премиальная интерьерная мебель ISOLA по индивидуальным проектам: эргономичные кухни, гардеробные системы, ТВ-зоны и корпусная мебель для современных интерьеров."
     />
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -59,7 +317,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
     <meta name="apple-mobile-web-app-title" content="isola.uz" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="canonical" href="https://isola.uz/car-showrooms/" />
+    <link rel="canonical" href="https://isola.uz/interiors/" />
 
     <script type="application/ld+json">
       {
@@ -73,7 +331,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "url": "https://isola.uz/contacts/"
+          "url": "https://isola.uz/interiors/"
         }
       }
     </script>
@@ -113,25 +371,22 @@ const totalProjects = String(projects.length).padStart(2, '0');
           <div class="showroom-intro__top">
             <span class="eyebrow">
               <span class="eyebrow__line"></span>
-              ISOLA - НАШИ ПРОЕКТЫ - Рестораны
-            </span>
-
-            <span class="intro-index" data-count={projects.length}>
-              01
+              ISOLA - НАШИ ПРОЕКТЫ - интерьер
             </span>
           </div>
 
           <div class="showroom-intro__content">
             <h1>
-              Пространства,
+              Эстетика и комфорт,
               <br />
-              созданные <span>для впечатлений.</span>
+              созданные <span>для жизни.</span>
             </h1>
 
             <p>
-              Мы создаём мебель и интерьерные решения, которые формируют
-              характер пространства. От концепции и проектирования до
-              производства и реализации — каждая деталь имеет значение.
+              Мы проектируем и изготавливаем премиальную мебель, в которой
+              безупречный дизайн сочетается с ежедневной эргономикой. Кухни,
+              гардеробные и жилые зоны, продуманные до миллиметра под ваш ритм
+              жизни.
             </p>
           </div>
         </div>
@@ -151,16 +406,21 @@ const totalProjects = String(projects.length).padStart(2, '0');
                   <h2>{project.name}</h2>
                 </div>
 
-                <span class="project__location">{project.location}</span>
+                <!-- Counts only THIS project's images -->
+                <span class="intro-index" data-count={project.images.length}>
+                  01
+                </span>
               </div>
 
-              <!-- DYNAMIC IMAGE GALLERY -->
+              <!-- IMAGE GALLERY (orientation class + size rendered at build time) -->
               <div class="project-gallery">
                 {project.images.map((image, imageIndex) => (
-                  <div class="project-gallery__item">
+                  <div class={`project-gallery__item ${image.orientation}`}>
                     <img
                       src={image.src}
                       alt={image.alt}
+                      width={image.width}
+                      height={image.height}
                       loading={
                         projectIndex === 0 && imageIndex === 0
                           ? 'eager'
@@ -175,6 +435,24 @@ const totalProjects = String(projects.length).padStart(2, '0');
                     </span>
                   </div>
                 ))}
+              </div>
+
+              <!-- SHOW MORE (hidden until the script finds hidden rows) -->
+              <div class="gallery-more" hidden>
+                <button type="button" class="gallery-more__btn">
+                  <span class="gallery-more__progress"></span>
+                  <span class="gallery-more__label">Показать ещё</span>
+                  <span class="gallery-more__count">
+                    <b data-shown>00</b> / <span data-total>00</span>
+                  </span>
+                  <svg
+                    class="gallery-more__arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 3v18M5 14l7 7 7-7" />
+                  </svg>
+                </button>
               </div>
 
               <!-- PROJECT DESCRIPTION -->
@@ -244,52 +522,125 @@ const totalProjects = String(projects.length).padStart(2, '0');
       document.addEventListener('astro:after-swap', initLenis);
     </script>
 
-    <!-- IMAGE ORIENTATION DETECTION -->
+    <!-- The old IMAGE ORIENTATION DETECTION script is removed:
+         orientation classes are now rendered on the server. -->
+
+    <!-- GALLERY: SHOW 3 ROWS FIRST, THEN 3 MORE PER CLICK -->
     <script>
-      function setImageOrientation() {
-        const images = document.querySelectorAll<HTMLImageElement>(
-          '.project-gallery__item img'
-        );
+      const INITIAL_ROWS = 3; // rows visible before pressing "Показать ещё"
+      const ROWS_PER_STEP = 3; // rows added on every click
 
-        images.forEach((img) => {
-          const updateOrientation = () => {
-            const item = img.closest('.project-gallery__item');
+      function initGalleryLimit() {
+        document
+          .querySelectorAll<HTMLElement>('.project')
+          .forEach((project) => {
+            const gallery =
+              project.querySelector<HTMLElement>('.project-gallery');
+            const more = project.querySelector<HTMLElement>('.gallery-more');
+            const btn =
+              more?.querySelector<HTMLButtonElement>('.gallery-more__btn');
 
-            if (!item || !img.naturalWidth || !img.naturalHeight) return;
+            if (!gallery || !more || !btn || more.dataset.ready) return;
+            more.dataset.ready = 'true';
 
-            item.classList.remove('is-landscape', 'is-portrait', 'is-square');
+            const items = [
+              ...gallery.querySelectorAll<HTMLElement>(
+                '.project-gallery__item'
+              ),
+            ];
+            const shownEl = more.querySelector<HTMLElement>('[data-shown]');
+            const totalEl = more.querySelector<HTMLElement>('[data-total]');
+            const pad = (n: number) => String(n).padStart(2, '0');
 
-            if (img.naturalWidth > img.naturalHeight) {
-              item.classList.add('is-landscape');
-            } else if (img.naturalHeight > img.naturalWidth) {
-              item.classList.add('is-portrait');
-            } else {
-              item.classList.add('is-square');
+            let visibleRows = INITIAL_ROWS;
+            let rowStarts: number[] = [];
+
+            // Index of the first item of every visual row
+            function measureRows() {
+              items.forEach((i) => i.classList.remove('is-collapsed'));
+              rowStarts = [];
+              let lastTop = -Infinity;
+
+              items.forEach((item, idx) => {
+                const top = item.offsetTop;
+                if (top - lastTop > 8) {
+                  rowStarts.push(idx);
+                  lastTop = top;
+                }
+              });
             }
-          };
 
-          if (img.complete && img.naturalWidth > 0) {
-            updateOrientation();
-          } else {
-            img.addEventListener('load', updateOrientation, { once: true });
-          }
-        });
+            function currentLimit() {
+              return visibleRows < rowStarts.length
+                ? rowStarts[visibleRows]
+                : items.length;
+            }
+
+            function apply(animateFrom = -1) {
+              const limit = currentLimit();
+
+              items.forEach((item, i) => {
+                item.classList.toggle('is-collapsed', i >= limit);
+                item.classList.remove('is-revealing');
+
+                if (animateFrom >= 0 && i >= animateFrom && i < limit) {
+                  item.style.setProperty('--i', String(i - animateFrom));
+                  void item.offsetWidth; // restart animation
+                  item.classList.add('is-revealing');
+                }
+              });
+
+              if (shownEl && shownEl.textContent !== pad(limit)) {
+                shownEl.textContent = pad(limit);
+                shownEl.classList.remove('is-tick');
+                void shownEl.offsetWidth;
+                shownEl.classList.add('is-tick');
+              }
+
+              if (totalEl) totalEl.textContent = pad(items.length);
+
+              // 0 → 1, used by the progress line in CSS
+              more!.style.setProperty(
+                '--progress',
+                String(limit / items.length)
+              );
+
+              more!.hidden = limit >= items.length;
+            }
+
+            btn.addEventListener('click', () => {
+              const from = currentLimit();
+              visibleRows += ROWS_PER_STEP;
+              apply(from);
+            });
+
+            const refresh = () => {
+              measureRows();
+              apply();
+            };
+
+            refresh();
+            window.addEventListener('load', refresh);
+            // Re-measure once web fonts are ready (they can shift layout)
+            document.fonts?.ready.then(refresh);
+
+            let t: number;
+            window.addEventListener('resize', () => {
+              clearTimeout(t);
+              t = window.setTimeout(refresh, 200);
+            });
+          });
       }
 
-      setImageOrientation();
+      initGalleryLimit();
+      document.addEventListener('astro:after-swap', initGalleryLimit);
     </script>
 
-    <!-- INTRO COUNTER ANIMATION -->
+    <!-- INTRO COUNTER ANIMATION (one counter per project) -->
     <script>
       // Odometer-style counter: each digit is a vertical reel that rolls
       // up to its final number.
-      function animateIntroCounter() {
-        const counter = document.querySelector<HTMLElement>(
-          '.intro-index[data-count]'
-        );
-        if (!counter || counter.dataset.ready) return;
-
-        const el: HTMLElement = counter;
+      function rollCounter(el: HTMLElement) {
         const target = Math.max(Number(el.dataset.count) || 1, 1);
         const finalText = String(target).padStart(2, '0');
 
@@ -359,8 +710,32 @@ const totalProjects = String(projects.length).padStart(2, '0');
         }, startDelay);
       }
 
-      animateIntroCounter();
-      document.addEventListener('astro:after-swap', animateIntroCounter);
+      // Every counter rolls when it scrolls into view, so counters further
+      // down the page don't finish animating before anyone sees them.
+      function animateIntroCounters() {
+        const counters = document.querySelectorAll<HTMLElement>(
+          '.intro-index[data-count]:not([data-ready]):not([data-observed])'
+        );
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              observer.unobserve(entry.target);
+              rollCounter(entry.target as HTMLElement);
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        counters.forEach((el) => {
+          el.dataset.observed = 'true';
+          observer.observe(el);
+        });
+      }
+
+      animateIntroCounters();
+      document.addEventListener('astro:after-swap', animateIntroCounters);
     </script>
   </body>
 </html>

@@ -39,6 +39,69 @@ import reception28 from '../assets/images/receptions/28.jpg';
 import reception29 from '../assets/images/receptions/29.jpg';
 import reception30 from '../assets/images/receptions/30.jpg';
 import reception31 from '../assets/images/receptions/31.jpg';
+import reception32 from '../assets/images/receptions/32.jpg';
+
+// Alt text helper: one place to edit the wording
+const altFor = (brand: string) =>
+  `Стойка ресепшен на заказ для автосалона ${brand} — индивидуальное производство мебели`;
+
+// Each entry: the imported image + the brand used in the alt text.
+// Order here = order on the page.
+const receptionImages = [
+  { img: reception1, brand: 'DENZA' },
+  { img: reception27, brand: 'Kumushkon' },
+  { img: reception3, brand: 'Kumushkon' },
+  { img: reception4, brand: 'BYD' },
+  { img: reception5, brand: 'BYD' },
+  { img: reception6, brand: 'BYD' },
+  { img: reception7, brand: 'BYD' },
+  { img: reception8, brand: 'BYD' },
+  { img: reception9, brand: 'BYD' },
+  { img: reception10, brand: 'BYD' },
+  { img: reception11, brand: 'BYD' },
+  { img: reception12, brand: 'BYD' },
+  { img: reception13, brand: 'BYD' },
+  { img: reception14, brand: 'BYD' },
+  { img: reception15, brand: 'BYD' },
+  { img: reception16, brand: 'BYD' },
+  { img: reception17, brand: 'BYD' },
+  { img: reception18, brand: 'BYD' },
+  { img: reception19, brand: 'BYD' },
+  { img: reception20, brand: 'BYD' },
+  { img: reception21, brand: 'BYD' },
+  { img: reception22, brand: 'BYD' },
+  { img: reception23, brand: 'BYD' },
+  { img: reception24, brand: 'BYD' },
+  { img: reception25, brand: 'BYD' },
+  { img: reception26, brand: 'BYD' },
+  { img: reception2, brand: 'Kumushkon' },
+  { img: reception28, brand: 'Kumushkon' },
+  { img: reception29, brand: 'Kumushkon' },
+  { img: reception30, brand: 'Kumushkon' },
+  { img: reception31, brand: 'Kumushkon' },
+  { img: reception32, brand: 'Kumushkon' },
+];
+
+// Width/height come from Astro's image import metadata, so the
+// orientation is known at build time (no waiting for the browser).
+const toGalleryImage = ({
+  img,
+  brand,
+}: {
+  img: ImageMetadata;
+  brand: string;
+}) => ({
+  src: img.src,
+  width: img.width,
+  height: img.height,
+  alt: altFor(brand),
+  orientation:
+    img.width > img.height
+      ? 'is-landscape'
+      : img.height > img.width
+        ? 'is-portrait'
+        : 'is-square',
+});
 
 // PROJECT DATA
 const projects = [
@@ -52,138 +115,12 @@ const projects = [
       'В каждой конструкции продуман баланс эстетики, скрытой функциональности и долговечности при ежедневной высокой нагрузке.',
     ],
 
-    images: [
-      {
-        src: reception1.src,
-        alt: 'Стойка ресепшен на заказ для автосалона DENZA — индивидуальное производство мебели',
-      },
-      {
-        src: reception27.src,
-        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
-      },
-      {
-        src: reception3.src,
-        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
-      },
-      {
-        src: reception4.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception5.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception6.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception7.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception8.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception9.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception10.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception11.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception12.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception13.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception14.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception15.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception16.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception17.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception18.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception19.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception20.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception21.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception22.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception23.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception24.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception25.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception26.src,
-        alt: 'Стойка ресепшен на заказ для автосалона BYD — индивидуальное производство мебели',
-      },
-      {
-        src: reception2.src,
-        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
-      },
-      {
-        src: reception28.src,
-        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
-      },
-      {
-        src: reception29.src,
-        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
-      },
-      {
-        src: reception30.src,
-        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
-      },
-      {
-        src: reception31.src,
-        alt: 'Стойка ресепшен на заказ для автосалона Kumushkon — индивидуальное производство мебели',
-      },
-    ],
+    images: receptionImages.map(toGalleryImage),
   },
 
   // Add more projects here
 ];
 
-const totalProjects = String(projects.length).padStart(2, '0');
 const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
 ---
 
@@ -271,15 +208,16 @@ const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
 
           <div class="showroom-intro__content">
             <h1>
-              Пространства,
+              Первое впечатление,
               <br />
-              созданные <span>для впечатлений.</span>
+              созданное <span>в деталях.</span>
             </h1>
 
             <p>
-              Мы создаём мебель и интерьерные решения, которые формируют
-              характер пространства. От концепции и проектирования до
-              производства и реализации — каждая деталь имеет значение.
+              Ресепшн — это визитная карточка вашего бизнеса. Мы проектируем и
+              изготавливаем премиальные входные группы и стойки, в которых
+              статусный дизайн, безупречные материалы и эргономика формируют
+              доверие с первой секунды.
             </p>
           </div>
         </div>
@@ -302,13 +240,15 @@ const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
                 <span class="project__location">{project.location}</span>
               </div>
 
-              <!-- DYNAMIC IMAGE GALLERY -->
+              <!-- IMAGE GALLERY (orientation class + size rendered at build time) -->
               <div class="project-gallery">
                 {project.images.map((image, imageIndex) => (
-                  <div class="project-gallery__item">
+                  <div class={`project-gallery__item ${image.orientation}`}>
                     <img
                       src={image.src}
                       alt={image.alt}
+                      width={image.width}
+                      height={image.height}
                       loading={
                         projectIndex === 0 && imageIndex === 0
                           ? 'eager'
@@ -410,40 +350,8 @@ const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
       document.addEventListener('astro:after-swap', initLenis);
     </script>
 
-    <!-- IMAGE ORIENTATION DETECTION -->
-    <script>
-      function setImageOrientation() {
-        const images = document.querySelectorAll<HTMLImageElement>(
-          '.project-gallery__item img'
-        );
-
-        images.forEach((img) => {
-          const updateOrientation = () => {
-            const item = img.closest('.project-gallery__item');
-
-            if (!item || !img.naturalWidth || !img.naturalHeight) return;
-
-            item.classList.remove('is-landscape', 'is-portrait', 'is-square');
-
-            if (img.naturalWidth > img.naturalHeight) {
-              item.classList.add('is-landscape');
-            } else if (img.naturalHeight > img.naturalWidth) {
-              item.classList.add('is-portrait');
-            } else {
-              item.classList.add('is-square');
-            }
-          };
-
-          if (img.complete && img.naturalWidth > 0) {
-            updateOrientation();
-          } else {
-            img.addEventListener('load', updateOrientation, { once: true });
-          }
-        });
-      }
-
-      setImageOrientation();
-    </script>
+    <!-- The old IMAGE ORIENTATION DETECTION script is removed:
+         orientation classes are now rendered on the server. -->
 
     <!-- GALLERY: SHOW 5 ROWS AT A TIME -->
     <script>
@@ -543,6 +451,8 @@ const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
 
             refresh();
             window.addEventListener('load', refresh);
+            // Re-measure once web fonts are ready (they can shift layout)
+            document.fonts?.ready.then(refresh);
 
             let t: number;
             window.addEventListener('resize', () => {

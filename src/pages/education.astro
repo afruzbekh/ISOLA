@@ -7,36 +7,239 @@ import '../styles/NavBar.css';
 import '../styles/collections.css';
 import '../styles/Footer.css';
 
-// DENZA images
-import denza01 from '../assets/images/denza_showroom.jpg';
-import denza02 from '../assets/images/denza_bar.jpg';
-import denza03 from '../assets/images/denza_showroom.jpg';
-import denza04 from '../assets/images/denza_showroom.jpg';
+// cau images
+import cau01 from '../assets/images/education/university/1.jpg';
+import cau02 from '../assets/images/education/university/2.jpg';
+import cau03 from '../assets/images/education/university/3.jpg';
+import cau04 from '../assets/images/education/university/4.jpg';
+import cau05 from '../assets/images/education/university/5.jpg';
+
+// interNationSchool images
+import interNationSchool01 from '../assets/images/education/learningCenter/1.jpg';
+import interNationSchool02 from '../assets/images/education/learningCenter/2.jpg';
+import interNationSchool03 from '../assets/images/education/learningCenter/3.jpg';
+import interNationSchool04 from '../assets/images/education/learningCenter/4.jpg';
+import interNationSchool05 from '../assets/images/education/learningCenter/5.jpg';
+import interNationSchool06 from '../assets/images/education/learningCenter/6.jpg';
+import interNationSchool07 from '../assets/images/education/learningCenter/7.jpg';
+import interNationSchool08 from '../assets/images/education/learningCenter/8.jpg';
+import interNationSchool09 from '../assets/images/education/learningCenter/9.jpg';
+import interNationSchool10 from '../assets/images/education/learningCenter/10.jpg';
+import interNationSchool11 from '../assets/images/education/learningCenter/11.jpg';
+import interNationSchool12 from '../assets/images/education/learningCenter/12.jpg';
+import interNationSchool13 from '../assets/images/education/learningCenter/13.jpg';
+import interNationSchool14 from '../assets/images/education/learningCenter/14.jpg';
+import interNationSchool15 from '../assets/images/education/learningCenter/15.jpg';
+import interNationSchool16 from '../assets/images/education/learningCenter/16.jpg';
+import interNationSchool17 from '../assets/images/education/learningCenter/17.jpg';
+import interNationSchool18 from '../assets/images/education/learningCenter/18.jpg';
+import interNationSchool19 from '../assets/images/education/learningCenter/19.jpg';
+import interNationSchool20 from '../assets/images/education/learningCenter/20.jpg';
+import interNationSchool21 from '../assets/images/education/learningCenter/21.jpg';
+import interNationSchool22 from '../assets/images/education/learningCenter/22.jpg';
+import interNationSchool23 from '../assets/images/education/learningCenter/23.jpg';
+import interNationSchool24 from '../assets/images/education/learningCenter/24.jpg';
+import interNationSchool25 from '../assets/images/education/learningCenter/25.jpg';
+import interNationSchool26 from '../assets/images/education/learningCenter/26.jpg';
+import interNationSchool27 from '../assets/images/education/learningCenter/27.jpg';
+import interNationSchool28 from '../assets/images/education/learningCenter/28.jpg';
+import interNationSchool29 from '../assets/images/education/learningCenter/29.jpg';
+import interNationSchool30 from '../assets/images/education/learningCenter/30.jpg';
+import interNationSchool31 from '../assets/images/education/learningCenter/31.jpg';
+import interNationSchool32 from '../assets/images/education/learningCenter/32.jpg';
+
+// Each entry: the imported image + its own alt text.
+// Order here = order on the page. Add more entries to grow a gallery;
+// the "Показать ещё" button appears automatically once there are more
+// than 3 rows of images.
+const cauImages = [
+  { img: cau01, alt: 'Интерьер университета CAU' },
+  { img: cau04, alt: 'Интерьер университета CAU' },
+  { img: cau03, alt: 'Интерьер университета CAU' },
+  { img: cau05, alt: 'Интерьер университета CAU' },
+  { img: cau02, alt: 'Интерьер университета CAU' },
+];
+
+const interNationSchoolImages = [
+  {
+    img: interNationSchool29,
+    alt: '1',
+  },
+  {
+    img: interNationSchool17,
+    alt: '1',
+  },
+  {
+    img: interNationSchool30,
+    alt: '1',
+  },
+  {
+    img: interNationSchool28,
+    alt: '1',
+  },
+  {
+    img: interNationSchool01,
+    alt: '1',
+  },
+  {
+    img: interNationSchool02,
+    alt: '1',
+  },
+  {
+    img: interNationSchool32,
+    alt: '1',
+  },
+  {
+    img: interNationSchool04,
+    alt: '1',
+  },
+  {
+    img: interNationSchool03,
+    alt: '1',
+  },
+
+  {
+    img: interNationSchool05,
+    alt: '1',
+  },
+  {
+    img: interNationSchool06,
+    alt: '1',
+  },
+  {
+    img: interNationSchool07,
+    alt: '1',
+  },
+  {
+    img: interNationSchool08,
+    alt: '1',
+  },
+  {
+    img: interNationSchool09,
+    alt: '1',
+  },
+  {
+    img: interNationSchool10,
+    alt: '1',
+  },
+  {
+    img: interNationSchool15,
+    alt: '1',
+  },
+  {
+    img: interNationSchool11,
+    alt: '1',
+  },
+  {
+    img: interNationSchool12,
+    alt: '1',
+  },
+  {
+    img: interNationSchool13,
+    alt: '1',
+  },
+  {
+    img: interNationSchool14,
+    alt: '1',
+  },
+
+  {
+    img: interNationSchool16,
+    alt: '1',
+  },
+  {
+    img: interNationSchool18,
+    alt: '1',
+  },
+  {
+    img: interNationSchool19,
+    alt: '1',
+  },
+  {
+    img: interNationSchool20,
+    alt: '1',
+  },
+  {
+    img: interNationSchool21,
+    alt: '1',
+  },
+  {
+    img: interNationSchool22,
+    alt: '1',
+  },
+  {
+    img: interNationSchool23,
+    alt: '1',
+  },
+  {
+    img: interNationSchool24,
+    alt: '1',
+  },
+  {
+    img: interNationSchool25,
+    alt: '1',
+  },
+  {
+    img: interNationSchool26,
+    alt: '1',
+  },
+  {
+    img: interNationSchool27,
+    alt: '1',
+  },
+  {
+    img: interNationSchool31,
+    alt: '1',
+  },
+];
+
+// Width/height come from Astro's image import metadata, so the
+// orientation is known at build time (no waiting for the browser).
+// "Show more" measures rows by layout, so the layout must already be
+// final when the script runs.
+const toGalleryImage = ({ img, alt }: { img: ImageMetadata; alt: string }) => ({
+  src: img.src,
+  width: img.width,
+  height: img.height,
+  alt,
+  orientation:
+    img.width > img.height
+      ? 'is-landscape'
+      : img.height > img.width
+        ? 'is-portrait'
+        : 'is-square',
+});
 
 // PROJECT DATA
 const projects = [
   {
-    name: 'DENZA',
-    category: 'АВТОСАЛОН',
+    name: 'CAU',
+    category: 'Университет',
     location: 'ТАШКЕНТ, УЗБЕКИСТАН',
 
     description: [
-      'Для автосалона DENZA мы разработали и реализовали мебельные решения, уделяя особое внимание эстетике, функциональности и качеству исполнения.',
-      'Каждая конструкция продумана с учётом особенностей пространства и общей концепции интерьера.',
+      'Для университета мы спроектировали и реализовали мебельные решения, сочетающие высокую износостойкость, эргономику и современную эстетику.',
+      'Каждая конструкция адаптирована под интенсивную ежедневную эксплуатацию и формирует комфортную среду для обучения и работы.',
     ],
 
-    images: [
-      { src: denza01.src, alt: 'Интерьер автосалона DENZA' },
-      { src: denza02.src, alt: 'Мебель автосалона DENZA' },
-      { src: denza03.src, alt: 'Детали проекта DENZA' },
-      { src: denza04.src, alt: 'Реализованный проект DENZA' },
+    images: cauImages.map(toGalleryImage),
+  },
+
+  {
+    name: 'Inter Nation School',
+    category: 'Учебный центр',
+    location: 'ТАШКЕНТ, УЗБЕКИСТАН',
+
+    description: [
+      'Для учебного центра мы разработали и реализовали мебельные решения, ориентированные на создание комфортной и продуктивной среды для обучения.',
+      'Каждая конструкция учитывает специфику образовательного процесса и способствует повышению эффективности обучения.',
     ],
+
+    images: interNationSchoolImages.map(toGalleryImage),
   },
 
   // Add more projects here
 ];
-
-const totalProjects = String(projects.length).padStart(2, '0');
 ---
 
 <!doctype html>
@@ -73,7 +276,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "url": "https://isola.uz/contacts/"
+          "url": "https://isola.uz/education/"
         }
       }
     </script>
@@ -113,7 +316,7 @@ const totalProjects = String(projects.length).padStart(2, '0');
           <div class="showroom-intro__top">
             <span class="eyebrow">
               <span class="eyebrow__line"></span>
-              ISOLA - НАШИ ПРОЕКТЫ - Рестораны
+              ISOLA - НАШИ ПРОЕКТЫ - Образование
             </span>
 
             <span class="intro-index" data-count={projects.length}>
@@ -123,15 +326,16 @@ const totalProjects = String(projects.length).padStart(2, '0');
 
           <div class="showroom-intro__content">
             <h1>
-              Пространства,
+              Среда, созданная
               <br />
-              созданные <span>для впечатлений.</span>
+              <span>для развития.</span>
             </h1>
 
             <p>
-              Мы создаём мебель и интерьерные решения, которые формируют
-              характер пространства. От концепции и проектирования до
-              производства и реализации — каждая деталь имеет значение.
+              Мы проектируем и изготавливаем мебель для университетов и учебных
+              центров: надёжность, рассчитанная на интенсивную нагрузку, и
+              современная эстетика, формирующая продуктивную атмосферу для
+              обучения.
             </p>
           </div>
         </div>
@@ -154,13 +358,15 @@ const totalProjects = String(projects.length).padStart(2, '0');
                 <span class="project__location">{project.location}</span>
               </div>
 
-              <!-- DYNAMIC IMAGE GALLERY -->
+              <!-- IMAGE GALLERY (orientation class + size rendered at build time) -->
               <div class="project-gallery">
                 {project.images.map((image, imageIndex) => (
-                  <div class="project-gallery__item">
+                  <div class={`project-gallery__item ${image.orientation}`}>
                     <img
                       src={image.src}
                       alt={image.alt}
+                      width={image.width}
+                      height={image.height}
                       loading={
                         projectIndex === 0 && imageIndex === 0
                           ? 'eager'
@@ -175,6 +381,24 @@ const totalProjects = String(projects.length).padStart(2, '0');
                     </span>
                   </div>
                 ))}
+              </div>
+
+              <!-- SHOW MORE (hidden until the script finds hidden rows) -->
+              <div class="gallery-more" hidden>
+                <button type="button" class="gallery-more__btn">
+                  <span class="gallery-more__progress"></span>
+                  <span class="gallery-more__label">Показать ещё</span>
+                  <span class="gallery-more__count">
+                    <b data-shown>00</b> / <span data-total>00</span>
+                  </span>
+                  <svg
+                    class="gallery-more__arrow"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 3v18M5 14l7 7 7-7" />
+                  </svg>
+                </button>
               </div>
 
               <!-- PROJECT DESCRIPTION -->
@@ -244,39 +468,118 @@ const totalProjects = String(projects.length).padStart(2, '0');
       document.addEventListener('astro:after-swap', initLenis);
     </script>
 
-    <!-- IMAGE ORIENTATION DETECTION -->
+    <!-- The old IMAGE ORIENTATION DETECTION script is removed:
+         orientation classes are now rendered on the server. -->
+
+    <!-- GALLERY: SHOW 3 ROWS FIRST, THEN 3 MORE PER CLICK -->
     <script>
-      function setImageOrientation() {
-        const images = document.querySelectorAll<HTMLImageElement>(
-          '.project-gallery__item img'
-        );
+      const INITIAL_ROWS = 3; // rows visible before pressing "Показать ещё"
+      const ROWS_PER_STEP = 3; // rows added on every click
 
-        images.forEach((img) => {
-          const updateOrientation = () => {
-            const item = img.closest('.project-gallery__item');
+      function initGalleryLimit() {
+        document
+          .querySelectorAll<HTMLElement>('.project')
+          .forEach((project) => {
+            const gallery =
+              project.querySelector<HTMLElement>('.project-gallery');
+            const more = project.querySelector<HTMLElement>('.gallery-more');
+            const btn =
+              more?.querySelector<HTMLButtonElement>('.gallery-more__btn');
 
-            if (!item || !img.naturalWidth || !img.naturalHeight) return;
+            if (!gallery || !more || !btn || more.dataset.ready) return;
+            more.dataset.ready = 'true';
 
-            item.classList.remove('is-landscape', 'is-portrait', 'is-square');
+            const items = [
+              ...gallery.querySelectorAll<HTMLElement>(
+                '.project-gallery__item'
+              ),
+            ];
+            const shownEl = more.querySelector<HTMLElement>('[data-shown]');
+            const totalEl = more.querySelector<HTMLElement>('[data-total]');
+            const pad = (n: number) => String(n).padStart(2, '0');
 
-            if (img.naturalWidth > img.naturalHeight) {
-              item.classList.add('is-landscape');
-            } else if (img.naturalHeight > img.naturalWidth) {
-              item.classList.add('is-portrait');
-            } else {
-              item.classList.add('is-square');
+            let visibleRows = INITIAL_ROWS;
+            let rowStarts: number[] = [];
+
+            // Index of the first item of every visual row
+            function measureRows() {
+              items.forEach((i) => i.classList.remove('is-collapsed'));
+              rowStarts = [];
+              let lastTop = -Infinity;
+
+              items.forEach((item, idx) => {
+                const top = item.offsetTop;
+                if (top - lastTop > 8) {
+                  rowStarts.push(idx);
+                  lastTop = top;
+                }
+              });
             }
-          };
 
-          if (img.complete && img.naturalWidth > 0) {
-            updateOrientation();
-          } else {
-            img.addEventListener('load', updateOrientation, { once: true });
-          }
-        });
+            function currentLimit() {
+              return visibleRows < rowStarts.length
+                ? rowStarts[visibleRows]
+                : items.length;
+            }
+
+            function apply(animateFrom = -1) {
+              const limit = currentLimit();
+
+              items.forEach((item, i) => {
+                item.classList.toggle('is-collapsed', i >= limit);
+                item.classList.remove('is-revealing');
+
+                if (animateFrom >= 0 && i >= animateFrom && i < limit) {
+                  item.style.setProperty('--i', String(i - animateFrom));
+                  void item.offsetWidth; // restart animation
+                  item.classList.add('is-revealing');
+                }
+              });
+
+              if (shownEl && shownEl.textContent !== pad(limit)) {
+                shownEl.textContent = pad(limit);
+                shownEl.classList.remove('is-tick');
+                void shownEl.offsetWidth;
+                shownEl.classList.add('is-tick');
+              }
+
+              if (totalEl) totalEl.textContent = pad(items.length);
+
+              // 0 → 1, used by the progress line in CSS
+              more!.style.setProperty(
+                '--progress',
+                String(limit / items.length)
+              );
+
+              more!.hidden = limit >= items.length;
+            }
+
+            btn.addEventListener('click', () => {
+              const from = currentLimit();
+              visibleRows += ROWS_PER_STEP;
+              apply(from);
+            });
+
+            const refresh = () => {
+              measureRows();
+              apply();
+            };
+
+            refresh();
+            window.addEventListener('load', refresh);
+            // Re-measure once web fonts are ready (they can shift layout)
+            document.fonts?.ready.then(refresh);
+
+            let t: number;
+            window.addEventListener('resize', () => {
+              clearTimeout(t);
+              t = window.setTimeout(refresh, 200);
+            });
+          });
       }
 
-      setImageOrientation();
+      initGalleryLimit();
+      document.addEventListener('astro:after-swap', initGalleryLimit);
     </script>
 
     <!-- INTRO COUNTER ANIMATION -->
