@@ -25,10 +25,26 @@ import bydQARSHI02 from '../assets/images/car-showroom/BYD_Qarshi/2.jpg';
 import bydQARSHI05 from '../assets/images/car-showroom/BYD_Qarshi/5.jpg';
 import bydQARSHI06 from '../assets/images/car-showroom/BYD_Qarshi/6.jpg';
 
+// denza1 images
+import denza01 from '../assets/images/car-showroom/Denza1/1.jpg';
+import denza001 from '../assets/images/carShowroom1.png';
+import denza002 from '../assets/images/receptions/1.jpg';
+import denza02 from '../assets/images/car-showroom/Denza1/2.jpg';
+import denza03 from '../assets/images/car-showroom/Denza1/3.jpg';
+import denza04 from '../assets/images/denza_showroom.jpg';
+import denza05 from '../assets/images/car-showroom/Denza1/5.jpg';
+import denza06 from '../assets/images/car-showroom/Denza1/6.jpg';
+import denza07 from '../assets/images/car-showroom/Denza1/7.jpg';
+
 // bydBUKHARA images
 import bydBUKHARA01 from '../assets/images/car-showroom/BYD_Buxoro/1.jpg';
 import bydBUKHARA02 from '../assets/images/car-showroom/BYD_Buxoro/2.jpg';
 
+// aBOZOR images
+import aBOZOR01 from '../assets/images/car-showroom/A-Bozor/1.jpg';
+import aBOZOR02 from '../assets/images/car-showroom/A-Bozor/2.jpg';
+import aBOZOR03 from '../assets/images/car-showroom/A-Bozor/3.jpg';
+import aBOZOR04 from '../assets/images/car-showroom/A-Bozor/4.jpg';
 // Each entry: the imported image + its own alt text.
 // Order here = order on the page. Add more entries to grow a gallery;
 // the "Показать ещё" button appears automatically once there are more
@@ -78,6 +94,45 @@ const bydSAMARKAND = [
   },
 ];
 
+const denza1 = [
+  {
+    img: denza01,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza001,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza02,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza04,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza002,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza03,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza05,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza06,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: denza07,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+];
+
 const bydQARSHI = [
   {
     img: bydQARSHI01,
@@ -104,6 +159,25 @@ const bydBUKHARA = [
   },
   {
     img: bydBUKHARA02,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+];
+
+const aBOZOR = [
+  {
+    img: aBOZOR04,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: aBOZOR01,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: aBOZOR02,
+    alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
+  },
+  {
+    img: aBOZOR03,
     alt: 'Современная мебель и интерьер учебного центра Inter Nation School от ISOLA',
   },
 ];
@@ -140,6 +214,18 @@ const projects = [
     images: bydSAMARKAND.map(toGalleryImage),
   },
   {
+    name: 'DENZA',
+    category: 'Автосалон',
+    location: 'ТАШКЕНТ, УЗБЕКИСТАН',
+
+    description: [
+      'Для дилерского центра BYD компания ISOLA реализовала комплексное мебельное оснащение всех функциональных зон: ресепшн, шоурума, зон ожидания, кабинетов и переговорных.',
+      'Индивидуальный подход к проектированию позволил подчеркнуть технологичный характер бренда, объединив премиальные материалы, точную геометрию и практичность для ежедневной работы.',
+    ],
+
+    images: denza1.map(toGalleryImage),
+  },
+  {
     name: 'BYD',
     category: 'Автосалон',
     location: 'КАРШИ, УЗБЕКИСТАН',
@@ -162,6 +248,18 @@ const projects = [
     ],
 
     images: bydBUKHARA.map(toGalleryImage),
+  },
+  {
+    name: 'A-BOZOR',
+    category: 'Автосалон',
+    location: 'ТАШКЕНТ, УЗБЕКИСТАН',
+
+    description: [
+      'Для дилерского центра BYD компания ISOLA реализовала комплексное мебельное оснащение всех функциональных зон: ресепшн, шоурума, зон ожидания, кабинетов и переговорных.',
+      'Индивидуальный подход к проектированию позволил подчеркнуть технологичный характер бренда, объединив премиальные материалы, точную геометрию и практичность для ежедневной работы.',
+    ],
+
+    images: aBOZOR.map(toGalleryImage),
   },
 
   // Add more projects here

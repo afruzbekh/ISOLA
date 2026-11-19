@@ -39,7 +39,6 @@ import offices29 from '../assets/images/offices/29.jpg';
 import offices30 from '../assets/images/offices/30.jpg';
 import offices31 from '../assets/images/offices/31.jpg';
 import offices32 from '../assets/images/offices/32.jpg';
-import offices33 from '../assets/images/offices/33.jpg';
 import offices34 from '../assets/images/offices/34.jpg';
 import offices35 from '../assets/images/offices/35.jpg';
 import offices36 from '../assets/images/offices/36.jpg';
@@ -49,69 +48,99 @@ import offices39 from '../assets/images/offices/39.jpg';
 import offices40 from '../assets/images/offices/40.jpg';
 import offices41 from '../assets/images/offices/41.jpg';
 
-// Alt text helper: one place to edit the wording
-const altFor = (brand: string) =>
-  `Стойка ресепшен на заказ для автосалона ${brand} — индивидуальное производство мебели`;
+// Each entry: the imported image. Order here = order on the page.
+// The alt text for image N is alts[N] below (same order).
+const officeImages = [
+  { img: offices39 },
+  { img: offices3 },
+  { img: offices5 },
+  { img: offices6 },
+  { img: offices9 },
+  { img: offices8 },
+  { img: offices10 },
+  { img: offices11 },
+  { img: offices12 },
+  { img: offices32 },
+  { img: offices13 },
+  { img: offices14 },
+  { img: offices15 },
+  { img: offices16 },
+  { img: offices17 },
+  { img: offices18 },
+  { img: offices19 },
+  { img: offices7 },
+  { img: offices20 },
+  { img: offices21 },
+  { img: offices22 },
+  { img: offices23 },
+  { img: offices24 },
+  { img: offices25 },
+  { img: offices26 },
+  { img: offices27 },
+  { img: offices28 },
+  { img: offices29 },
+  { img: offices30 },
+  { img: offices1 },
+  { img: offices31 },
+  { img: offices34 },
+  { img: offices35 },
+  { img: offices36 },
+  { img: offices40 },
+  { img: offices37 },
+  { img: offices38 },
+];
 
-// Each entry: the imported image + the brand used in the alt text.
-// Order here = order on the page.
-const receptionImages = [
-  { img: offices39, brand: 'BYD' },
-
-  { img: offices3, brand: 'Kumushkon' },
-  { img: offices5, brand: 'BYD' },
-  { img: offices6, brand: 'BYD' },
-  { img: offices9, brand: 'BYD' },
-  { img: offices8, brand: 'BYD' },
-  { img: offices10, brand: 'BYD' },
-  { img: offices11, brand: 'BYD' },
-  { img: offices12, brand: 'BYD' },
-  { img: offices32, brand: 'BYD' },
-  { img: offices13, brand: 'BYD' },
-  { img: offices14, brand: 'BYD' },
-  { img: offices15, brand: 'BYD' },
-  { img: offices16, brand: 'BYD' },
-  { img: offices17, brand: 'BYD' },
-  { img: offices18, brand: 'BYD' },
-  { img: offices19, brand: 'BYD' },
-  { img: offices7, brand: 'BYD' },
-  { img: offices20, brand: 'BYD' },
-  { img: offices21, brand: 'BYD' },
-  { img: offices22, brand: 'BYD' },
-  { img: offices23, brand: 'BYD' },
-  { img: offices24, brand: 'BYD' },
-  { img: offices25, brand: 'BYD' },
-  { img: offices26, brand: 'BYD' },
-  { img: offices27, brand: 'BYD' },
-  { img: offices28, brand: 'BYD' },
-  { img: offices29, brand: 'BYD' },
-  { img: offices30, brand: 'BYD' },
-  { img: offices1, brand: 'DENZA' },
-  { img: offices31, brand: 'BYD' },
-  { img: offices32, brand: 'BYD' },
-  { img: offices33, brand: 'BYD' },
-  { img: offices34, brand: 'BYD' },
-  { img: offices35, brand: 'BYD' },
-  { img: offices36, brand: 'BYD' },
-  { img: offices37, brand: 'BYD' },
-  { img: offices38, brand: 'BYD' },
-  { img: offices40, brand: 'BYD' },
-  { img: offices41, brand: 'BYD' },
+// SEO alt texts, one per image, same order as officeImages above.
+// If you reorder or remove an image, move/delete its alt line too.
+const alts = [
+  /* 01 */ 'Стол руководителя премиум-класса на заказ: мебель для кабинета директора, Ташкент, ISOLA',
+  /* 02 */ 'Декоративные стеновые панели для офиса: эксклюзивная отделка под заказ, Ташкент, ISOLA',
+  /* 03 */ 'Дизайн зоны ожидания для клиентов: премиальная офисная мебель, Ташкент, ISOLA',
+  /* 04 */ 'Переговорный стол на заказ: мебель для конференц-зала премиум-класса, Ташкент, ISOLA',
+  /* 05 */ 'Кабинет директора под ключ: стол руководителя и система хранения, Ташкент, ISOLA',
+  /* 06 */ 'Мягкая мебель для зоны ожидания офиса: диваны и кресла на заказ, Ташкент, ISOLA',
+  /* 07 */ 'Стеновые панели из шпона и МДФ для офиса: авторский дизайн интерьера, Ташкент, ISOLA',
+  /* 08 */ 'Рабочие столы для сотрудников: офисная мебель премиум-класса на заказ, Ташкент, ISOLA',
+  /* 09 */ 'Шкафы и стеллажи для офиса: системы хранения под заказ, Ташкент, ISOLA',
+  /* 10 */ 'Мебель для кабинета руководителя: массивный стол и кожаное кресло, Ташкент, ISOLA',
+  /* 11 */ 'Дизайн клиентской зоны: журнальные столики и мягкие диваны для офиса, Ташкент, ISOLA',
+  /* 12 */ 'Декоративные панели с подсветкой: акцентная стена в современном офисе, Ташкент, ISOLA',
+  /* 13 */ 'Конференц-стол для переговорной комнаты: индивидуальное производство, Ташкент, ISOLA',
+  /* 14 */ 'Офисная мебель премиум-класса для open space: столы и перегородки, Ташкент, ISOLA',
+  /* 15 */ 'Тумбы и приставные столы для кабинета: мебель для офиса под заказ, Ташкент, ISOLA',
+  /* 16 */ 'Эксклюзивный стол директора из натурального шпона, Ташкент, ISOLA',
+  /* 17 */ 'Мебель для комнаты ожидания клиентов: стильный дизайн и комфорт, Ташкент, ISOLA',
+  /* 18 */ 'Стеновые панели для офиса из дерева: декоративная отделка стен на заказ, Ташкент, ISOLA',
+  /* 19 */ 'Корпоративная мебель для переговорных: столы, стулья и ТВ-панели, Ташкент, ISOLA',
+  /* 20 */ 'Шкаф-купе и гардеробные системы для офиса: мебель на заказ, Ташкент, ISOLA',
+  /* 21 */ 'Дизайнерская мебель для кабинета директора: стол, шкафы и панели, Ташкент, ISOLA',
+  /* 22 */ 'Мебель для лаунж-зоны в офисе: диваны, пуфы и журнальные столы, Ташкент, ISOLA',
+  /* 23 */ 'Декоративные 3D панели для офиса: современная отделка стен, Ташкент, ISOLA',
+  /* 24 */ 'Мебель для шоурума и офиса: витрины, столы и системы хранения, Ташкент, ISOLA',
+  /* 25 */ 'Стол для совещаний премиум-класса: производство мебели для офиса, Ташкент, ISOLA',
+  /* 26 */ 'Эргономичные рабочие места для офиса: столы и тумбы под заказ, Ташкент, ISOLA',
+  /* 27 */ 'Библиотека и стеллажи для кабинета руководителя: мебель на заказ, Ташкент, ISOLA',
+  /* 28 */ 'Дизайн зоны ожидания в офисе: минималистичная мебель премиум-класса, Ташкент, ISOLA',
+  /* 29 */ 'Акцентные стеновые панели и ниши для офиса: эксклюзивный интерьер, Ташкент, ISOLA',
+  /* 30 */ 'Мебель для топ-менеджмента: стол руководителя и переговорная зона, Ташкент, ISOLA',
+  /* 31 */ 'Офисная кухня и кофе-зона: мебель для сотрудников на заказ, Ташкент, ISOLA',
+  /* 32 */ 'Декоративные реечные панели для офиса: стильная отделка стен, Ташкент, ISOLA',
+  /* 33 */ 'Мебель для офиса под ключ: от стола руководителя до зоны для гостей, Ташкент, ISOLA',
+  /* 34 */ 'Премиальная мебель для приемной директора: стол секретаря и диван для гостей, Ташкент, ISOLA',
+  /* 35 */ 'Кабинет руководителя в светлых тонах: индивидуальная мебель для офиса, Ташкент, ISOLA',
+  /* 36 */ 'Комплексное оснащение офиса: столы, шкафы и декоративные панели, Ташкент, ISOLA',
+  /* 37 */ 'Эксклюзивная мебель для переговорной: стол, кресла и стеновые панели, Ташкент, ISOLA',
+  /* 38 */ 'Купить офисную мебель премиум-класса от производителя: кабинеты и зоны ожидания, Ташкент, ISOLA',
+  /* 39 */ 'Индивидуальный дизайн и производство офисной мебели для компаний, Ташкент, ISOLA',
 ];
 
 // Width/height come from Astro's image import metadata, so the
 // orientation is known at build time (no waiting for the browser).
-const toGalleryImage = ({
-  img,
-  brand,
-}: {
-  img: ImageMetadata;
-  brand: string;
-}) => ({
+const toGalleryImage = ({ img }: { img: ImageMetadata }, index: number) => ({
   src: img.src,
   width: img.width,
   height: img.height,
-  alt: altFor(brand),
+  alt: alts[index] ?? 'Офисная мебель премиум-класса на заказ, Ташкент, ISOLA',
   orientation:
     img.width > img.height
       ? 'is-landscape'
@@ -132,7 +161,7 @@ const projects = [
       'Каждое решение разрабатывается под задачи бизнеса, объединяя выразительную эстетику, порядок на рабочем месте и надёжность на долгие годы.',
     ],
 
-    images: receptionImages.map(toGalleryImage),
+    images: officeImages.map((item, i) => toGalleryImage(item, i)),
   },
 
   // Add more projects here
@@ -161,7 +190,7 @@ const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
     <meta name="apple-mobile-web-app-title" content="isola.uz" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="canonical" href="https://isola.uz/receptions/" />
+    <link rel="canonical" href="https://isola.uz/offices/" />
 
     <script type="application/ld+json">
       {
@@ -175,7 +204,7 @@ const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "url": "https://isola.uz/contacts/"
+          "url": "https://isola.uz/offices/"
         }
       }
     </script>

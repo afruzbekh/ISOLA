@@ -41,60 +41,150 @@ import reception30 from '../assets/images/receptions/30.jpg';
 import reception31 from '../assets/images/receptions/31.jpg';
 import reception32 from '../assets/images/receptions/32.jpg';
 
-// Alt text helper: one place to edit the wording
-const altFor = (brand: string) =>
-  `Стойка ресепшен на заказ для автосалона ${brand} — индивидуальное производство мебели`;
+// Every alt text is written by hand and is unique.
+// The ending ", ТАШКЕНТ, ISOLA" is added automatically to all of them.
+const ALT_SUFFIX = ', ТАШКЕНТ, ISOLA';
 
-// Each entry: the imported image + the brand used in the alt text.
+// Each entry: the imported image + its own unique alt text.
 // Order here = order on the page.
 const receptionImages = [
-  { img: reception1, brand: 'DENZA' },
-  { img: reception27, brand: 'Kumushkon' },
-  { img: reception3, brand: 'Kumushkon' },
-  { img: reception4, brand: 'BYD' },
-  { img: reception5, brand: 'BYD' },
-  { img: reception6, brand: 'BYD' },
-  { img: reception7, brand: 'BYD' },
-  { img: reception8, brand: 'BYD' },
-  { img: reception9, brand: 'BYD' },
-  { img: reception10, brand: 'BYD' },
-  { img: reception11, brand: 'BYD' },
-  { img: reception12, brand: 'BYD' },
-  { img: reception13, brand: 'BYD' },
-  { img: reception14, brand: 'BYD' },
-  { img: reception15, brand: 'BYD' },
-  { img: reception16, brand: 'BYD' },
-  { img: reception17, brand: 'BYD' },
-  { img: reception18, brand: 'BYD' },
-  { img: reception19, brand: 'BYD' },
-  { img: reception20, brand: 'BYD' },
-  { img: reception21, brand: 'BYD' },
-  { img: reception22, brand: 'BYD' },
-  { img: reception23, brand: 'BYD' },
-  { img: reception24, brand: 'BYD' },
-  { img: reception25, brand: 'BYD' },
-  { img: reception26, brand: 'BYD' },
-  { img: reception2, brand: 'Kumushkon' },
-  { img: reception28, brand: 'Kumushkon' },
-  { img: reception29, brand: 'Kumushkon' },
-  { img: reception30, brand: 'Kumushkon' },
-  { img: reception31, brand: 'Kumushkon' },
-  { img: reception32, brand: 'Kumushkon' },
+  {
+    img: reception1,
+    alt: 'Стойка ресепшен на заказ для автосалона: лаконичный дизайн и премиальные материалы',
+  },
+  {
+    img: reception27,
+    alt: 'Ресепшн для отеля и гостиницы: стойка администратора из натурального дерева с тёплой подсветкой',
+  },
+  {
+    img: reception3,
+    alt: 'Фронт-деск для офиса: современная стойка регистрации посетителей с логотипом компании',
+  },
+  {
+    img: reception4,
+    alt: 'Входная группа шоурума: просторная стойка ресепшн для встречи клиентов',
+  },
+  {
+    img: reception5,
+    alt: 'Изогнутая стойка ресепшен плавных форм: индивидуальный дизайнерский проект',
+  },
+  {
+    img: reception6,
+    alt: 'Светлая глянцевая стойка администратора для салона и коммерческого пространства',
+  },
+  {
+    img: reception7,
+    alt: 'Стойка ресепшн с LED-подсветкой и акцентной стеновой панелью за спиной администратора',
+  },
+  {
+    img: reception8,
+    alt: 'Угловая стойка ресепшен для компактного холла и небольшого офиса',
+  },
+  {
+    img: reception9,
+    alt: 'Длинная стойка приёма клиентов для автоцентра и дилерского салона',
+  },
+  {
+    img: reception10,
+    alt: 'Ресепшн-зона с рабочими местами для нескольких сотрудников: эргономичный проект',
+  },
+  {
+    img: reception11,
+    alt: 'Мебель для лобби бизнес-центра: статусная стойка в сочетании с зоной ожидания',
+  },
+  {
+    img: reception12,
+    alt: 'Тёмная стойка ресепшн в стиле минимализм с матовыми фасадами',
+  },
+  {
+    img: reception13,
+    alt: 'Стойка ресепшен из МДФ, шпона и искусственного камня на заказ',
+  },
+  {
+    img: reception14,
+    alt: 'Стеновая панель с объёмным логотипом и стойка ресепшн: фирменный стиль компании',
+  },
+  {
+    img: reception15,
+    alt: 'Ресепшн для медицинского центра и клиники: чистые линии, удобная высота, продуманное хранение',
+  },
+  {
+    img: reception16,
+    alt: 'Офисная и банковская стойка администратора с функциональными скрытыми ящиками',
+  },
+  {
+    img: reception17,
+    alt: 'Двухуровневая стойка ресепшн: высокая часть для гостей и низкая для оформления документов',
+  },
+  {
+    img: reception18,
+    alt: 'Современный ресепшн в светлых тонах для студии, салона красоты и спа-центра',
+  },
+  {
+    img: reception19,
+    alt: 'Деревянная стойка ресепшн с рифлёными панелями и декоративной подсветкой',
+  },
+  {
+    img: reception20,
+    alt: 'Ресепшн для сервисного центра: зона приёма и консультации клиентов',
+  },
+  {
+    img: reception21,
+    alt: 'Элегантная стойка регистрации для конференц-залов, выставок и мероприятий',
+  },
+  {
+    img: reception22,
+    alt: 'Столешница из камня и подсвеченные панели: роскошная стойка ресепшн премиум-класса',
+  },
+  {
+    img: reception23,
+    alt: 'Ресепшн-стойка с нишей для оргтехники и кабель-каналами: офисная мебель под ключ',
+  },
+  {
+    img: reception24,
+    alt: 'Просторный холл с индивидуальной стойкой ресепшн и дизайнерским освещением',
+  },
+  {
+    img: reception25,
+    alt: 'Стойка ресепшн в корпоративных цветах компании: брендированная мебель на заказ',
+  },
+  {
+    img: reception26,
+    alt: 'Фронтальная стойка администратора с отделкой под мрамор для делового пространства',
+  },
+  {
+    img: reception2,
+    alt: 'Ресепшн для гостиничного комплекса: стильная стойка приёма и размещения гостей',
+  },
+  {
+    img: reception28,
+    alt: 'Комплексное оснащение приёмной: стойка ресепшен, стеновые панели и мебель для ожидания',
+  },
+  {
+    img: reception29,
+    alt: 'Стильная стойка ресепшн с металлическими акцентами и золотистыми деталями',
+  },
+  {
+    img: reception30,
+    alt: 'Полукруглая стойка ресепшн: нестандартная геометрия для эксклюзивных интерьеров',
+  },
+  {
+    img: reception31,
+    alt: 'Компактный ресепшн для небольшого офиса или шоурума: функциональная мебель на заказ',
+  },
+  {
+    img: reception32,
+    alt: 'Реализованный проект ресепшн-стойки: от эскиза и 3D-визуализации до производства и монтажа',
+  },
 ];
 
 // Width/height come from Astro's image import metadata, so the
 // orientation is known at build time (no waiting for the browser).
-const toGalleryImage = ({
-  img,
-  brand,
-}: {
-  img: ImageMetadata;
-  brand: string;
-}) => ({
+const toGalleryImage = ({ img, alt }: { img: ImageMetadata; alt: string }) => ({
   src: img.src,
   width: img.width,
   height: img.height,
-  alt: altFor(brand),
+  alt: `${alt}${ALT_SUFFIX}`,
   orientation:
     img.width > img.height
       ? 'is-landscape'
@@ -158,7 +248,7 @@ const totalImages = projects.reduce((sum, p) => sum + p.images.length, 0);
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "url": "https://isola.uz/contacts/"
+          "url": "https://isola.uz/receptions/"
         }
       }
     </script>
